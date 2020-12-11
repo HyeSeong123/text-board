@@ -1,0 +1,159 @@
+package textboard.Service;
+
+import java.util.List;
+
+import textboard.Container.Container;
+import textboard.Dto.Article;
+import textboard.Dto.Board;
+import textboard.Util.exportUtil;
+
+public class ExportService {
+	ArticleService articleService;
+	MemberService memberService;
+
+	public ExportService() {
+		articleService = Container.articleService;
+		memberService = Container.memberService;
+	}
+
+	public void makeHtml() {
+		exportUtil.mkdirs("site");
+
+		exportUtil.copy("site_template/app.css", "site/app.css");
+
+		buildIndexPage();
+		getArticle();
+		getList();
+	}
+
+	private void getList() {
+		List<Article> articles = articleService.showList();
+		List<Board> boards = articleService.getBoards();
+
+		String head = getHeadHtml("article_list");
+		String foot = exportUtil.getFileContents("site_template/foot.html");
+
+		int i = 0;
+
+		for (Board board : boards) {
+			StringBuilder sb = new StringBuilder();
+			sb.append(head);
+			sb.append("<div class=\"상태\"><h1><i class=\"fas fa-list\"></i> 게시물 리스트</h1></div>");
+			sb.append("<div class=\"게시판\"><h2>게시판: " + board.name + "</h2></div>");
+			for (Article article : articles) {
+				sb.append("<div class=\"리스트-리스트\">");
+				sb.append("<div class=\"리스트 리스트-번호\">" + article.num + "</div>");
+				sb.append("<div class=\"리스트 리스트-작성일\">작성일: " + article.regDate + "</div>");
+				sb.append("<div class=\"리스트 리스트-작성자\">작성자: " + "<a href=\"#\">" + article.extra__writer + "</a></div>");
+				sb.append("<div class=\"리스트 리스트-제목\">제목: " + "<a href=\"#\">" + article.title + "</a></div>");
+				sb.append("<div class=\"리스트 리스트-조회수\">조회수: " + article.views + "</div>");
+				sb.append("<div class=\"리스트 리스트-추천수\">추천수: " + article.recommadNum + "</div>");
+				sb.append("<div class=\"리스트 리스트-댓글수\">댓글수: " + article.replyNum + "</div>");
+				sb.append("</div>");
+			}
+			sb.append("</header>");
+			sb.append(foot);
+			String fileName = board.name + ".html";
+			String filePath = "site/" + fileName;
+			exportUtil.writeFileContents(filePath, sb.toString());
+			System.out.println(filePath + " 생성");
+
+		}
+
+	}
+
+	private void getArticle() {
+
+		List<Article> articles = articleService.showList();
+
+		String head = getHeadHtml("article_detail");
+		String foot = exportUtil.getFileContents("site_template/foot.html");
+
+		int i = 0;
+
+		for (Article article : articles) {
+			StringBuilder sb = new StringBuilder();
+
+			sb.append(head);
+			sb.append("<div class=\"상태\"><h1><i class=\"fas fa-search\"></i>게시물 상세보기</h1></div>");
+			sb.append("<div class=\"게시판\"><h2>게시판: " + article.extra__board + "</h2></div>");
+			sb.append("<div class=\"번호\">게시물 번호: " + article.num + "</div>");
+			sb.append("<div class=\"작성일\">작성일: " + article.regDate + "</div>");
+			sb.append("<div class=\"작성자\">작성자: " + article.extra__writer + "</div>");
+			sb.append("<div class=\"조회수\">조회수: " + article.views + "</div>");
+			sb.append("<div class=\"추천수\">추천수: " + article.recommadNum + "</div>");
+			sb.append("<div class=\"댓글수\">댓글수: " + article.replyNum + "</div>");
+			sb.append("<div class=\"제목\">게시물 제목: " + article.title + "</div>");
+			sb.append("<div class=\"내용\">" + article.body + "</div>");
+
+			sb.append("<div class=\"move\">");
+			if (i != (articles.size() - 1)) {
+				sb.append("<div class=\"pre\"><a href=\"" + (article.num - 1) + ".html\">◀이전글</a></div>");
+			}
+			if (i != 0) {
+				sb.append("<div class=\"next\"><a href=\"" + (article.num + 1) + ".html\">다음글▶</a></div>");
+			}
+			sb.append("</div>");
+			i++;
+			sb.append("</header>");
+			sb.append(foot);
+
+			String fileName = article.num + ".html";
+			String filePath = "site/" + fileName;
+			exportUtil.writeFileContents(filePath, sb.toString());
+			System.out.println(filePath + " 생성");
+		}
+
+	}
+
+	private void buildIndexPage() {
+		StringBuilder sb = new StringBuilder();
+
+		String head = getHeadHtml("index");
+		String foot = exportUtil.getFileContents("site/template/foot.html");
+
+		String mainHtml = exportUtil.getFileContents("site/template/index.html");
+
+		sb.append(head);
+		sb.append(mainHtml);
+		sb.append(foot);
+
+		String filePath = "site/index.html";
+		exportUtil.writeFileContents(filePath, sb.toString());
+		System.out.println(filePath + " 생성");
+	}
+
+	private String getHeadHtml(String pageName) {
+		String head = exportUtil.getFileContents("site_template/head.html");
+		StringBuilder boardMenuContentHtml = new StringBuilder();
+
+		List<Board> boards = articleService.getBoards();
+
+		for (Board board : boards) {
+			boardMenuContentHtml.append("<li>");
+
+			String link = board.name + "-.html";
+
+			boardMenuContentHtml.append("<a href=\"" + link + "\">" + board.name + "</a>");
+
+			String iClass = "fab fa-free-code-camp";
+
+			boardMenuContentHtml.append("</li>");
+		}
+
+		head = head.replace("${board_menu}", boardMenuContentHtml.toString());
+
+		String titleBarContentHtml = getTitleBarContentByFileName(pageName);
+
+		head = head.replace("${title-bar}", titleBarContentHtml);
+
+		return head;
+	}
+
+	private String getTitleBarContentByFileName(String pageName) {
+		if (pageName.equals("index")) {
+			return "<i class=\"fas fa-home\"></i> <span>HOME</span>";
+		}
+		return "";
+	}
+}
