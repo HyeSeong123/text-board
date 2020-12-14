@@ -34,30 +34,41 @@ public class ExportService {
 		String head = getHeadHtml("article_list");
 		String foot = exportUtil.getFileContents("site_template/foot.html");
 
-		int i = 0;
+		int page = articles.size() / 10;
 
 		for (Board board : boards) {
 			StringBuilder sb = new StringBuilder();
 			sb.append(head);
 			sb.append("<div class=\"상태\"><h1><i class=\"fas fa-list\"></i> 게시물 리스트</h1></div>");
 			sb.append("<div class=\"게시판\"><h2>게시판: " + board.name + "</h2></div>");
+			int i = 0;
 			for (Article article : articles) {
+				if (i == 0) {
+					sb.append("<div class=\"분류\">");
+					sb.append("<div class=\"분류1 분류-번호\">번호</div>");
+					sb.append("<div class=\"분류1 분류-작성일\">작성일</div>");
+					sb.append("<div class=\"분류1 분류-작성자\">작성자</div>");
+					sb.append("<div class=\"분류1 분류-제목\">제목</div>");
+					sb.append("<div class=\"분류1 분류-조회수\">조회수</div>");
+					sb.append("<div class=\"분류1 분류-추천수\">추천수</div>");
+					sb.append("</div>");
+					i++;
+				}
 				if (board.name.equals(article.extra__board)) {
 					sb.append("<div class=\"리스트-리스트\">");
-					sb.append("<div class=\"리스트 리스트-번호\">" + article.num + "</div>");
-					sb.append("<div class=\"리스트 리스트-작성일\">작성일: " + article.regDate + "</div>");
-					sb.append("<div class=\"리스트 리스트-작성자\">작성자: " + "<a href=\"#\">" + article.extra__writer
-							+ "</a></div>");
-					sb.append("<div class=\"리스트 리스트-제목\">제목: " + "<a href=\"" + article.num + ".html\">" + article.title
-							+ "</a></div>");
-					sb.append("<div class=\"리스트 리스트-조회수\">조회수: " + article.views + "</div>");
-					sb.append("<div class=\"리스트 리스트-추천수\">추천수: " + article.recommadNum + "</div>");
-					sb.append("<div class=\"리스트 리스트-댓글수\">댓글수: " + article.replyNum + "</div>");
+					sb.append("<div class=\"리스트 리스트-번호\"><span>" + article.num + "</sapn></div>");
+					sb.append("<div class=\"리스트 리스트-작성일\"><span>" + article.regDate + "</span></div>");
+					sb.append("<div class=\"리스트 리스트-작성자\">" + "<a href=\"#\">" + article.extra__writer + "</a></div>");
+					sb.append("<div class=\"리스트 리스트-제목\">" + "<a href=\"" + article.num + ".html\">" + article.title
+							+ "asddsaasddasdadas</a> <span> [" + article.replyNum + "]</span></div>");
+					sb.append("<div class=\"리스트 리스트-조회수\"><span>" + article.views + "</span></div>");
+					sb.append("<div class=\"리스트 리스트-추천수\"><span>" + article.recommadNum + "</span></div>");
 					sb.append("</div>");
 				}
 			}
 			sb.append("</header>");
 			sb.append(foot);
+
 			String fileName = board.name + ".html";
 			String filePath = "site/" + fileName;
 			exportUtil.writeFileContents(filePath, sb.toString());
@@ -73,10 +84,10 @@ public class ExportService {
 
 		String head = getHeadHtml("article_detail");
 		String foot = exportUtil.getFileContents("site_template/foot.html");
-
 		int i = 0;
 
 		for (Article article : articles) {
+
 			StringBuilder sb = new StringBuilder();
 
 			List<Article> board1 = new ArrayList<Article>();
@@ -106,7 +117,6 @@ public class ExportService {
 			sb.append("<div class=\"제목\">게시물 제목: " + article.title + "</div>");
 			sb.append("<div class=\"내용\">" + article.body + "</div>");
 			sb.append("<div class=\"move\">");
-			int j = 1;
 
 			if (article.boardNum == 1) {
 				for (int k = 0; k < board1.size(); k++) {
@@ -151,7 +161,7 @@ public class ExportService {
 			}
 
 			sb.append("</div>");
-			i++;
+
 			sb.append("</header>");
 			sb.append(foot);
 
@@ -159,6 +169,7 @@ public class ExportService {
 			String filePath = "site/" + fileName;
 			exportUtil.writeFileContents(filePath, sb.toString());
 			System.out.println(filePath + " 생성");
+			i++;
 		}
 
 	}
