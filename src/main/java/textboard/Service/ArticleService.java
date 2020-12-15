@@ -68,4 +68,8 @@ public class ArticleService {
 	public int cancelRecommand(int loginId, int inputedId) {
 		return articleDao.cancelRecommand(loginId, inputedId);
 	}
+
+	public List<Article> getArticles(int boardNum) {
+		return articleDao.getArticles(boardNum);
+	}
 }

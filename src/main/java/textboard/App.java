@@ -36,7 +36,7 @@ public class App {
 
 			String cmd = sc.nextLine();
 
-			MysqlUtil.setDBInfo("localhost", "sbsst", "sbs123414", "a1");
+			MysqlUtil.setDBInfo("localhost", "root", "", "a2");
 
 			boolean exit = false;
 

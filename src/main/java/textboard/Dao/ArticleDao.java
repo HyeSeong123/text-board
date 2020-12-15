@@ -53,6 +53,29 @@ public class ArticleDao {
 		return articles;
 	}
 
+	public List<Article> getArticles(int boardId) {
+		List<Article> articles = new ArrayList<Article>();
+		SecSql sql = new SecSql();
+
+		sql.append("SELECT article.*, member.name As extra__writer");
+		sql.append("FROM article");
+		sql.append("INNER JOIN member");
+		sql.append("ON article.memberNum = member.memberNum");
+		if (boardId != 0) {
+			sql.append("WHERE article.boardNum = ?", boardId);
+		}
+		sql.append("ORDER BY num DESC");
+
+		List<Map<String, Object>> articleListMap = MysqlUtil.selectRows(sql);
+
+		for (Map<String, Object> articleMap : articleListMap) {
+
+			articles.add(new Article(articleMap));
+		}
+
+		return articles;
+	}
+
 	public int delete(int i) {
 		SecSql sql = new SecSql();
 		SecSql sql1 = new SecSql();
