@@ -158,8 +158,7 @@ public class ArticleDao {
 
 		Map<String, Object> master = MysqlUtil.selectRow(sql);
 
-		if (master.get("memberNum").equals((int) 999) == false || master.get("name").equals("방혜성") == false
-				|| master.get("id").equals("admin") == false) {
+		if (master.get("name").equals("방혜성") == false || master.get("id").equals("baobab612") == false) {
 			return -1;
 		}
 		SecSql sql1 = new SecSql();

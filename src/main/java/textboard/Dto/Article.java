@@ -18,7 +18,7 @@ public class Article {
 
 	public Article(Map<String, Object> articleMap) {
 		this.boardNum = (int) articleMap.get("boardNum");
-		this.num = (int) articleMap.get("num");
+		this.num = (int) articleMap.get("Num");
 		this.views = (int) articleMap.get("views");
 		this.memberNum = (int) articleMap.get("memberNum");
 		this.replyNum = (int) articleMap.get("replyNum");

@@ -33,7 +33,7 @@ public class ExportService {
 		sb.append(getHeadHtml("article_list_" + board.name));
 
 		String bodyTemplate = exportUtil.getFileContents("site_template/article_list.html");
-
+		sb.append("<div class=\"cover flex flex-column flex-ai-c\">");
 		sb.append("<div class=\"상태\"><h1><i class=\"fas fa-list\"></i> 게시물 리스트</h1></div>");
 		sb.append("<div class=\"게시판\"><h2>게시판: " + board.name + "</h2></div>");
 
@@ -47,18 +47,16 @@ public class ExportService {
 			end = articleCnt - 1;
 		}
 
-		page = 1;
-
 		for (int i = start; i <= end; i++) {
 			Article article = articles.get(i);
 
-			String link = "article_detail_" + article.num + ".html";
+			String link = article.num + ".html";
 
 			mainContent.append("<div class=\"리스트-리스트\">");
 			mainContent.append("<div class=\"리스트 리스트-번호\"><span>" + article.num + "</sapn></div>");
 			mainContent.append("<div class=\"리스트 리스트-작성일\"><span>" + article.regDate + "</span></div>");
 			mainContent.append("<div class=\"리스트 리스트-작성자\">" + "<a href=\"#\">" + article.extra__writer + "</a></div>");
-			mainContent.append("<div class=\"리스트 리스트-제목\">" + "<a href=\"" + link + ".html\">" + article.title
+			mainContent.append("<div class=\"리스트 리스트-제목\">" + "<a href=\"" + link + "\">" + article.title
 					+ "</a> <span> [" + article.replyNum + "]</span></div>");
 			mainContent.append("<div class=\"리스트 리스트-조회수\"><span>" + article.views + "</span></div>");
 			mainContent.append("<div class=\"리스트 리스트-추천수\"><span>" + article.recommadNum + "</span></div>");
@@ -84,10 +82,14 @@ public class ExportService {
 			pageBoxEndPage = totalPage;
 		}
 
+		// 이전버튼 페이지 계산
+
 		int pageBoxStartBeforePage = pageBoxStartPage - 1;
 		if (pageBoxStartBeforePage < 1) {
 			pageBoxStartBeforePage = 1;
 		}
+
+		// 다음버튼 페이지 계산
 
 		int pageBoxEndAfterPage = pageBoxEndPage + 1;
 
@@ -100,7 +102,7 @@ public class ExportService {
 
 		if (pageBoxStartBeforeBtnNeedToShow) {
 			pageContent.append("<li><article class=\"page page-pre\"><a href=\""
-					+ getArticleListFileName(board, pageBoxStartBeforePage) + ">◀ 이전</a></li>");
+					+ getArticleListFileName(board, pageBoxStartBeforePage) + "\">◀ 이전</a></li>");
 		}
 
 		for (int i = pageBoxStartPage; i <= pageBoxEndPage; i++) {
@@ -110,20 +112,19 @@ public class ExportService {
 				selectedClass = "article-page-menu__link--selected";
 			}
 
-			pageContent.append("<li><article class=\"page\"><a href=\"" + getArticleListFileName(board, i) + " class=\""
-					+ selectedClass + "\">" + i + "</a></li>");
+			pageContent.append("<li><article class=\"page\"><a href=\"" + getArticleListFileName(board, i)
+					+ "\"class=\"" + selectedClass + "\">" + i + "</a></li>");
 		}
 
 		if (pageBoxStartAfterBtnNeedToShow) {
 			pageContent.append("<li><article class=\"page page-next\"><a href=\""
-					+ getArticleListFileName(board, pageBoxEndAfterPage) + ">▶ 다음</a></li>");
+					+ getArticleListFileName(board, pageBoxEndAfterPage) + "\">▶ 다음</a></li>");
 		}
 
 		String body = bodyTemplate.replace("${article-list__main-content}", mainContent.toString());
 		body = body.replace("${article-page__list}", pageContent.toString());
 
 		sb.append(body);
-
 		sb.append(exportUtil.getFileContents("site_template/foot.html"));
 
 		String fileName = getArticleListFileName(board, page);
@@ -139,7 +140,7 @@ public class ExportService {
 	private void getList() {
 		List<Board> boards = articleService.getBoards();
 
-		int articleInAPage = 10;
+		int articleInAPage = 20;
 		int pageSize = 10;
 
 		for (Board board : boards) {
@@ -238,21 +239,7 @@ public class ExportService {
 			}
 			sb.append("</div>");
 			sb.append("<div class=\"other\"><h2>다른 게시물</h2>");
-			/*
-			 * for (int k = 0; k < articles.size(); k++) { Article article1 =
-			 * articles.get(k); if (board.name.equals(article1.extra__board)) {
-			 * sb.append("<div class=\"리스트-리스트\">");
-			 * sb.append("<div class=\"리스트 리스트-번호\"><span>" + article1.num +
-			 * "</sapn></div>"); sb.append("<div class=\"리스트 리스트-작성일\"><span>" +
-			 * article1.regDate + "</span></div>"); sb.append("<div class=\"리스트 리스트-작성자\">"
-			 * + "<a href=\"#\">" + article1.extra__writer + "</a></div>");
-			 * sb.append("<div class=\"리스트 리스트-제목\">" + "<a href=\"" + article1.num +
-			 * ".html\">" + article1.title + "</a> <span> [" + article1.replyNum +
-			 * "]</span></div>"); sb.append("<div class=\"리스트 리스트-조회수\"><span>" +
-			 * article1.views + "</span></div>");
-			 * sb.append("<div class=\"리스트 리스트-추천수\"><span>" + article1.recommadNum +
-			 * "</span></div>"); sb.append("</div>"); } }
-			 */
+
 			sb.append("</div>");
 			sb.append("</header>");
 
@@ -294,7 +281,7 @@ public class ExportService {
 		for (Board board : boards) {
 			boardMenuContentHtml.append("<li>");
 
-			String link = "article_list_" + board.name.trim() + "_1.html";
+			String link = getArticleListFileName(board, 1);
 
 			boardMenuContentHtml.append("<a href=\"" + link + "\">" + board.name + "</a>");
 

@@ -85,9 +85,11 @@ body, ul, li {
 .height-100p {
 	height: 100%;
 }
-.width-100p{
-	width:100%;
+
+.width-100p {
+	width: 100%;
 }
+
 .bd-red {
 	border: 2px solid red;
 }
@@ -235,7 +237,8 @@ body, ul, li {
 .분류1 {
 	display: inline-block;
 	padding: 0 10px;
-	border: 2px solid black;
+	border: 1px solid black;
+	border-top: 2px solid black;
 }
 
 .분류1 span {
@@ -246,7 +249,7 @@ body, ul, li {
 	border-right: 1px solid black;
 }
 
-.분류1:not(:first-child ) {
+.분류1:not (:first-child ){
 	border-right: 1px solid black;
 	border-left: 1px solid black;
 }
@@ -264,6 +267,7 @@ body, ul, li {
 .분류-번호 {
 	min-width: 30px;
 	text-align: center;
+	border-left: 2px solid black;
 }
 
 .분류-작성일 {
@@ -294,7 +298,7 @@ body, ul, li {
 .리스트 {
 	display: inline-block;
 	padding: 0 10px;
-	border: 2px solid black;
+	border: 1px solid black;
 	border-top: 1px solid black;
 	border-bottom: 1px solid black;
 }
@@ -302,6 +306,7 @@ body, ul, li {
 .리스트-번호 {
 	min-width: 30px;
 	text-align: center;
+	border-left: 2px solid black;
 }
 
 .리스트-작성일 {
@@ -342,7 +347,7 @@ body, ul, li {
 	text-align: center;
 }
 
-.리스트:not(:first-child) {
+.리스트:not (:first-child ) {
 	border-right: 1px solid black;
 	border-left: 1px solid black;
 }
@@ -379,28 +384,31 @@ body, ul, li {
 
 .page-box {
 	margin-top: 20px;
-	margin-left : 30%;
-	transform: translateX(-30%);
 }
 
-.page-box .page:not(:first-child):not(:last-child) a {
+.page>a {
 	display: inline-block;
 	text-align: center;
 	line-height: 30px;
 	vertical-align: middle;
 	border: 1px solid transparent;
-	padding-left : 0;
-	padding-right : 0;
+	padding-left: 0;
+	padding-right: 0;
 	height: 30px;
 	min-width: 30px;
 	padding-left: 0;
 	padding-right: 0;
 }
 
-.page-box .page {
+.page {
 	margin: 0 15px;
 }
 
-.page-box .page:not(:first-child):not(:last-child):hover>a {
+.page:hover>a {
 	border-color: #afafaf;
+	text-decoration: underline;
+}
+
+.article-page-menu__link--selected {
+	color: red;
 }

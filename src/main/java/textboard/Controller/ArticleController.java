@@ -25,12 +25,12 @@ public class ArticleController extends Controller {
 		if (cmd.equals("article list")) {
 
 			List<Article> lists = articleService.showList();
-
+			List<Board> boards = articleService.getBoards();
 			if (lists.size() < 1) {
 				System.out.println("등록된 게시물이 없습니다.");
 				return;
 			}
-			System.out.printf("== %s ==\n", lists.get(Container.session.selectBoardNum - 1).extra__board);
+			System.out.printf("== %s ==\n", boards.get(Container.session.selectBoardNum - 1).name);
 			System.out.println("번호 / 제목 / 작성자");
 			for (int i = 0; i < lists.size(); i++) {
 				Article article = lists.get(i);
@@ -72,13 +72,13 @@ public class ArticleController extends Controller {
 			int inputedId = Integer.parseInt(cmd.split(" ")[2]);
 
 			Article article = articleService.getArticle(inputedId);
-
-			if (article.memberNum != Container.session.loginId && Container.session.loginId != 999) {
+			Member member = memberService.getMember(Container.session.loginId);
+			if (member.name.equals("방혜성") == false || member.id.equals("baobab612") == false) {
 				System.out.println("접근 권한이 없습니다.");
 				return;
 			}
 
-			if (Container.session.loginId == 999) {
+			if (member.name.equals("방혜성") && member.id.equals("baobab612")) {
 				System.out.println("관리자 권한으로 삭제하시겠습니까 Y/N");
 				System.out.printf("명령어) ");
 				String answer = sc.nextLine();

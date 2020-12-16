@@ -96,9 +96,9 @@ public class MemberController extends Controller {
 					count++;
 					continue;
 				}
-				if (member.memberNum != 999) {
+				if (member.name.equals("방혜성") == false || member.id.equals("baobab612") == false) {
 					System.out.println("로그인이 완료되었습니다. 회원번호 : " + member.memberNum);
-				} else if (member.memberNum == 999) {
+				} else if (member.name.equals("방혜성") && member.id.equals("baobab612")) {
 					System.out.println("관리자 모드로 접속 됐습니다.");
 				}
 				Container.session.loginId = member.memberNum;
@@ -117,7 +117,7 @@ public class MemberController extends Controller {
 			}
 			Member member = memberService.getMember(Container.session.loginId);
 			System.out.println("== 회원 정보 ==");
-			if (member.memberNum == 999) {
+			if (member.name.equals("방혜성") && member.id.equals("baobab612")) {
 				System.out.println("관리자 모드에서는 실행하지 않는 명령입니다.");
 				return;
 			}
