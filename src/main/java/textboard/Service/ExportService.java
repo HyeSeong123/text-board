@@ -264,12 +264,13 @@ public class ExportService {
 		String head = getHeadHtml("index");
 		String foot = exportUtil.getFileContents("site_template/foot.html");
 
-		String mainHtml = exportUtil.getFileContents("site/template/index.html");
+		String mainHtml = exportUtil.getFileContents("site_template/index.html");
 
 		sb.append(head);
 		sb.append(mainHtml);
-		sb.append("</div>");
 		sb.append("</header>");
+		sb.append("</div>");
+		sb.append("</div>");
 		sb.append(foot);
 
 		String filePath = "site/index.html";
@@ -306,9 +307,6 @@ public class ExportService {
 
 	private String getTitleBarContentByFileName(String pageName) {
 
-		if (pageName.equals("index")) {
-			return "<i class=\"fas fa-home\"></i> <span>HOME</span>";
-		}
 		return "";
 	}
 }

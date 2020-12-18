@@ -99,22 +99,35 @@ body, ul, li {
 }
 
 .top {
-	background-color: black;
+background: #44A08D;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #093637, #44A08D);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #093637, #44A08D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .top-logo {
 	color: white;
 	font-size: 40px;
 }
-
-.p {
-	color: red;
+/* 탑바 시작 */ 
+.plannet {
+	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+	background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
 }
-
+.tree{
+	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+	background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+}
+.fa-pagelines{
+	color : #43C6AC;
+}
+.logo-small {
+	font-size: 30px;
+}
 .top-menu {
 	margin-top: 20px;
 }
-
 .top-menu>ul ul {
 	display: none;
 	position: absolute;
@@ -176,32 +189,36 @@ body, ul, li {
 	border: 10px solid black;
 	border-top: 0;
 }
-
 .top-menu>ul>li>ul>li:last-child:hover>a {
 	border-radius: 0 0 10px 10px;
 }
+.sentence-name {
+	font-size: 25px;
+}
 
+.sentence-name>span {
+	margin-top: 20px;
+}
+.sentence-content{
+	margin-top : 20px;
+}
+.sentence-content>span{
+	font-size: 17px;
+}
+/* 탑바 끝 */
 .middle {
 	font-family: 'LotteMartDream';
 	margin: 10px 0 0 10px;
 	position: relative;
 }
 
-.middle>.sentence-name {
-	font-size: 25px;
-}
 
-.middle>.sentence-name>span {
-	margin-top: 20px;
-}
-
-.logo-small {
-	font-size: 30px;
-}
-
+/* 바텀 시작 */
 .bottom {
 	font-family: 'LotteMartDream';
-	background-color: black;
+	background: #44A08D;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #093637, #44A08D);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #093637, #44A08D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	color: white;
 	height: 100px;
 }
@@ -209,9 +226,12 @@ body, ul, li {
 .section {
 	width: 100%;
 }
-
+.logo-small .tree{
+	margin-left : 10px;
+}
 .section-2 {
 	margin-left: 20px;
+	text-align: center;
 }
 
 .move {
