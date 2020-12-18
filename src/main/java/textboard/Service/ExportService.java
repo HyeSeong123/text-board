@@ -21,7 +21,7 @@ public class ExportService {
 		exportUtil.mkdirs("site");
 
 		exportUtil.copy("site_template/app.css", "site/app.css");
-
+		exportUtil.copy("site_template/script.js", "site/javascript.js");
 		buildIndexPage();
 		getArticle();
 		getList();
@@ -161,6 +161,8 @@ public class ExportService {
 		List<Board> boards = articleService.getBoards();
 
 		String head = getHeadHtml("article_detail");
+		String replyTemplate = exportUtil.getFileContents("site_template/article_reply.html");
+
 		String foot = exportUtil.getFileContents("site_template/foot.html");
 		int i = 0;
 
@@ -192,8 +194,11 @@ public class ExportService {
 			sb.append("<div class=\"조회수\">조회수: " + article.views + "</div>");
 			sb.append("<div class=\"추천수\">추천수: " + article.recommadNum + "</div>");
 			sb.append("<div class=\"댓글수\">댓글수: " + article.replyNum + "</div>");
-			sb.append("<div class=\"제목\">게시물 제목: " + article.title + "</div>");
-			sb.append("<div class=\"내용\">" + article.body + "</div>");
+			sb.append("<div class=\"제목 viewer\"># 게시물 제목: " + article.title + "</div>");
+			sb.append("<div class=\"내용 content\">" + article.body + "</div>");
+
+			sb.append(replyTemplate);
+
 			sb.append("<div class=\"move\">");
 
 			if (article.boardNum == 1) {

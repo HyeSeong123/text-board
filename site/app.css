@@ -238,8 +238,9 @@ body, ul, li {
 	display: inline-block;
 	padding: 0 10px;
 	border: 1px solid black;
-	border-top : 2px solid black;
+	border-top: 2px solid black;
 }
+
 .분류1 span {
 	display: inline-block;
 }
@@ -248,10 +249,11 @@ body, ul, li {
 	border-right: 1px solid black;
 }
 
-.분류1:not (:first-child){
+.분류1:not (:first-child ){
 	border-right: 1px solid black;
 	border-left: 1px solid black;
 }
+
 .분류1:last-child {
 	border-right: 2px solid black;
 }
@@ -304,7 +306,7 @@ body, ul, li {
 .리스트-번호 {
 	min-width: 30px;
 	text-align: center;
-	border-left : 2px solid black;
+	border-left: 2px solid black;
 }
 
 .리스트-작성일 {
@@ -345,7 +347,7 @@ body, ul, li {
 	text-align: center;
 }
 
-.리스트:not (:first-child) {
+.리스트:not (:first-child ) {
 	border-right: 1px solid black;
 	border-left: 1px solid black;
 }
@@ -362,8 +364,7 @@ body, ul, li {
 	height: 20px;
 }
 
-.리스트-리스트>.리스트>a,
-.리스트-리스트>.리스트>span {
+.리스트-리스트>.리스트>a, .리스트-리스트>.리스트>span {
 	display: inlinc-block;
 	line-height: 20px;
 	vertical-align: middle;
@@ -380,6 +381,7 @@ body, ul, li {
 .other {
 	margin-bottom: 50px;
 }
+
 .page-box {
 	margin-top: 20px;
 }
@@ -406,11 +408,7 @@ body, ul, li {
 	border-color: #afafaf;
 	text-decoration: underline;
 }
-.article-page-menu__link--selected{
-	color : red;
-}
 
-.상태{
-	border:2px solid red;
-	width:100%;
+.article-page-menu__link--selected {
+	color: red;
 }
