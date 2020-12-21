@@ -149,7 +149,7 @@ public class ArticleDao {
 		MysqlUtil.update(sql);
 	}
 
-	public int addBoard(int loginId, String name) {
+	public int addBoard(int loginId, String name, String code) {
 		SecSql sql = new SecSql();
 
 		sql.append("SELECT *");
@@ -164,8 +164,11 @@ public class ArticleDao {
 		SecSql sql1 = new SecSql();
 
 		sql1.append("INSERT INTO board");
-		sql1.append("Set name = ?", name);
-
+		sql1.append("Set name = ?,", name);
+		sql1.append("regDate = NOW(),");
+		sql1.append("updateDate = NOW(),");
+		sql1.append("code = ?", code);
+		
 		return MysqlUtil.insert(sql1);
 	}
 

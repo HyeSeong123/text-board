@@ -2,26 +2,75 @@
 <html lang="ko">
 
 <head>
+<meta name="author" content="baobab612">
+<link rel="canonical" href="blog.baobab612.com" />
+<meta name="robots" content="index, follow">
+<meta name="title" content="baobab612">
+<meta name="description" content="바오밥의 공부 사이트 입니다.">
+<meta name="keywords" content="baobab">
+<meta property="og:type" content="website" />
+<meta property="og:title" content="baobab612" />
+<meta property="og:description" content="바오밥의 공부 사이트 입니다." />
+<meta property="og:site_name" content="baobab612">
+<meta property="og:image" content="https://i.ibb.co/MB194rS/1-jpg.jpg>
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="baobab612" />
+<meta name="twitter:description" content="바오밥의 공부 사이트 입니다." />
+
+<link rel="shortcut icon" href="favicon.ico">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+<script data-ad-client="ca-pub-6509950454554885" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <meta charset="UTF-8" />
 <meta name="viewport" "content="width-device-width" , initial-scale-1>
+
 <title>게시물 상세페이지</title>
 
 <link rel="stylesheet" href="app.css" />
-
+<meta name="google-site-verification" content="MHKr97RTxH6cxAMH8F-Fk-EVXAgiCCcyN8ATu5lN8Hk" />
 </head>
 <body>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+<!-- 하이라이트 라이브러리 추가, 토스트 UI 에디터에서 사용됨 -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
+
+<!-- 토스트 UI 에디터, 자바스크립트 코어 -->
+<script
+	src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+
+<!-- 코드 미러 라이브러리 추가, 토스트 UI 에디터에서 사용됨 -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/codemirror.min.css" />
+<!-- 토스트 UI 에디터, CSS 코어 -->
+<link rel="stylesheet"
+	href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+
+<!-- 토스트 UI 에디터, 신택스 하이라이트 플러그인 추가 -->
+<script
+	src="https://uicdn.toast.com/editor-plugin-code-syntax-highlight/latest/toastui-editor-plugin-code-syntax-highlight.min.js"></script>
+
+
 <div class="wrapper flex flex-column">
 
 	<header class="top">
 		<div class="con-min-width">
 			<div class="con">
 				<div class="top-logo flex flex-jc-c">
-					<a href="index.html"><span class="logo"> 					
-						<i class="fab fa-jenkins"></i> <span>Develo<span class="p">p</span>er</span></span> </a>
+					<a href="index.html">
+						<div class="logo"><i class="fab fa-pagelines"></i>
+						<span class="tree">baobab<span class="plannet"><i class="fas fa-globe-asia"></i></span>612</span></div>
+						</a>
 						<div class="flex-grow-1"></div>
-						<div class="join flex flex-ai-c"><a href="#"><i class="fas fa-user"></i> 회원 가입</a></div>
-						<div class="login flex flex-ai-c"><a href="#"><i class="fas fa-sign-in-alt"></i> 로그인</a></div>
+						<div class="join flex flex-ai-c"><a href="joinPage.html"><i class="fas fa-user"></i> 회원 가입</a></div>
+						<div class="login flex flex-ai-c"><a href="loginPage.html"><i class="fas fa-sign-in-alt"></i> 로그인</a></div>
 				</div>
 				<div class="top-menu">
 					<ul class="flex flex-jc-sb">

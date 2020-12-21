@@ -122,7 +122,10 @@ public class ArticleController extends Controller {
 			System.out.printf("생성할 게시판 이름: ");
 			String name = sc.nextLine();
 
-			int i = articleService.addBoard(Container.session.loginId, name);
+			System.out.printf("코드 이름: ");
+			String code = sc.nextLine();
+			
+			int i = articleService.addBoard(Container.session.loginId, name, code);
 			if (i == -1) {
 				System.out.println("관리자만 게시판을 추가할 수 있습니다.");
 				return;

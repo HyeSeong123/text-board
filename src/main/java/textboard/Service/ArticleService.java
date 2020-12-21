@@ -36,8 +36,8 @@ public class ArticleService {
 		articleDao.modify(inputedId, head, body);
 	}
 
-	public int addBoard(int loginId, String name) {
-		return articleDao.addBoard(loginId, name);
+	public int addBoard(int loginId, String name, String code) {
+		return articleDao.addBoard(loginId, name, code);
 	}
 
 	public List<Board> getBoards() {
