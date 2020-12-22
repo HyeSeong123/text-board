@@ -1,7 +1,6 @@
-
 <div class="분류">
 	<header>
-		<div class="flex">
+		<div class="flex 분류-분류">
 			<div class="분류1 분류-번호">
 				<span>번호</span>
 			</div>
@@ -28,20 +27,27 @@
 		<ul class="page-box flex flex-ai-c">
 			${article-page__list}
 		</ul>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	</div>
+	
+	<div class="article_list__search">
+		<span>검색</span>
+		
+		<section class="article_list__textBox">
+        <form action="" onsubmit="return false;">
+        	<select name="search_condition" id="search_condition">
+  			<option value="">-- 검색 옵션 --</option>
+  			<option value="제목">제목</option>
+  			<option value="내용">내용</option>
+  			<option value="작성자">작성자</option>
+			</select>
+          <input type="text" name="message" placeholder="검색어를 입력해주세요.">
+          <div class="search-icon">
+            <i class="fas fa-search"></i>
+          </div>
+        </form>  
+      </section>
+      
+	</div>
+	
 	</header>
 </div>

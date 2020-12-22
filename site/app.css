@@ -42,6 +42,10 @@ body, ul, li {
 	list-style: none;
 }
 
+body {
+	background-color: #efefef;
+}
+
 .con-min-width {
 	min-width: 320px;
 }
@@ -99,35 +103,54 @@ body, ul, li {
 }
 
 .top {
-background: #44A08D;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #093637, #44A08D);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #093637, #44A08D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: #44A08D; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #093637, #44A08D);
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #093637, #44A08D);
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .top-logo {
 	color: white;
 	font-size: 40px;
 }
-/* 탑바 시작 */ 
+/* 탑바 시작 */
 .plannet {
 	-webkit-background-clip: text;
-  	-webkit-text-fill-color: transparent;
+	-webkit-text-fill-color: transparent;
 	background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+	display: inline-block;
+	transition: all 2s;
 }
-.tree{
+
+.tree:hover .plannet {
+	transform: rotate(360deg), scale(0.9);
+	-webkit-transform: rotate(360deg) scale(0.9);
+}
+
+.tree {
 	-webkit-background-clip: text;
-  	-webkit-text-fill-color: transparent;
+	-webkit-text-fill-color: transparent;
 	background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
 }
-.fa-pagelines{
-	color : #43C6AC;
+
+.fa-pagelines {
+	color: #43C6AC;
 }
+
 .logo-small {
 	font-size: 30px;
 }
+
+.logo-small:hover .plannet {
+	transform: rotate(360deg);
+	-webkit-transform: rotate(360deg);
+}
+
 .top-menu {
 	margin-top: 20px;
 }
+
 .top-menu>ul ul {
 	display: none;
 	position: absolute;
@@ -135,7 +158,7 @@ background: linear-gradient(to right, #093637, #44A08D); /* W3C, IE 10+/ Edge, F
 	left: -10px;
 }
 
-.top-menu>ul>li {
+.top-menu ul>li {
 	width: 100%;
 	text-align: center;
 	position: relative;
@@ -181,17 +204,26 @@ background: linear-gradient(to right, #093637, #44A08D); /* W3C, IE 10+/ Edge, F
 
 .top-menu>ul>li:hover>ul {
 	display: block;
+
 }
 
 .top-menu>ul>li>ul {
-	background-color: black;
+	background: #44A08D; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #093637, #44A08D);
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #093637, #44A08D);
 	width: 100%;
-	border: 10px solid black;
+	border-left: 10px solid #093637;
+	border-bottom: 10px solid #093637;
+	border-right: 10px solid #44A08D;
 	border-top: 0;
 }
+
 .top-menu>ul>li>ul>li:last-child:hover>a {
 	border-radius: 0 0 10px 10px;
 }
+
+/* 메인 화면 */
 .sentence-name {
 	font-size: 25px;
 }
@@ -199,12 +231,25 @@ background: linear-gradient(to right, #093637, #44A08D); /* W3C, IE 10+/ Edge, F
 .sentence-name>span {
 	margin-top: 20px;
 }
-.sentence-content{
-	margin-top : 20px;
+
+.sentence-content {
+	margin-top: 50px;
+	height: 100%;
+	text-align: center;
+	background-color: white;
+	border: 2px solid skyblue;
+	border-radius: 10px;
 }
-.sentence-content>span{
-	font-size: 17px;
+
+.sentence-content>span {
+	font-size: 35px;
+	display: inline-block;
+	height: 80px;
+	line-height: 80px;
+	vertical-align: middle;
 }
+/* 메인 화면 */
+
 /* 탑바 끝 */
 .middle {
 	font-family: 'LotteMartDream';
@@ -212,13 +257,14 @@ background: linear-gradient(to right, #093637, #44A08D); /* W3C, IE 10+/ Edge, F
 	position: relative;
 }
 
-
 /* 바텀 시작 */
 .bottom {
 	font-family: 'LotteMartDream';
-	background: #44A08D;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #093637, #44A08D);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #093637, #44A08D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: #44A08D; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #093637, #44A08D);
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #093637, #44A08D);
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	color: white;
 	height: 100px;
 }
@@ -226,12 +272,23 @@ background: linear-gradient(to right, #093637, #44A08D); /* W3C, IE 10+/ Edge, F
 .section {
 	width: 100%;
 }
-.logo-small .tree{
-	margin-left : 10px;
+
+.logo-small .tree {
+	margin-left: 10px;
+}
+.logo-small{
+	width : 100%;
+}
+.section-1 {
+	width : 250px;
 }
 .section-2 {
 	margin-left: 20px;
 	text-align: center;
+	width : 100%;
+}
+.section-2>span{
+	line-height: 25px;
 }
 
 .move {
@@ -253,12 +310,13 @@ background: linear-gradient(to right, #093637, #44A08D); /* W3C, IE 10+/ Edge, F
 .next {
 	margin-left: 10px;
 }
-
+/* 리스트 페이지 */
 .분류1 {
 	display: inline-block;
 	padding: 0 10px;
 	border: 1px solid black;
 	border-top: 2px solid black;
+	border-bottom: 2px solid black;
 }
 
 .분류1 span {
@@ -269,7 +327,7 @@ background: linear-gradient(to right, #093637, #44A08D); /* W3C, IE 10+/ Edge, F
 	border-right: 1px solid black;
 }
 
-.분류1:not (:first-child ){
+.분류1:not(:first-child ) {
 	border-right: 1px solid black;
 	border-left: 1px solid black;
 }
@@ -318,9 +376,8 @@ background: linear-gradient(to right, #093637, #44A08D); /* W3C, IE 10+/ Edge, F
 .리스트 {
 	display: inline-block;
 	padding: 0 10px;
-	border: 1px solid black;
-	border-top: 1px solid black;
-	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+	border-left: 1px solid black;
 }
 
 .리스트-번호 {
@@ -367,7 +424,7 @@ background: linear-gradient(to right, #093637, #44A08D); /* W3C, IE 10+/ Edge, F
 	text-align: center;
 }
 
-.리스트:not (:first-child ) {
+.리스트:not(:first-child ) {
 	border-right: 1px solid black;
 	border-left: 1px solid black;
 }
@@ -390,13 +447,56 @@ background: linear-gradient(to right, #093637, #44A08D); /* W3C, IE 10+/ Edge, F
 	vertical-align: middle;
 }
 
-.리스트-리스트>.리스트 {
+.리스트-리스트 {
 	border-bottom: 2px solid black;
 }
 
 .리스트-제목:hover, .리스트-작성자:hover {
 	text-decoration: underline;
 }
+
+.article_list__search{
+	margin-top : 50px;
+	text-align:center;
+}
+.article_list__textBox>form,
+.article_list__textBox,
+.article_list__textBox>form>*{
+	display: inline-block;
+}
+.article_list__textBox>form{
+	position : relative;
+}
+.article_list__textBox>form>input{
+	width: 400px;
+	position : relative;
+	top : -2px;
+	margin-left : 10px;
+}
+.article_list__textBox>form>.search-icon{
+	position : absolute;
+	top:60%;
+	transform: translateY(-50%);
+	right:5px;
+	height : 25px;
+	cursor : pointer;
+}
+.article_list__textBox select{
+	margin-left : 40px;
+	position : relative;
+	top : -2px;
+}
+.글쓰기{
+	display : flex;
+	justify-content: flex-end;
+	width : 100%;
+	margin-right : 31%;
+	margin-bottom : 15px;
+}
+.글쓰기:hover > span{
+	border-bottom: 1px solid black;
+}
+/* 리스트 페이지 */
 
 .other {
 	margin-bottom: 50px;
@@ -432,3 +532,200 @@ background: linear-gradient(to right, #093637, #44A08D); /* W3C, IE 10+/ Edge, F
 .article-page-menu__link--selected {
 	color: red;
 }
+
+/* 로그인 페이지*/
+ul, li, body {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.bd-red {
+	border: 1px solid red;
+}
+
+.height-100p {
+	height: 100%;
+}
+
+.loginpage {
+	height: 100%;
+	position: absolute;
+	margin-top: 20%;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 400px;
+	height: 300px;
+	border: 2px solid #73B3ED;
+	background-color: #dfdfdf;
+	position: relative;
+}
+
+.loginpage__top-logo {
+	height: 30px;
+	text-align: center;
+	background-color: skyblue;
+	position: relative;
+}
+
+.icon>img {
+	width: 25px;
+	height: 25px;
+	display: inline-block;
+	margin-left: 10px;
+	position: absolute;
+	top: 1px;
+}
+
+.loginpage__top-logo>span {
+	line-height: 30px;
+	vertical-align: middle;
+	font-size: 20px;
+	cursor: default;
+}
+
+.loginpage__textbox {
+	margin-top: 20%;
+	margin-left: 30px;
+	width: 260px;
+	position: relative;
+}
+
+.loginpage__textbox>form {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.password {
+	margin-left: 30px;
+	margin-top: 10px;
+}
+
+.loginpage__textbox form {
+	margin-left: 20px;
+	display: inline-block;
+}
+
+.login-button>button {
+	height: 60px;
+	width: 80px;
+	position: absolute;
+	top: 35%;
+	right: 4%;
+	cursor: pointer;
+	background: #457fca; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #5691c8, #457fca);
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #5691c8, #457fca);
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	border: 0;
+	color: white;
+	font-size: 17px;
+	letter-spacing: 2px;
+}
+
+.checkbox {
+	margin-top: 35px;
+	text-align: center;
+}
+
+.login-hold {
+	margin-left: 10px;
+}
+
+.id_password {
+	margin-top: 30px;
+	text-align: center;
+}
+/* 로그인 페이지 */
+
+/* 회원가입 페이지 */
+.bd-red{
+  border: 2px solid red;
+}
+.join__section{
+  height : 30px;
+  margin-top : 40px;
+  border-bottom : 2px solid darkblue;
+}
+.join__box{
+  margin-top : 30px;
+  border : 2px solid #cecdce;
+  border-radius : 5px;
+}
+.join__box > *{
+  margin-left : 20px;
+}
+.join__text{
+  position : relative;
+  margin-top : 15px;
+}
+.join__textbox{
+  display : inline-block;
+  position : absolute;
+  top: 9px;
+}
+.join__text form{
+  display : inline-block;
+  margin-left : 20%;
+}
+.join__section form>input{
+  height : 35px;
+  width: 400px;
+  font-size : 17px;
+}
+.limit{
+  font-size : 14px;
+  color : #999;
+}
+.join__password p{
+  line-height : 8px;
+}
+.limit_pass{
+  color : black;
+  font-weight : bold;
+}
+.join__check{
+  font-size : 13px;
+  margin-left : 15px;
+  position : relative;
+}
+.join__check::before{
+  content : "";
+  height : 10px;
+  width : 9px;
+  background-image : url(https://nstatic.dcinside.com/dc/w/images/checkbox.png);
+  background-repeat : no-repeat;
+  background-size : 10px 8px;
+  position : absolute;
+  top : -1px;
+  left : -15px;
+  z-index : 1;
+}
+.join__check::after{
+  content : "";
+  position : absolute;
+  top : -4px;
+  left : -17px;
+  height : 14px;
+  width : 14px;
+  background-color : #ccc;
+  border-radius : 50%;
+}
+.join__birth>form>input{
+  width : 150px;
+  text-align : center;
+}
+.join__birth select{
+  height : 40px;
+}
+select>option{
+	text-align:center;
+}
+/* 회원가입 페이지 */

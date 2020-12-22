@@ -25,6 +25,66 @@ public class ExportService {
 		buildIndexPage();
 		getArticle();
 		getList();
+		getLoginPage();
+		getJoinPage();
+		getIntroducePage();
+	}
+	private void getIntroducePage() {
+		StringBuilder sb = new StringBuilder();
+		
+		exportUtil.mkdirs("site/introducePage");
+		
+		String mainHtml = exportUtil.getFileContents("site_template/introducePage/introducePage.html");
+		
+		exportUtil.copy("site_template/introducePage/app.css", "site/introducePage/app.css");
+		exportUtil.copy("site_template/introducePage/java.js", "site/introducePage/java.js");
+		
+		sb.append(mainHtml);
+
+		String filePath = "site/introducePage/introducePage.html";
+		exportUtil.writeFileContents(filePath, sb.toString());
+		System.out.println(filePath + " 생성");
+	}
+	private void getJoinPage() {
+		StringBuilder sb = new StringBuilder();
+
+		String head = getHeadHtml("join");
+
+		String foot = exportUtil.getFileContents("site_template/foot.html");
+
+		String mainHtml = exportUtil.getFileContents("site_template/join.html");
+
+		sb.append(head);
+
+		sb.append(mainHtml);
+		sb.append("</header>");
+		sb.append("</div>");
+		sb.append(foot);
+
+		String filePath = "site/joinPage.html";
+		exportUtil.writeFileContents(filePath, sb.toString());
+		System.out.println(filePath + " 생성");
+	}
+	
+	private void getLoginPage() {
+		StringBuilder sb = new StringBuilder();
+
+		String head = getHeadHtml("login");
+
+		String foot = exportUtil.getFileContents("site_template/foot.html");
+
+		String mainHtml = exportUtil.getFileContents("site_template/loginPage.html");
+
+		sb.append(head);
+
+		sb.append(mainHtml);
+		sb.append("</header>");
+		sb.append("</div>");
+		sb.append(foot);
+
+		String filePath = "site/loginPage.html";
+		exportUtil.writeFileContents(filePath, sb.toString());
+		System.out.println(filePath + " 생성");
 	}
 
 	private void getPage(Board board, int pageSize, int pageBoxSize, List<Article> articles, int page) {
@@ -36,7 +96,8 @@ public class ExportService {
 		sb.append("<div class=\"cover flex flex-column flex-ai-c\">");
 		sb.append("<div class=\"상태\"><h1><i class=\"fas fa-list\"></i> 게시물 리스트</h1></div>");
 		sb.append("<div class=\"게시판\"><h2>게시판: " + board.name + "</h2></div>");
-
+		sb.append("<div class=\"글쓰기\"><span> 글쓰기 </span></div>");
+		
 		StringBuilder mainContent = new StringBuilder();
 
 		int articleCnt = articles.size();
@@ -56,7 +117,7 @@ public class ExportService {
 			mainContent.append("<div class=\"리스트 리스트-번호\"><span>" + article.num + "</sapn></div>");
 			mainContent.append("<div class=\"리스트 리스트-작성일\"><span>" + article.regDate + "</span></div>");
 			mainContent.append("<div class=\"리스트 리스트-작성자\">" + "<a href=\"#\">" + article.extra__writer + "</a></div>");
-			mainContent.append("<div class=\"리스트 리스트-제목\">" + "<a href=\"" + link + "\">" + article.title
+			mainContent.append("<div class=\"리스트 리스트-제목\">" + "<a href=\"../" + link + "\">" + article.title
 					+ "</a> <span> [" + article.replyNum + "]</span></div>");
 			mainContent.append("<div class=\"리스트 리스트-조회수\"><span>" + article.views + "</span></div>");
 			mainContent.append("<div class=\"리스트 리스트-추천수\"><span>" + article.recommadNum + "</span></div>");
