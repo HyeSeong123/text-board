@@ -222,6 +222,7 @@ body {
 .top-menu>ul>li>ul>li:last-child:hover>a {
 	border-radius: 0 0 10px 10px;
 }
+/* 탑바 끝 */
 
 /* 메인 화면 */
 .sentence-name {
@@ -250,7 +251,8 @@ body {
 }
 /* 메인 화면 */
 
-/* 탑바 끝 */
+
+
 .middle {
 	font-family: 'LotteMartDream';
 	margin: 10px 0 0 10px;
@@ -347,12 +349,14 @@ body {
 	text-align: center;
 	border-left: 2px solid black;
 }
-
 .분류-작성일 {
 	min-width: 200px;
 	text-align: center;
 }
-
+.분류-게시판 {
+	min-width: 100px;
+	text-align: center;
+}
 .분류-작성자 {
 	min-width: 100px;
 	text-align: center;
@@ -455,6 +459,90 @@ body {
 	text-decoration: underline;
 }
 
+/* 인덱스 최근 리스트 */
+.인덱스 {
+	display: inline-block;
+	padding: 0 10px;
+	border-right: 1px solid black;
+	border-left: 1px solid black;
+	border-bottom: 2px solid black;
+}
+
+.인덱스-번호 {
+	min-width: 30px;
+	text-align: center;
+	border-left: 2px solid black;
+}
+
+.인덱스-작성일 {
+	min-width: 200px;
+	text-align: center;
+}
+
+.인덱스-작성자 {
+	min-width: 100px;
+	text-align: center;
+}
+
+.인덱스-제목 {
+	width: 200px;
+	text-align: left;
+}
+.인덱스-게시판{
+	min-width: 100px;
+	text-align: center;
+}
+.인덱스-제목 a {
+	display: inline-block;
+	width: 140px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.인덱스-조회수 {
+	min-width: 60px;
+	text-align: center;
+}
+
+.인덱스-추천수 {
+	min-width: 60px;
+	text-align: center;
+}
+
+.인덱스-댓글수 {
+	min-width: 60px;
+	text-align: center;
+}
+
+.인덱스:not(:first-child ) {
+	border-right: 1px solid black;
+	border-left: 1px solid black;
+}
+
+.인덱스:last-child {
+	border-right: 2px solid black;
+}
+
+.인덱스:first-child {
+	border-right: 1px solid black;
+}
+
+.인덱스-리스트>.인덱스 {
+	height: 20px;
+}
+
+.인덱스-리스트>.인덱스>a, .인덱스-리스트>.인덱스>span {
+	display: inlinc-block;
+	line-height: 20px;
+	vertical-align: middle;
+}
+
+
+.인덱스-제목:hover, .인덱스-작성자:hover {
+	text-decoration: underline;
+}
+/* 인덱스 최근 리스트 */
 .article_list__search{
 	margin-top : 50px;
 	text-align:center;

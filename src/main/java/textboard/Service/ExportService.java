@@ -29,22 +29,24 @@ public class ExportService {
 		getJoinPage();
 		getIntroducePage();
 	}
+
 	private void getIntroducePage() {
 		StringBuilder sb = new StringBuilder();
-		
+
 		exportUtil.mkdirs("site/introducePage");
-		
+
 		String mainHtml = exportUtil.getFileContents("site_template/introducePage/introducePage.html");
-		
+
 		exportUtil.copy("site_template/introducePage/app.css", "site/introducePage/app.css");
 		exportUtil.copy("site_template/introducePage/java.js", "site/introducePage/java.js");
-		
+
 		sb.append(mainHtml);
 
 		String filePath = "site/introducePage/introducePage.html";
 		exportUtil.writeFileContents(filePath, sb.toString());
 		System.out.println(filePath + " 생성");
 	}
+
 	private void getJoinPage() {
 		StringBuilder sb = new StringBuilder();
 
@@ -65,7 +67,7 @@ public class ExportService {
 		exportUtil.writeFileContents(filePath, sb.toString());
 		System.out.println(filePath + " 생성");
 	}
-	
+
 	private void getLoginPage() {
 		StringBuilder sb = new StringBuilder();
 
@@ -97,7 +99,7 @@ public class ExportService {
 		sb.append("<div class=\"상태\"><h1><i class=\"fas fa-list\"></i> 게시물 리스트</h1></div>");
 		sb.append("<div class=\"게시판\"><h2>게시판: " + board.name + "</h2></div>");
 		sb.append("<div class=\"글쓰기\"><span> 글쓰기 </span></div>");
-		
+
 		StringBuilder mainContent = new StringBuilder();
 
 		int articleCnt = articles.size();
@@ -249,7 +251,7 @@ public class ExportService {
 
 			String articleBodyForPrint = article.body;
 			articleBodyForPrint = articleBodyForPrint.replaceAll("script", "<!--REPLACE:script-->");
-			
+
 			sb.append("<div class=\"상태\"><h1><i class=\"fas fa-search\"></i>게시물 상세보기</h1></div>");
 			sb.append("<div class=\"게시판\"><h2>게시판: " + article.extra__board + "</h2></div>");
 			sb.append("<div class=\"번호\">게시물 번호: " + article.num + "</div>");
@@ -257,8 +259,8 @@ public class ExportService {
 			sb.append("<div class=\"작성자\">작성자: " + article.extra__writer + "</div>");
 			sb.append("<div class=\"조회수\">조회수: " + article.views + "</div>");
 			sb.append("<div class=\"추천수\">추천수: " + article.recommadNum + "</div>");
-			sb.append("<div class=\"댓글수\">댓글수: " 	+ article.replyNum + "</div>");
-			sb.append("<script type=\"text/x-template=\"># " + article.title +  "</script>");
+			sb.append("<div class=\"댓글수\">댓글수: " + article.replyNum + "</div>");
+			sb.append("<script type=\"text/x-template=\"># " + article.title + "</script>");
 			sb.append("<div class=\"제목 toast-ui-viewer viewer\"></div>");
 			sb.append("<script type=\"text/x-template=\"> " + articleBodyForPrint + "</script>");
 			sb.append("<div class=\"내용 content toast-ui-viewer\"></div>");
@@ -320,7 +322,6 @@ public class ExportService {
 			exportUtil.writeFileContents(filePath, sb.toString());
 			System.out.println(filePath + " 생성");
 			i++;
-
 		}
 	}
 
@@ -331,16 +332,37 @@ public class ExportService {
 		String foot = exportUtil.getFileContents("site_template/foot.html");
 
 		String mainHtml = exportUtil.getFileContents("site_template/index.html");
-
+		
 		sb.append(head);
 		sb.append(mainHtml);
+
+		List<Article> articles = articleService.showList();
+		
+		for (int i = 0; i < 5; i++) {
+			Article article = articles.get(i);
+
+			String link = article.num + ".html";
+
+			sb.append("<div class=\"인덱스-리스트\">");
+			sb.append("<div class=\"인덱스 인덱스-번호\"><span>" + article.num + "</sapn></div>");
+			sb.append("<div class=\"인덱스 인덱스-작성일\"><span>" + article.regDate + "</span></div>");
+			sb.append("<div class=\"인덱스 인덱스-게시판\"><span>" + article.extra__board + "</span></div>");
+			sb.append("<div class=\"인덱스 인덱스-작성자\">" + "<a href=\"#\">" + article.extra__writer + "</a></div>");
+			sb.append("<div class=\"인덱스 인덱스-제목\">" + "<a href=\"" + link + "\">" + article.title + "</a> <span> ["
+					+ article.replyNum + "]</span></div>");
+			sb.append("<div class=\"인덱스 인덱스-조회수\"><span>" + article.views + "</span></div>");
+			sb.append("<div class=\"인덱스 인덱스-추천수\"><span>" + article.recommadNum + "</span></div>");
+			sb.append("</div>");
+		}
+		
+		sb.append("</div>");
+		sb.append("</div>");
 		sb.append("</header>");
-		sb.append("</div>");
-		sb.append("</div>");
 		sb.append(foot);
 
 		String filePath = "site/index.html";
 		exportUtil.writeFileContents(filePath, sb.toString());
+
 		System.out.println(filePath + " 생성");
 	}
 
@@ -360,7 +382,6 @@ public class ExportService {
 			String iClass = "fab fa-free-code-camp";
 
 			boardMenuContentHtml.append("</li>");
-
 		}
 
 		head = head.replace("${board_menu}", boardMenuContentHtml.toString());

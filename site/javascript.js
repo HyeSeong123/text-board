@@ -57,20 +57,6 @@ function Editor__init() {
   });
 }
 Editor__init();
-
-
-function EditorViewer1__init() {
-	$('.toast-ui-viewer').each(function(index, node) {
-		var initialValue = $(node).prev().html().trim().replace(/<!--REPLACE:script-->/gi, 'script');
-		var viewer = new toastui.Editor.factory({
-			el: node,
-			initialValue: initialValue,
-			viewer: true,
-			plugins: [toastui.Editor.plugin.codeSyntaxHighlight, codepenPlugin]
-		});
-	});
-}
-
 gsap.from('.sentence-content>span', {
 	duration: 1.3,
 	y: 350,
@@ -86,6 +72,18 @@ gsap.from('.sentence-content>span', {
 		toggleActions: 'play none none repeat'
 	}
 });
+function EditorViewer1__init() {
+	$('.toast-ui-viewer').each(function(index, node) {
+		var initialValue = $(node).prev().html().trim().replace(/<!--REPLACE:script-->/gi, 'script');
+		var viewer = new toastui.Editor.factory({
+			el: node,
+			initialValue: initialValue,
+			viewer: true,
+			plugins: [toastui.Editor.plugin.codeSyntaxHighlight, codepenPlugin]
+		});
+	});
+}
+
 
 
 EditorViewer1__init();
