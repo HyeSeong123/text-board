@@ -117,7 +117,7 @@ public class ExportService {
 			mainContent.append("<div class=\"리스트 리스트-번호\"><span>" + article.num + "</sapn></div>");
 			mainContent.append("<div class=\"리스트 리스트-작성일\"><span>" + article.regDate + "</span></div>");
 			mainContent.append("<div class=\"리스트 리스트-작성자\">" + "<a href=\"#\">" + article.extra__writer + "</a></div>");
-			mainContent.append("<div class=\"리스트 리스트-제목\">" + "<a href=\"../" + link + "\">" + article.title
+			mainContent.append("<div class=\"리스트 리스트-제목\">" + "<a href=\"" + link + "\">" + article.title
 					+ "</a> <span> [" + article.replyNum + "]</span></div>");
 			mainContent.append("<div class=\"리스트 리스트-조회수\"><span>" + article.views + "</span></div>");
 			mainContent.append("<div class=\"리스트 리스트-추천수\"><span>" + article.recommadNum + "</span></div>");
@@ -247,6 +247,9 @@ public class ExportService {
 
 			sb.append(head);
 
+			String articleBodyForPrint = article.body;
+			articleBodyForPrint = articleBodyForPrint.replaceAll("script", "<!--REPLACE:script-->");
+			
 			sb.append("<div class=\"상태\"><h1><i class=\"fas fa-search\"></i>게시물 상세보기</h1></div>");
 			sb.append("<div class=\"게시판\"><h2>게시판: " + article.extra__board + "</h2></div>");
 			sb.append("<div class=\"번호\">게시물 번호: " + article.num + "</div>");
@@ -254,9 +257,11 @@ public class ExportService {
 			sb.append("<div class=\"작성자\">작성자: " + article.extra__writer + "</div>");
 			sb.append("<div class=\"조회수\">조회수: " + article.views + "</div>");
 			sb.append("<div class=\"추천수\">추천수: " + article.recommadNum + "</div>");
-			sb.append("<div class=\"댓글수\">댓글수: " + article.replyNum + "</div>");
-			sb.append("<div class=\"제목 viewer\"># 게시물 제목: " + article.title + "</div>");
-			sb.append("<div class=\"내용 content\">" + article.body + "</div>");
+			sb.append("<div class=\"댓글수\">댓글수: " 	+ article.replyNum + "</div>");
+			sb.append("<script type=\"text/x-template=\"># " + article.title +  "</script>");
+			sb.append("<div class=\"제목 toast-ui-viewer viewer\"></div>");
+			sb.append("<script type=\"text/x-template=\"> " + articleBodyForPrint + "</script>");
+			sb.append("<div class=\"내용 content toast-ui-viewer\"></div>");
 
 			sb.append(replyTemplate);
 

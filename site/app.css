@@ -729,3 +729,30 @@ select>option{
 	text-align:center;
 }
 /* 회원가입 페이지 */
+
+/*리스트 게시물 토스트 ui 적용 */
+.toast-ui-youtube-plugin-wrap {
+  max-width:500px;
+  margin-left:auto;
+  margin-right:auto;
+  position:relative;
+}
+
+.toast-ui-youtube-plugin-wrap > iframe {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+}
+
+.toast-ui-youtube-plugin-wrap::before {
+  content:"";
+  display:block;
+  padding-top:calc(100% / 16 * 9);
+}
+
+.toast-ui-codepen-plugin-wrap > iframe {
+  width:100%;
+}
+/*리스트 게시물 토스트 ui 적용 */
