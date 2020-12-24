@@ -85,3 +85,9 @@ span>img{
 	top : 10;
 	left : 10;
 }
+.study{
+	height:200px;
+	line-height: 200px;
+	border: 2px solid red;
+	margin-bottom : 150px;
+}
