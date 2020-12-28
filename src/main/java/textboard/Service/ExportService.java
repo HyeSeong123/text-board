@@ -120,7 +120,8 @@ public class ExportService {
 			mainContent.append("<div class=\"리스트 리스트-작성일\"><span>" + article.regDate + "</span></div>");
 			mainContent.append("<div class=\"리스트 리스트-작성자\">" + "<a href=\"#\">" + article.extra__writer + "</a></div>");
 			mainContent.append("<div class=\"리스트 리스트-제목\">" + "<a href=\"" + link + "\">" + article.title
-					+ "</a> <span> [" + article.replyNum + "]</span></div>");
+					+ "</a> <a href=\"https://blog.baobab612.com#discus_thread\" class=\"comment-count\"> ["
+					+ article.replyNum + "]</a></div>");
 			mainContent.append("<div class=\"리스트 리스트-조회수\"><span>" + article.views + "</span></div>");
 			mainContent.append("<div class=\"리스트 리스트-추천수\"><span>" + article.recommadNum + "</span></div>");
 			mainContent.append("</div>");
@@ -223,13 +224,14 @@ public class ExportService {
 		List<Article> articles = articleService.showList();
 		List<Board> boards = articleService.getBoards();
 
-		String head = getHeadHtml("article_detail");
 		String replyTemplate = exportUtil.getFileContents("site_template/article_reply.html");
 
 		String foot = exportUtil.getFileContents("site_template/foot.html");
 		int i = 0;
 
 		for (Article article : articles) {
+
+			String head = getHeadHtml("article_detail", article);
 
 			StringBuilder sb = new StringBuilder();
 
@@ -332,12 +334,12 @@ public class ExportService {
 		String foot = exportUtil.getFileContents("site_template/foot.html");
 
 		String mainHtml = exportUtil.getFileContents("site_template/index.html");
-		
+
 		sb.append(head);
 		sb.append(mainHtml);
 
 		List<Article> articles = articleService.showList();
-		
+
 		for (int i = 0; i < 5; i++) {
 			Article article = articles.get(i);
 
@@ -348,13 +350,14 @@ public class ExportService {
 			sb.append("<div class=\"인덱스 인덱스-작성일\"><span>" + article.regDate + "</span></div>");
 			sb.append("<div class=\"인덱스 인덱스-게시판\"><span>" + article.extra__board + "</span></div>");
 			sb.append("<div class=\"인덱스 인덱스-작성자\">" + "<a href=\"#\">" + article.extra__writer + "</a></div>");
-			sb.append("<div class=\"인덱스 인덱스-제목\">" + "<a href=\"" + link + "\">" + article.title + "</a> <span> ["
-					+ article.replyNum + "]</span></div>");
+			sb.append("<div class=\"인덱스 인덱스-제목\">" + "<a href=\"" + link + "\">" + article.title
+					+ "</a> <a href=\"https://blog.baobab612.com#discus_thread\" class=\"comment-count\">["
+					+ article.replyNum + "]</a></div>");
 			sb.append("<div class=\"인덱스 인덱스-조회수\"><span>" + article.views + "</span></div>");
 			sb.append("<div class=\"인덱스 인덱스-추천수\"><span>" + article.recommadNum + "</span></div>");
 			sb.append("</div>");
 		}
-		
+
 		sb.append("</div>");
 		sb.append("</div>");
 		sb.append("</header>");
@@ -366,30 +369,96 @@ public class ExportService {
 		System.out.println(filePath + " 생성");
 	}
 
-	private String getHeadHtml(String pageName) {
+	private String getHeadHtml(String pageName, Object relObj) {
 		String head = exportUtil.getFileContents("site_template/head.html");
 		StringBuilder boardMenuContentHtml = new StringBuilder();
 
 		List<Board> boards = articleService.getBoards();
 
 		for (Board board : boards) {
-			boardMenuContentHtml.append("<li>");
 
-			String link = getArticleListFileName(board, 1);
+			if (board.boardNum <= 3) {
+				String pageTitle = getPageTitle(pageName, relObj);
 
-			boardMenuContentHtml.append("<a href=\"" + link + "\">" + board.name + "</a>");
+				head = head.replace("{page-title}", pageTitle);
 
-			String iClass = "fab fa-free-code-camp";
+				boardMenuContentHtml.append("<li>");
 
+				String link = getArticleListFileName(board, 1);
+				if (board.boardNum == 2) {
+					link = "article_list_자바_1.html";
+				}
+				boardMenuContentHtml.append("<a href=\"" + link + "\">" + board.name + "</a>");
+
+				if (board.boardNum == 2) {
+					boardMenuContentHtml.append("<ul style=\"z-index:999\">");
+					boardMenuContentHtml.append("${board_menu2}");
+					boardMenuContentHtml.append("</ul>");
+				}
+			}
 			boardMenuContentHtml.append("</li>");
 		}
-
 		head = head.replace("${board_menu}", boardMenuContentHtml.toString());
 
+		StringBuilder boardMenuContentHtml1 = new StringBuilder();
+		for (int k = 3; k < boards.size(); k++) {
+			Board board = boards.get(k);
+			String link = getArticleListFileName(board, 1);
+
+			boardMenuContentHtml1.append("<li>");
+			boardMenuContentHtml1.append("<a href=\"" + link + "\">" + board.name + "</a>");
+			boardMenuContentHtml1.append("</li>");
+
+		}
+		head = head.replace("${board_menu2}", boardMenuContentHtml1.toString());
 		String titleBarContentHtml = getTitleBarContentByFileName(pageName);
 
 		head = head.replace("${title-bar}", titleBarContentHtml);
+
+		String siteName = "바오밥 블로그";
+		String subject = "오밥이의 공부 블로그";
+		String siteDescription = "오밥이의 공부 내용을 공유합니다.";
+		String siteDomain = "blog.baobab612.com";
+		String siteMainUrl = "https://blog.baobab612.com";
+		String currentDate = exportUtil.getNowDateStr().replace("", "T");
+
+		head = head.replace("{site-name}", siteName);
+		head = head.replace("{site-domain}", siteDomain);
+		head = head.replace("{site-subject}", siteDescription);
+		head = head.replace("{site-domain}", siteDomain);
+		head = head.replace("{current-date}", currentDate);
+		head = head.replace("{site-main-url}", siteMainUrl);
 		return head;
+	}
+
+	private String getHeadHtml(String pageName) {
+		return getHeadHtml(pageName, null);
+	}
+
+	private String getPageTitle(String pageName, Object relObj) {
+		StringBuilder sb = new StringBuilder();
+
+		String forPrintPageName = pageName;
+
+		List<Board> boards = articleService.getBoards();
+		if (forPrintPageName.equals("index")) {
+			forPrintPageName = " HOME";
+		} else if (forPrintPageName.equals("article_detail")) {
+			forPrintPageName = " List";
+		} else if (forPrintPageName.contains("article_list_")) {
+			forPrintPageName = forPrintPageName.replace("article_list_", " ");
+		} else if (forPrintPageName.contains("join")) {
+			forPrintPageName = " 회원가입";
+		} else if (forPrintPageName.contains("login")) {
+			forPrintPageName = " 로그인 페이지";
+		}
+
+		sb.append("바오밥 블로그 |" + forPrintPageName);
+		if (relObj instanceof Article) {
+			Article article = (Article) relObj;
+			sb.insert(0, article.title + " | ");
+		}
+		return sb.toString();
 	}
 
 	private String getTitleBarContentByFileName(String pageName) {

@@ -405,7 +405,7 @@ body {
 	text-align: left;
 }
 
-.리스트-제목 a {
+.리스트-제목 a:first-child {
 	display: inline-block;
 	width: 140px;
 	text-overflow: ellipsis;
@@ -450,7 +450,11 @@ body {
 	line-height: 20px;
 	vertical-align: middle;
 }
-
+.리스트-리스트>.리스트>a, .리스트-리스트>.리스트>a {
+	display: inlinc-block;
+	line-height: 20px;
+	vertical-align: middle;
+}
 .리스트-리스트 {
 	border-bottom: 2px solid black;
 }
@@ -492,7 +496,7 @@ body {
 	min-width: 100px;
 	text-align: center;
 }
-.인덱스-제목 a {
+.인덱스-제목 a:first-child {
 	display: inline-block;
 	width: 140px;
 	text-overflow: ellipsis;
@@ -538,6 +542,11 @@ body {
 	vertical-align: middle;
 }
 
+.인덱스-리스트>.인덱스>a, .인덱스-리스트>.인덱스>a {
+	display: inlinc-block;
+	line-height: 20px;
+	vertical-align: middle;
+}
 
 .인덱스-제목:hover, .인덱스-작성자:hover {
 	text-decoration: underline;

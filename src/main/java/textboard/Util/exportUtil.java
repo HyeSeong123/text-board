@@ -7,6 +7,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class exportUtil {
 
@@ -97,5 +99,9 @@ public class exportUtil {
 				}
 			}
 		}
+	}
+
+	public static String getNowDateStr() {
+		return new SimpleDateFormat("yyyy-MM--dd HH:mm:ss").format(new Date());
 	}
 }
