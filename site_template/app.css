@@ -460,10 +460,10 @@ body {
 	height: 20px;
 	
 }
-.리스트-리스트{
+.리스트-리스트 > .리스트{
 	transition : background 0.3s;	
 }
-.리스트-리스트:hover{
+.리스트-리스트:hover > .리스트{
 	background-color : #C0C3CA;
 }
 .리스트-리스트>.리스트>a, .리스트-리스트>.리스트>span {
@@ -552,7 +552,12 @@ body {
 .인덱스:first-child {
 	border-right: 1px solid black;
 }
-
+.인덱스-리스트> .인덱스{
+	transition : background 0.3s;	
+}
+.인덱스-리스트:hover > .인덱스{
+	background-color : #C0C3CA;
+}
 .인덱스-리스트>.인덱스 {
 	height: 20px;
 }
