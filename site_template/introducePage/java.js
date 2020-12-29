@@ -35,7 +35,7 @@ gsap.from('.panel2>div>span', {
   }
 });
 gsap.from('.panel3>div>span', {
-  duration: 4,
+  duration: 1,
   scale:0,
   opacity:0,
   stagger:{
@@ -51,7 +51,7 @@ gsap.from('.panel3>div>span', {
 });
 
 gsap.from('.panel4>div>span', {
-  duration: 2,
+  duration: 1,
   scale:0,
   opacity:0,
   stagger:{
@@ -65,11 +65,28 @@ gsap.from('.panel4>div>span', {
     toggleActions: 'play none reverse reverse'
   }
 });
-
-gsap.from('.panel5>div>span', {
+gsap.to('.panel4>div>span', {
   duration: 2,
+  color : "white",
+  stagger:{
+    amount : 3,
+    from :"start"
+  },
+  scrollTrigger:{
+	trigger:".panel4",
+	start:"290% 0%",
+	end:"0%",
+	toggleActions: 'play none reverse reverse'
+  }
+});
+gsap.from('.panel5>div>span', {
+  duration: 1,
   scale:0,
   opacity:0,
+  stagger:{
+    amount : 2,
+    from :"start"
+  },
   stagger:{
     amount : 2,
     from :"start"
@@ -82,13 +99,33 @@ gsap.from('.panel5>div>span', {
     toggleActions: 'play none reverse reverse'
   }
 });
-
-gsap.to('nav', {
+gsap.to('.panel5>div>span', {
   duration: 1,
   color : "white",
   scrollTrigger:{
 	trigger:".panel5",
 	start:"410% 0%",
+	end:"0%",
+	toggleActions: 'play none reverse reverse'
+  }
+});
+
+gsap.to('nav', {
+  duration: 1,
+  color : "white",
+  scrollTrigger:{
+	trigger:".panel-home-white",
+	start:"250% 0%",
+	end:"0%",
+	toggleActions: 'play none reverse reverse'
+  }
+});
+gsap.to('nav', {
+  duration: 1,
+  color : "white",
+  scrollTrigger:{
+	trigger:".panel-home-white",
+	start:"250% 0%",
 	end:"0%",
 	toggleActions: 'play none reverse reverse'
   }
