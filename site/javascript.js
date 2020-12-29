@@ -1,7 +1,6 @@
 gsap.registerPlugin(ScrollTrigger);
 
 // 유튜브 플러그인 시작
-var key=AIzaSyA3Fb72mR5xBczeSNTrN6iNIEoDFxoXXhU;
 function youtubePlugin() {
   toastui.Editor.codeBlockManager.setReplacer('youtube', youtubeId => {
     // Indentify multiple code blocks
@@ -84,7 +83,13 @@ function EditorViewer1__init() {
 		});
 	});
 }
+function TopBar__init(){
+  
+  $('.x').click(function(){
+  	$('.x').toggleClass('active');
+      $('.top-menu-1').toggleClass('active');
+  });
+}
 
-
-
+TopBar__init();
 EditorViewer1__init();

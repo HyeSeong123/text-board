@@ -42,7 +42,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" "content="width-device-width" , initial-scale-1>
 
-<title>공지사항 | 바오밥 블로그 | List</title>
+<title>바오밥 블로그 | JSP</title>
 
 <link rel="stylesheet" href="app.css" />
 <link rel="stylesheet" href="app1.css" />
@@ -104,30 +104,59 @@
 	<header class="middle flex-grow-1">
 		<div class="con-min-width height-100p">
 			<div class="con height-100p">
-				<div class="상태"><h1><i class="fas fa-search"></i>게시물 상세보기</h1></div><div class="게시판"><h2>게시판: 공지</h2></div><div class="번호">게시물 번호: 2</div><div class="작성일">작성일: 2020-12-21 08:58:22</div><div class="작성자">작성자: 방혜성</div><div class="조회수">조회수: 0</div><div class="추천수">추천수: 0</div><div class="댓글수">댓글수: 0</div><script type="text/x-template="># 공지사항</script><div class="제목 toast-ui-viewer viewer"></div><script type="text/x-template=">## 안녕하세요 블로그 주인 방혜성 입니다.
-앞으로 제 공부 내용들이 올라올 사이트입니다.</script><div class="내용 content toast-ui-viewer"></div><div class="article_reply-box">
-	<div id="disqus_thread"></div>
-<script>
-    /**
-    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-    /*
-    var disqus_config = function () {
-    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-    */
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://baobab612.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
+				<div class="cover flex flex-column flex-ai-c"><div class="상태"><h1><i class="fas fa-list"></i> 게시물 리스트</h1></div><div class="게시판"><h2>게시판: JSP</h2></div><div class="글쓰기"><a href="#"> 글쓰기 </a></div><div class="분류">
+	<header>
+		<div class="flex 분류-분류">
+			<div class="분류1 분류-번호">
+				<span>번호</span>
+			</div>
+			<div class="분류1 분류-작성일">
+				<span>작성일</span>
+			</div>
+			<div class="분류1 분류-작성자">
+				<span>작성자</span>
+			</div>
+			<div class="분류1 분류-제목">
+				<span>제목</span>
+			</div>
+			<div class="분류1 분류-조회수">
+				<span>조회수</span>
+			</div>
+			<div class="분류1 분류-추천수">
+				<span>추천수</span>
+			</div>
+		</div>
+	</header>
+	<main><div class="리스트-리스트"><div class="리스트 리스트-번호"><span>8</sapn></div><div class="리스트 리스트-작성일"><span>2020-12-29 08:50:53</span></div><div class="리스트 리스트-작성자"><a href="#">방혜성</a></div><div class="리스트 리스트-제목"><a href="8.html">JSP 서블릿</a> <a href="#" class="comment-count"> [0]</a></div><div class="리스트 리스트-조회수"><span>0</span></div><div class="리스트 리스트-추천수"><span>0</span></div></div></main>
 
-<div class="move"></div><div class="other"><h2>이 게시판의 다른 게시물</h2><div class="con-min-width2"><header><div class="flex 분류-분류"><div class="분류1 분류-번호"><span>번호</span></div><div class="분류1 분류-작성일"><span>작성일</span></div><div class="분류1 분류-작성자"><span>작성자</span></div><div class="분류1 분류-제목"><span>제목</span></div><div class="분류1 분류-조회수"><span>조회수</span></div><div class="분류1 분류-추천수"><span>추천수</span></div></div></header></div></div></header><header class="bottom">
+	<div class="page-box-cover flex flex-jc-c flex-ai-c height-100p">
+		<ul class="page-box flex flex-ai-c">
+			<li><article class="page"><a href="article_list_JSP_1.html"class="article-page-menu__link--selected">1</a></li>
+		</ul>
+	</div>
+	
+	<div class="article_list__search">
+		<span>검색</span>
+		
+		<section class="article_list__textBox">
+        <form action="" onsubmit="return false;">
+        	<select name="search_condition" id="search_condition">
+  			<option value="">-- 검색 옵션 --</option>
+  			<option value="제목">제목</option>
+  			<option value="내용">내용</option>
+  			<option value="작성자">작성자</option>
+			</select>
+          <input type="text" name="message" placeholder="검색어를 입력해주세요.">
+          <div class="search-icon">
+            <i class="fas fa-search"></i>
+          </div>
+        </form>  
+      </section>
+      
+	</div>
+	
+	</header>
+</div><header class="bottom">
 		<div class="con-min-width height-100p">
 			<div class="con height-100p">
 				<section class="section flex flex-ai-c flex-jc-ar height-100p">

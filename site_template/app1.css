@@ -1,0 +1,92 @@
+@media screen and (max-width: 1150px) {
+	.top-menu {
+		visibility : hidden;
+		opacity: 0;
+		display : none;
+		transition : all 2s;
+	}
+	.x {
+		position: relative;
+		width: 40px;
+		margin-left: 70px;
+	}
+	.x-icon {
+		display: inline-block;
+		width: 30px;
+		height: 5px;
+		background-color: black;
+		position: absolute;
+		top: 30%;
+		transform: translateY(-30%);
+		right: 5px;
+		transition: all .5s;
+	}
+	.x-icon2 {
+		top: 60%;
+		transform: translateY(-60%);
+	}
+	.x.active>.x-icon1 {
+		transform: rotate(45deg);
+	}
+	.x.active>.x-icon1 {
+		top: 50%;
+	}
+	.x.active>.x-icon2 {
+		transform: rotate(-45deg);
+		top: 50%;
+	}
+	.top-menu-1{
+	font-family: 'LotteMartDream';
+		display: block;
+		position: absolute;
+		width: 200px;
+		top:100%;
+		right : -200px;
+		background: #44A08D; /* fallback for old browsers */
+		background: -webkit-linear-gradient(to right, #093637, #44A08D);
+		background: linear-gradient(to right, #093637, #44A08D);
+		transition : all 0.5s;
+	}
+	.top-menu-1.active {
+		right : 0;
+	}
+	.top-menu-1.active>ul {
+		display: block;
+	}
+	.top-menu-1.active ul ul {
+		position : absolute;
+		top : 0;
+		right : 100%;
+		display : none;
+	}
+	.top-menu-1.active ul>li {
+		display: block;
+		text-align: center;
+		position : relative;
+	}
+	.top-menu-1.active ul>li>a {
+		display: block;
+		padding: 20px 0;
+		color: white;
+		white-space: nowrap;
+	}
+	.top-menu-1.active ul>li:hover>a {
+		background-color: white;
+		color : black;
+	}
+	.top-menu-1.active ul>li:hover>ul {
+		display : block;
+	}
+	.top-menu-1.active ul>li>ul>li {
+		height : 61px;
+	}
+	.top-menu-1.active ul>li>ul>li>a {
+		padding: 24px 0;
+	}
+	.top-menu-1.active ul>li:hover>ul>li {
+		width : 140px;
+		background: #44A08D; /* fallback for old browsers */
+		background: -webkit-linear-gradient(to right, #093637, #44A08D);
+		background: linear-gradient(to right, #093637, #44A08D);
+	}
+}

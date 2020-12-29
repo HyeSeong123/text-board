@@ -49,9 +49,13 @@ body {
 .con-min-width {
 	min-width: 320px;
 }
-
+.con-min-width2 {
+	min-width: 960px;
+	min-height: 210px;
+}
 .con {
 	max-width: 1100px;
+	position : relative;
 }
 
 .con {
@@ -169,7 +173,14 @@ body {
 	font-size: 15px;
 	margin-left: 20px;
 }
-
+.git {
+	font-family: 'LotteMartDream';
+	font-size: 30px;
+	margin-left: 20px;
+}
+.git>a:hover{
+	color : red;
+}
 .join>a:hover {
 	color: red;
 }
@@ -177,7 +188,7 @@ body {
 .login {
 	font-family: 'LotteMartDream';
 	font-size: 15px;
-	margin-left: 20px;
+	margin-left: 40px;
 }
 
 .login>a:hover {
@@ -192,7 +203,11 @@ body {
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
-
+.top-menu-1 > *,
+.top-menu-1
+{
+	display : none;
+}
 .top-menu ul>li:hover>a {
 	color: black;
 	background-color: white;
@@ -354,7 +369,7 @@ body {
 	text-align: center;
 }
 .분류-게시판 {
-	min-width: 100px;
+	min-width: 150px;
 	text-align: center;
 }
 .분류-작성자 {
@@ -429,7 +444,7 @@ body {
 }
 
 .리스트:not(:first-child ) {
-	border-right: 1px solid black;
+	border-right : 1px solid black;
 	border-left: 1px solid black;
 }
 
@@ -443,8 +458,14 @@ body {
 
 .리스트-리스트>.리스트 {
 	height: 20px;
+	
 }
-
+.리스트-리스트{
+	transition : background 0.3s;	
+}
+.리스트-리스트:hover{
+	background-color : #C0C3CA;
+}
 .리스트-리스트>.리스트>a, .리스트-리스트>.리스트>span {
 	display: inlinc-block;
 	line-height: 20px;
@@ -455,7 +476,7 @@ body {
 	line-height: 20px;
 	vertical-align: middle;
 }
-.리스트-리스트 {
+.리스트 {
 	border-bottom: 2px solid black;
 }
 
@@ -493,7 +514,7 @@ body {
 	text-align: left;
 }
 .인덱스-게시판{
-	min-width: 100px;
+	min-width: 150px;
 	text-align: center;
 }
 .인덱스-제목 a:first-child {
@@ -590,7 +611,7 @@ body {
 	margin-right : 31%;
 	margin-bottom : 15px;
 }
-.글쓰기:hover > span{
+.글쓰기:hover > a{
 	border-bottom: 1px solid black;
 }
 /* 리스트 페이지 */
@@ -853,3 +874,7 @@ select>option{
   width:100%;
 }
 /*리스트 게시물 토스트 ui 적용 */
+
+/*창 크기 줄어들 때*/
+
+/*창 크기 줄어들 때*/
