@@ -47,7 +47,7 @@ body {
 }
 
 .con-min-width {
-	min-width: 320px;
+	min-width: 660px;
 }
 .con-min-width2 {
 	min-width: 960px;
@@ -144,6 +144,7 @@ body {
 
 .logo-small {
 	font-size: 30px;
+	min-width: 220px;
 }
 
 .logo-small:hover .plannet {
@@ -171,7 +172,7 @@ body {
 .join {
 	font-family: 'LotteMartDream';
 	font-size: 15px;
-	margin-left: 20px;
+	margin-left: 40px;
 }
 .git {
 	font-family: 'LotteMartDream';
@@ -188,7 +189,7 @@ body {
 .login {
 	font-family: 'LotteMartDream';
 	font-size: 15px;
-	margin-left: 40px;
+	margin-left: 20px;
 }
 
 .login>a:hover {
@@ -580,6 +581,7 @@ body {
 /* 인덱스 최근 리스트 */
 .article_list__search{
 	margin-top : 50px;
+	margin-bottom : 25px;
 	text-align:center;
 }
 .article_list__textBox>form,

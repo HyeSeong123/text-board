@@ -412,14 +412,15 @@ public class ExportService {
 
 		String siteName = "바오밥 블로그";
 		String subject = "오밥이의 공부 블로그";
-		String siteDescription = "오밥이의 공부 내용을 공유합니다.";
+		String siteDescription = "오밥이의 공부 내용이 올라오는 블로그.";
 		String siteDomain = "blog.baobab612.com";
 		String siteMainUrl = "https://blog.baobab612.com";
 		String currentDate = exportUtil.getNowDateStr().replace("", "T");
 
 		head = head.replace("{site-name}", siteName);
 		head = head.replace("{site-domain}", siteDomain);
-		head = head.replace("{site-subject}", siteDescription);
+		head = head.replace("{site-subject}", subject);
+		head = head.replace("{site-description}", siteDescription);
 		head = head.replace("{site-domain}", siteDomain);
 		head = head.replace("{current-date}", currentDate);
 		head = head.replace("{site-main-url}", siteMainUrl);
