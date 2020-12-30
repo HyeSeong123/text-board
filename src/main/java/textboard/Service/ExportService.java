@@ -311,7 +311,10 @@ public class ExportService {
 				sb.append("</div>");
 				sb.append("</div>");
 				sb.append("</header>");
-
+				
+				replyTemplate = replyTemplate.replace("${site-domain}", "blog.baobab612.com");
+				replyTemplate = replyTemplate.replace("${file-name}", article.num + ".html");
+				
 				sb.append(foot);
 				String fileName = article.num + ".html";
 				String filePath = "site/" + fileName;
