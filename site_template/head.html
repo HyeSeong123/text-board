@@ -2,23 +2,36 @@
 <html lang="ko">
 
 <head>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LP5D9C7K48"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LP5D9C7K48');
+</script>
+
 <script data-ad-client="ca-pub-6509950454554885" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <meta name="author" content="baobab612">
-<link rel="canonical" href="blog.baobab612.com" />
+<link rel="canonical" href="{site-domain}" />
 <meta name="robots" content="index, follow">
-<meta name="title" content="baobab612">
+<meta name="title" content="{site-name}">
+<meta name="subject" content="{site-subject}">
 <meta name="description" content="바오밥의 공부 사이트 입니다.">
-<meta name="keywords" content="baobab">
+<meta name="keywords" content="{site-keword}">
+<meta name="pubdate" content="{current-date}">
+<meta name="lastmon" content="{current-date}">
+
 <meta property="og:type" content="website" />
-<meta property="og:title" content="baobab612" />
-<meta property="og:description" content="바오밥의 공부 사이트 입니다." />
-<meta property="og:site_name" content="baobab612">
-<meta property="og:image" content="https://i.ibb.co/MB194rS/1-jpg.jpg" />
+<meta property="og:title" content="{site-subject}" />
+<meta property="og:description" content="{site-description}" />
+<meta property="og:site_name" content="{site-name}">
+<meta property="og:image" content="https://i.ibb.co/yPXHBrF/2-jpg.jpg"/>
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="baobab612" />
-<meta name="twitter:description" content="바오밥의 공부 사이트 입니다." />
+<meta property="og:url" content="{site-main-url}" />
 
 <link rel="shortcut icon" href="favicon.ico">
 
@@ -29,9 +42,10 @@
 <meta charset="UTF-8" />
 <meta name="viewport" "content="width-device-width" , initial-scale-1>
 
-<title>게시물 상세페이지</title>
+<title>{page-title}</title>
 
 <link rel="stylesheet" href="app.css" />
+<link rel="stylesheet" href="app1.css" />
 <meta name="google-site-verification" content="MHKr97RTxH6cxAMH8F-Fk-EVXAgiCCcyN8ATu5lN8Hk" />
 </head>
 <body>
@@ -55,25 +69,35 @@
 <div class="wrapper flex flex-column">
 
 	<header class="top">
-		<div class="con-min-width">
-			<div class="con">
-				<div class="top-logo flex flex-jc-c">
+		<div class="con-min-width height-100p">
+			<div class="con height-100p">
+				<div class="top-logo flex flex-jc-c height-100p">
 					<a href="index.html">
 						<div class="logo"><i class="fab fa-pagelines"></i>
 						<span class="tree">baobab<span class="plannet"><i class="fas fa-globe-asia"></i></span>612</span></div>
 						</a>
 						<div class="flex-grow-1"></div>
+						<div class="git flex flex-ai-c"><a href="https://github.com/HyeSeong123/text-board"><i class="fab fa-github-square"></i></a></div>
 						<div class="join flex flex-ai-c"><a href="joinPage.html"><i class="fas fa-user"></i> 회원 가입</a></div>
 						<div class="login flex flex-ai-c"><a href="loginPage.html"><i class="fas fa-sign-in-alt"></i> 로그인</a></div>
+						<div class="x flex flex-ai-c">
+							<div class="x-icon x-icon1 "></div>
+							<div class="x-icon x-icon2"></div>
+						</div>
 				</div>
 				<div class="top-menu" style="z-index:999">
 					<ul class="flex flex-jc-sb">
-					<li><a href="introducePage/introducePage.html">소개</a></li>
-					${board_menu}
-					
+					<li><a href="introducePage/introducePage.html">🙋‍♂ 소개 🙋‍♂</a></li>
+						${board_menu}
 					</ul>
 				</div>
-			</div>
+				
+				<div class="top-menu-1" style="z-index:999">
+					<ul class="">
+					<li><a href="introducePage/introducePage.html">🙋‍♂ 소개 🙋‍♂</a></li>
+						${board_menu}
+					</ul>
+				</div>
 		</div>
 	</header>
 

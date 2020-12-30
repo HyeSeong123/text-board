@@ -115,17 +115,14 @@ span>img{
 	top : 10;
 	left : 10;
 }
-<<<<<<< HEAD
 .study{
 	height:200px;
 	line-height: 200px;
-	border: 2px solid red;
 	margin-bottom : 150px;
-=======
+}
 .index>a{
 	font-size : 20px;
 }
 .introduce__icon{
 	margin-bottom : 85px;
->>>>>>> 12b03e5f9701edb9de825a30e9183a667db3e858
 }

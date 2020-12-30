@@ -44,14 +44,19 @@ body, ul, li {
 
 body {
 	background-color: #efefef;
+	overflow-x:hidden; 
 }
 
 .con-min-width {
-	min-width: 320px;
+	min-width: 660px;
 }
-
+.con-min-width2 {
+	min-width: 960px;
+	min-height: 210px;
+}
 .con {
 	max-width: 1100px;
+	position : relative;
 }
 
 .con {
@@ -140,6 +145,7 @@ body {
 
 .logo-small {
 	font-size: 30px;
+	min-width: 220px;
 }
 
 .logo-small:hover .plannet {
@@ -167,9 +173,16 @@ body {
 .join {
 	font-family: 'LotteMartDream';
 	font-size: 15px;
+	margin-left: 40px;
+}
+.git {
+	font-family: 'LotteMartDream';
+	font-size: 30px;
 	margin-left: 20px;
 }
-
+.git>a:hover{
+	color : red;
+}
 .join>a:hover {
 	color: red;
 }
@@ -192,7 +205,11 @@ body {
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
-
+.top-menu-1 > *,
+.top-menu-1
+{
+	display : none;
+}
 .top-menu ul>li:hover>a {
 	color: black;
 	background-color: white;
@@ -354,7 +371,7 @@ body {
 	text-align: center;
 }
 .분류-게시판 {
-	min-width: 100px;
+	min-width: 150px;
 	text-align: center;
 }
 .분류-작성자 {
@@ -405,7 +422,7 @@ body {
 	text-align: left;
 }
 
-.리스트-제목 a {
+.리스트-제목 a:first-child {
 	display: inline-block;
 	width: 140px;
 	text-overflow: ellipsis;
@@ -429,7 +446,7 @@ body {
 }
 
 .리스트:not(:first-child ) {
-	border-right: 1px solid black;
+	border-right : 1px solid black;
 	border-left: 1px solid black;
 }
 
@@ -443,15 +460,25 @@ body {
 
 .리스트-리스트>.리스트 {
 	height: 20px;
+	
 }
-
+.리스트-리스트 > .리스트{
+	transition : background 0.3s;	
+}
+.리스트-리스트:hover > .리스트{
+	background-color : #C0C3CA;
+}
 .리스트-리스트>.리스트>a, .리스트-리스트>.리스트>span {
 	display: inlinc-block;
 	line-height: 20px;
 	vertical-align: middle;
 }
-
-.리스트-리스트 {
+.리스트-리스트>.리스트>a, .리스트-리스트>.리스트>a {
+	display: inlinc-block;
+	line-height: 20px;
+	vertical-align: middle;
+}
+.리스트 {
 	border-bottom: 2px solid black;
 }
 
@@ -489,10 +516,10 @@ body {
 	text-align: left;
 }
 .인덱스-게시판{
-	min-width: 100px;
+	min-width: 150px;
 	text-align: center;
 }
-.인덱스-제목 a {
+.인덱스-제목 a:first-child {
 	display: inline-block;
 	width: 140px;
 	text-overflow: ellipsis;
@@ -527,7 +554,12 @@ body {
 .인덱스:first-child {
 	border-right: 1px solid black;
 }
-
+.인덱스-리스트> .인덱스{
+	transition : background 0.3s;	
+}
+.인덱스-리스트:hover > .인덱스{
+	background-color : #C0C3CA;
+}
 .인덱스-리스트>.인덱스 {
 	height: 20px;
 }
@@ -538,6 +570,11 @@ body {
 	vertical-align: middle;
 }
 
+.인덱스-리스트>.인덱스>a, .인덱스-리스트>.인덱스>a {
+	display: inlinc-block;
+	line-height: 20px;
+	vertical-align: middle;
+}
 
 .인덱스-제목:hover, .인덱스-작성자:hover {
 	text-decoration: underline;
@@ -545,6 +582,7 @@ body {
 /* 인덱스 최근 리스트 */
 .article_list__search{
 	margin-top : 50px;
+	margin-bottom : 25px;
 	text-align:center;
 }
 .article_list__textBox>form,
@@ -581,7 +619,7 @@ body {
 	margin-right : 31%;
 	margin-bottom : 15px;
 }
-.글쓰기:hover > span{
+.글쓰기:hover > a{
 	border-bottom: 1px solid black;
 }
 /* 리스트 페이지 */
@@ -844,3 +882,7 @@ select>option{
   width:100%;
 }
 /*리스트 게시물 토스트 ui 적용 */
+
+/*창 크기 줄어들 때*/
+
+/*창 크기 줄어들 때*/
