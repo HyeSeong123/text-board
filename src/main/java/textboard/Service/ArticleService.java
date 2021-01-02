@@ -1,6 +1,8 @@
 package textboard.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import textboard.Container.Container;
 import textboard.Dao.ArticleDao;
@@ -32,8 +34,15 @@ public class ArticleService {
 		return articleDao.write(memberNum, selectBoardNum, head, body);
 	}
 
-	public void modify(int inputedId, String head, String body) {
-		articleDao.modify(inputedId, head, body);
+	public int modify(int inputedId, String head, String body) {
+		
+		Map<String, Object> modifyArgs = new HashMap<>();
+		
+		modifyArgs.put("Num",inputedId);
+		modifyArgs.put("head",head);
+		modifyArgs.put("body",body);
+		
+		return modify(modifyArgs);
 	}
 
 	public int addBoard(int loginId, String name, String code) {
@@ -71,5 +80,9 @@ public class ArticleService {
 
 	public List<Article> getArticles(int boardNum) {
 		return articleDao.getArticles(boardNum);
+	}
+
+	public int modify(Map<String, Object> args) {
+		return articleDao.modify(args);
 	}
 }

@@ -1,0 +1,264 @@
+.top{
+	width:100%;
+}
+.top-bar{
+  height : 65px;
+  width : 100%;
+  background-color : black;
+  position : relative;
+}
+.top-bar ul>li>a{
+	font-family: 'LotteMartDream';
+}
+.top-bar ul>li>a:only-child{
+  color : white;
+  display : flex;
+  padding : 0 20px;
+}
+.top-bar>ul>li>a:not(:only-child):first-child{
+  color : white;
+  display : flex;
+  padding-left : 20px;
+  padding-right : 3px;
+}
+.top-bar>ul>li>a:not(:only-child):nth-child(2){
+  color : white;
+  display : flex;
+  padding-left : 3px;
+  padding-right : 20px;
+}
+.top-bar>ul>li>a>span{
+  transition : color 0.7s;
+  
+}
+.top-bar ul>li{
+  position : relative;
+}
+.top-menu{
+  margin-right : 50px;
+}
+.snip1341 {
+  font-family: 'LotteMartDream';
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+  display : flex;
+}
+.snip1341 div {
+  list-style: outside none none;
+  margin: 0.5em 1em;
+  overflow: hidden;
+}
+.snip1341 * {
+  box-sizing: border-box;
+  -webkit-transition: all 0.35s linear;
+  transition: all 0.35s linear;
+}
+.snip1341 a {
+  padding: 0.3em 0.8em;
+  backface-visibility: hidden;
+  display: block;
+  line-height: 2em;
+  color : white;
+  padding: 0 1em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  -webkit-transform-origin: 50% 0;
+  -ms-transform-origin: 50% 0;
+  transform-origin: 50% 0;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.snip1341 a:after {
+  -webkit-transition: all 0.35s linear;
+  transition: all 0.35s linear;
+  background-color: #1abc9c;
+  color: transparent;
+  content: attr(data-hover);
+  top: 0;
+  line-height: 2em;
+  position: absolute;
+  left: 100%;
+  width: 100%;
+  opacity: 0.4;
+}
+.snip1341 div:hover a,
+.snip1341 div.current a {
+  -webkit-transform: rotateY(90deg);
+  transform: rotateY(90deg);
+  color: transparent;
+}
+.snip1341 div:hover a:after {
+  opacity: 1;
+  color: #ffffff;
+  -webkit-transform: rotateY(-90deg);
+  transform: rotateY(-90deg);
+}
+.git{
+	font-size : 22px;
+}
+/* 상단 바 */
+
+/* 2차 메뉴바 시작 */
+.top ul ul{
+  position : absolute;
+  display : none;
+  top : 100%;
+  left : 0;
+}
+.top-menu > li > ul{
+  background-color : black;
+  width : 100%;
+}
+.top-menu>li>ul>li{
+  width : 100%;
+  text-align : center;
+  list-style: outside none none;
+  margin: 0.5em 1.2em;
+  padding: 0;
+}
+.top-menu>li:hover>ul{
+  display :block;
+}
+.top-menu > li > ul > li > a{
+  width : 68%;
+  height : 30px;
+  line-height : 30px;
+  vertical-align : middle;
+  justify-content : center;
+  text-align : center;
+  position : relative;
+}
+
+.snip1284 {
+  font-family: 'Raleway', Arial, sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+.snip1284 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.snip1284 a:before,
+.snip1284 a:after {
+  width: 3px;
+  height: 0;
+  position: absolute;
+  content: '';
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+  background-color: #1abc9c;
+}
+.snip1284 a:before {
+  top: 0;
+  right: 0;
+}
+.snip1284 a:after {
+  bottom: 0;
+  left: 0;
+}
+.snip1284 a:hover,
+.snip1284 .current a {
+  color: #ffffff;
+}
+.snip1284 a:hover:before,
+.snip1284 .current a:before,
+.snip1284 a:hover:after,
+.snip1284 .current a:after {
+  height: 100%;
+}
+/* 2차 메뉴바 시작 */
+
+/* 탑 로고 */
+.neon-cover{
+ margin-left : 40px; 
+}
+.neon {
+  font-family: neon;
+  color: #FB4264;
+  font-size: 20px;
+  line-height: 20px;
+  text-shadow: 0 0 3.3px #F40A35;
+}
+
+.flux {
+  font-family: neon;
+  color: #426DFB;
+  font-size: 20px;
+  line-height: 20px;
+  text-shadow: 0 0 3.3px #2356FF;
+  text-align : center;
+}
+
+.neon {
+  animation: neon 1s ease infinite;
+  -moz-animation: neon 1s ease infinite;
+  -webkit-animation: neon 1s ease infinite;
+}
+
+@keyframes neon {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
+    color: #FED128;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
+    color: #806914;
+  }
+}
+
+.flux {
+  animation: flux 2s linear infinite;
+  -moz-animation: flux 2s linear infinite;
+  -webkit-animation: flux 2s linear infinite;
+  -o-animation: flux 2s linear infinite;
+}
+
+@keyframes flux {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
+    color: #28D7FE;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
+    color: #146C80;
+  }
+}
+/* 탑 로고 */
+
+/*상단 바 원 */
+.circle {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  top : 50%;
+  left : 50%;
+  margin : -19.5px 0 0 -19.5px;
+  background: white;
+  border-radius: 80%;
+  backface-visibility: hidden;
+}
+@media screen and(max-width:1900px){
+	.circle{
+		margin : -19.5px 0 0 0;
+	}
+	
+}
+/* 첫번째 글씨 */
+.top-bar>ul>li>a>span:hover{
+  color :black;
+}
+.top-bar>ul>li>a>span:first-child:hover + span:nth-child(2){
+  color :black;
+}
+.black{
+  color : black;
+}
+/*상단 바 원 */

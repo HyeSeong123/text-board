@@ -56,9 +56,9 @@ public class ArticleController extends Controller {
 			System.out.printf("== %s ==\n", article.extra__board);
 
 			System.out.println("번호 / 조회수 / 추천수 / 작성자 / 작성일자 / 수정일자 / 제목 / 내용");
-			System.out.printf("%d / %d / %d / %s / %s / %s / %s / %s \n", article.num, k, article.recommadNum,
+			System.out.printf("%d / %d / %d / %s / %s / %s / %s / %s \n", article.num, k, article.likes,
 					article.extra__writer, article.regDate, article.updateDate, article.title, article.body);
-			if (article.replyNum == 0) {
+			if (article.commentsCount == 0) {
 				System.out.println("작성된 댓글 없음");
 				return;
 			}

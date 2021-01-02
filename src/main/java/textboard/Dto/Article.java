@@ -7,8 +7,8 @@ public class Article {
 	public int memberNum;
 	public int views;
 	public int boardNum;
-	public int replyNum;
-	public int recommadNum;
+	public int commentsCount;
+	public int likes;
 	public String regDate;
 	public String updateDate;
 	public String title;
@@ -21,8 +21,8 @@ public class Article {
 		this.num = (int) articleMap.get("Num");
 		this.views = (int) articleMap.get("views");
 		this.memberNum = (int) articleMap.get("memberNum");
-		this.replyNum = (int) articleMap.get("replyNum");
-		this.recommadNum = (int) articleMap.get("recommandNum");
+		this.commentsCount = (int) articleMap.get("commentsCount");
+		this.likes = (int) articleMap.get("likes");
 		this.regDate = (String) articleMap.get("regDate");
 		if (articleMap.containsKey("extra__writer")) {
 			this.extra__writer = (String) articleMap.get("extra__writer");

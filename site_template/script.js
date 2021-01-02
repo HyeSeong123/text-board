@@ -1,5 +1,15 @@
 gsap.registerPlugin(ScrollTrigger);
 
+
+var str = "Baobab Study Blog.";
+var c = 0;
+
+setInterval(function(){
+      if(c < 18)
+         $('#txt').append(str[c]);
+      c++;
+}, 300);
+
 // 유튜브 플러그인 시작
 function youtubePlugin() {
   toastui.Editor.codeBlockManager.setReplacer('youtube', youtubeId => {
@@ -57,21 +67,7 @@ function Editor__init() {
   });
 }
 Editor__init();
-gsap.from('.sentence-content>span', {
-	duration: 1.3,
-	y: 350,
-	opacity: 0,
-	stagger: {
-		amount: 1,
-		from: "start"
-	},
-	scrollTrigger: {
-		trigger: '.sentence-content',
-		start: "0% 30%",
-		end: "0%",
-		toggleActions: 'play none none repeat'
-	}
-});
+
 function EditorViewer1__init() {
 	$('.toast-ui-viewer').each(function(index, node) {
 		var initialValue = $(node).prev().html().trim().replace(/<!--REPLACE:script-->/gi, 'script');
@@ -83,14 +79,4 @@ function EditorViewer1__init() {
 		});
 	});
 }
-function TopBar__init(){
-  
-  $('.x').click(function(){
-  	$('.x').toggleClass('active');
-      $('.top-menu-1').toggleClass('active');
-  });
-}
-
-
-TopBar__init();
 EditorViewer1__init();

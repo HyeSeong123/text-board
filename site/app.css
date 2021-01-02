@@ -1,3 +1,5 @@
+@import "compass/css3";
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
 @font-face {
 	font-family: 'LotteMartDream';
 	font-style: normal;
@@ -55,7 +57,7 @@ body {
 	min-height: 210px;
 }
 .con {
-	max-width: 1100px;
+	max-width: 2000px;
 	position : relative;
 }
 
@@ -107,42 +109,8 @@ body {
 	min-height: 100vh;
 }
 
-.top {
-	background: #44A08D; /* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #093637, #44A08D);
-	/* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #093637, #44A08D);
-	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
 
-.top-logo {
-	color: white;
-	font-size: 40px;
-}
-/* 탑바 시작 */
-.plannet {
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
-	display: inline-block;
-	transition: all 2s;
-}
-
-.tree:hover .plannet {
-	transform: rotate(360deg), scale(0.9);
-	-webkit-transform: rotate(360deg) scale(0.9);
-}
-
-.tree {
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
-}
-
-.fa-pagelines {
-	color: #43C6AC;
-}
-
+/* 정리 필요 */
 .logo-small {
 	font-size: 30px;
 	min-width: 220px;
@@ -152,94 +120,7 @@ body {
 	transform: rotate(360deg);
 	-webkit-transform: rotate(360deg);
 }
-
-.top-menu {
-	margin-top: 20px;
-}
-
-.top-menu>ul ul {
-	display: none;
-	position: absolute;
-	top: 100%;
-	left: -10px;
-}
-
-.top-menu ul>li {
-	width: 100%;
-	text-align: center;
-	position: relative;
-}
-
-.join {
-	font-family: 'LotteMartDream';
-	font-size: 15px;
-	margin-left: 40px;
-}
-.git {
-	font-family: 'LotteMartDream';
-	font-size: 30px;
-	margin-left: 20px;
-}
-.git>a:hover{
-	color : red;
-}
-.join>a:hover {
-	color: red;
-}
-
-.login {
-	font-family: 'LotteMartDream';
-	font-size: 15px;
-	margin-left: 20px;
-}
-
-.login>a:hover {
-	color: red;
-}
-
-.top-menu ul>li>a {
-	font-family: 'LotteMartDream';
-	display: block;
-	font-size: 20px;
-	color: white;
-	padding-top: 10px;
-	padding-bottom: 10px;
-}
-.top-menu-1 > *,
-.top-menu-1
-{
-	display : none;
-}
-.top-menu ul>li:hover>a {
-	color: black;
-	background-color: white;
-}
-
-.top-menu>ul>li:hover>a {
-	border-radius: 10px 10px 0 0;
-}
-
-.top-menu>ul>li:hover>ul {
-	display: block;
-
-}
-
-.top-menu>ul>li>ul {
-	background: #44A08D; /* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #093637, #44A08D);
-	/* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #093637, #44A08D);
-	width: 100%;
-	border-left: 10px solid #093637;
-	border-bottom: 10px solid #093637;
-	border-right: 10px solid #44A08D;
-	border-top: 0;
-}
-
-.top-menu>ul>li>ul>li:last-child:hover>a {
-	border-radius: 0 0 10px 10px;
-}
-/* 탑바 끝 */
+/* 정리 필요 */
 
 /* 메인 화면 */
 .sentence-name {
@@ -269,13 +150,38 @@ body {
 /* 메인 화면 */
 
 
-
+/* 백그라운드 */
 .middle {
 	font-family: 'LotteMartDream';
-	margin: 10px 0 0 10px;
 	position: relative;
 }
-
+.jb-box {
+  width: 100%;
+  min-height: 95vh;
+  overflow: hidden;
+  margin: 0px auto;
+  position: relative;
+  background-color : black;
+}
+video { 
+  width: 100%;
+  height : 100%;
+}
+.jb-text {
+  position: absolute;
+  top: 35%;
+  left : 40%;
+  width: 100%;
+}
+p.typing-txt{
+  color: #ffffff;
+  position:relative;
+  display: inline-block;
+  font-size: 48px;
+  height: 50px; overflow: hidden;
+  animation: typingAni 4s steps(30, end) 1;
+}
+/* 백그라운드 */
 /* 바텀 시작 */
 .bottom {
 	font-family: 'LotteMartDream';
@@ -660,25 +566,6 @@ body {
 }
 
 /* 로그인 페이지*/
-ul, li, body {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-a {
-	color: inherit;
-	text-decoration: none;
-}
-
-.bd-red {
-	border: 1px solid red;
-}
-
-.height-100p {
-	height: 100%;
-}
-
 .loginpage {
 	height: 100%;
 	position: absolute;
@@ -772,9 +659,6 @@ a {
 /* 로그인 페이지 */
 
 /* 회원가입 페이지 */
-.bd-red{
-  border: 2px solid red;
-}
 .join__section{
   height : 30px;
   margin-top : 40px;
@@ -882,7 +766,3 @@ select>option{
   width:100%;
 }
 /*리스트 게시물 토스트 ui 적용 */
-
-/*창 크기 줄어들 때*/
-
-/*창 크기 줄어들 때*/

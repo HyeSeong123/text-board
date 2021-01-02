@@ -108,7 +108,7 @@ public class ArticleDao {
 		}
 		sql.append("SELECT *");
 		sql.append("FROM article");
-		sql.append("WHERE num = ?", inputedId);
+		sql.append("WHERE Num = ?", inputedId);
 
 		Map<String, Object> articleMap = MysqlUtil.selectRow(sql);
 		Article article = new Article(articleMap);
@@ -133,20 +133,33 @@ public class ArticleDao {
 		return MysqlUtil.insert(sql);
 	}
 
-	public void modify(int inputedId, String head, String body) {
+	public int modify(Map<String, Object> args) {
 		SecSql sql = new SecSql();
-		int k = index(inputedId);
+		
+		int num = (int) args.get("Num");
+		String title = args.get("title") != null ? (String)args.get("title") : null;
+		String body = args.get("body") != null ? (String)args.get("body") : null;
+		int likes = args.get("likes") != null ? (int)args.get("likes") : -1;
+		int commentsCount = args.get("commentsCount") != null ? (int)args.get("commentsCount") : -1;
 
-		if (k == -2) {
-			System.out.println("존재하지 않는 게시물 입니다.");
-			return;
-		}
 		sql.append("UPDATE article");
-		sql.append("Set title = ?,", head);
-		sql.append("body = ?", body);
-		sql.append("WHERE num = ?", inputedId);
-
-		MysqlUtil.update(sql);
+		sql.append("SET updateDate = NOW(),");
+		if (title != null) {
+			sql.append("title = ?,", title);
+		}
+		if (body != null) {
+			sql.append("body = ?,", body);
+		}
+		if (likes != -1) {
+			sql.append("likes = ?,", likes);
+		}
+		if (commentsCount != -1) {
+			sql.append("commentsCount = ?", commentsCount);
+		}
+		
+		sql.append("WHERE Num = ?", num);
+		
+		return MysqlUtil.update(sql);
 	}
 
 	public int addBoard(int loginId, String name, String code) {
@@ -168,7 +181,7 @@ public class ArticleDao {
 		sql1.append("regDate = NOW(),");
 		sql1.append("updateDate = NOW(),");
 		sql1.append("code = ?", code);
-		
+
 		return MysqlUtil.insert(sql1);
 	}
 
@@ -242,13 +255,13 @@ public class ArticleDao {
 
 		sql.append("UPDATE article");
 		sql.append("Set views = views+1");
-		sql.append("WHERE num = ?", inputedId);
+		sql.append("WHERE Num = ?", inputedId);
 		MysqlUtil.update(sql);
 
 		SecSql sql1 = new SecSql();
 		sql1.append("Select views");
 		sql1.append("FROM article");
-		sql1.append("WHERE num = ?", inputedId);
+		sql1.append("WHERE Num = ?", inputedId);
 
 		int k = MysqlUtil.selectRowIntValue(sql1);
 
