@@ -60,7 +60,11 @@ body {
 	max-width: 2000px;
 	position : relative;
 }
-
+.con2{
+	max-width: 1400px;
+	position : relative;
+	margin : 0 auto;
+}
 .con {
 	margin: 0 auto;
 }

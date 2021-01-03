@@ -13,10 +13,10 @@ function moveCircle(e) {
   });
 }
 $('.top-menu').mouseleave(function(){
-  $('.circle').css('width','0');
+	 $('.circle').removeClass('active');
 });
 $('.top-menu').mouseenter(function(){
-  $('.circle').css('width','35');
+  $('.circle').addClass('active');
 });
 $('.top-menu').on('mousemove', moveCircle);
 

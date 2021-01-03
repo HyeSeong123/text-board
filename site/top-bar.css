@@ -234,7 +234,7 @@
 /* 탑 로고 */
 
 /*상단 바 원 */
-.circle {
+.circle.active {
   position: absolute;
   width: 35px;
   height: 35px;

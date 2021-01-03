@@ -286,7 +286,7 @@ public class ExportService {
 
 				String articleBodyForPrint = article.body;
 				articleBodyForPrint = articleBodyForPrint.replaceAll("script", "<!--REPLACE:script-->");
-
+				sb.append("<div class=\"con2\">");
 				sb.append("<div class=\"상태\"><h1><i class=\"fas fa-search\"></i>게시물 상세보기</h1></div>");
 				sb.append("<div class=\"게시판\"><h2>게시판: " + board.code + "</h2></div>");
 				sb.append("<div class=\"번호\">게시물 번호: " + article.num + "</div>");
@@ -341,7 +341,7 @@ public class ExportService {
 						sb.append("</div>");
 					}
 				}
-
+				sb.append("</div>");
 				sb.append("</div>");
 				sb.append("</div>");
 				sb.append("</header>");
@@ -414,7 +414,7 @@ public class ExportService {
 
 				String link = getArticleListFileName(board, 1);
 				if (board.boardNum == 2) {
-					link = "article_list_자바_1.html";
+					link = "article_list_Java_1.html";
 				}
 
 				String[] boardName = board.name.split("");
