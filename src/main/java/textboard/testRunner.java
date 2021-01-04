@@ -11,8 +11,14 @@ import textboard.Util.exportUtil;
 public class testRunner {
 	
 	public void run() {
+		testGoogleCredentials();
 		
 		
+	}
+	private void testGoogleCredentials() {
+		String keyFilePath = System.getenv("GOOGLE_APPLICATION_CREDENTIALS");
+		
+		System.out.println(keyFilePath);
 		
 	}
 	private Object testRunner() {
