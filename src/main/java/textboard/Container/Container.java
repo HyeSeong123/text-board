@@ -11,6 +11,7 @@ import textboard.Dao.MemberDao;
 import textboard.Service.ArticleService;
 import textboard.Service.DisqusService;
 import textboard.Service.ExportService;
+import textboard.Service.GoogleAnalyticsApiService;
 import textboard.Service.MemberService;
 import textboard.Session.Session;
 
@@ -22,12 +23,14 @@ public class Container {
 	public static ArticleDao articleDao;
 	public static MemberDao memberDao;
 	public static DisqusService disqusService;
+	public static GoogleAnalyticsApiService googleAnalyticsApiService;
 	public static ArticleService articleService;
 	public static MemberService memberService;
 	public static ExportService exportService;
 	public static ArticleController articleController;
 	public static MemberController memberController;
 	public static ExportController exportController;
+	
 
 	static {
 		config = new Appconfig();
@@ -36,6 +39,7 @@ public class Container {
 		articleDao = new ArticleDao();
 		memberDao = new MemberDao();
 		disqusService = new DisqusService();
+		googleAnalyticsApiService = new GoogleAnalyticsApiService();
 		articleService = new ArticleService();
 		memberService = new MemberService();
 		exportService = new ExportService();
