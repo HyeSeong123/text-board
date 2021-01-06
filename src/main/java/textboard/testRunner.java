@@ -29,7 +29,7 @@ public class testRunner {
 	}
 
 	private void testUpdatePageHits() {
-		Container.googleAnalyticsApiService.updateHitsApiData();
+		Container.googleAnalyticsApiService.updatePageHits();
 		
 	}
 
@@ -52,7 +52,6 @@ public class testRunner {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	private void testGoogleCredentials() {

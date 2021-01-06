@@ -85,4 +85,8 @@ public class ArticleService {
 	public int modify(Map<String, Object> args) {
 		return articleDao.modify(args);
 	}
+
+	public void updatePageHits() {
+		articleDao.updataPageHits();
+	}
 }

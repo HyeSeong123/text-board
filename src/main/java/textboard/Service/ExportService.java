@@ -29,7 +29,7 @@ public class ExportService {
 		exportUtil.copy("site_template/top-bar.js", "site/top-bar.js");
 		exportUtil.copy("site_template/top-bar.css", "site/top-bar.css");
 		loadDisqusData();
-
+		loadDataFromGa4Data();
 		buildIndexPage();
 		getArticle();
 		getList();
@@ -38,11 +38,15 @@ public class ExportService {
 		getIntroducePage();
 	}
 
+	private void loadDataFromGa4Data() {
+		Container.googleAnalyticsApiService.updatePageHits();
+	}
+
 	private void loadDisqusData() {
-		List<Article> articles = articleService.showList();
+		List<Article> articles = Container.articleService.showList();
 
 		for (Article article : articles) {
-			Map<String, Object> disqusArticleData = disqusService.getArticleData(article);
+			Map<String, Object> disqusArticleData = Container.disqusService.getArticleData(article);
 
 			if (disqusArticleData != null) {
 				int likes = (int) disqusArticleData.get("likes");

@@ -22,8 +22,7 @@ public class GoogleAnalyticsApiService {
 		ga4DataDao = new G4aDataDao(); 
 	}
 	
-	public boolean updateHitsApiData() {
-		
+	public boolean updatePageHitsByGa4Api() {
 		String ga4PropertyId = Container.config.getGa4PropertyId();
 		try (AlphaAnalyticsDataClient analyticsData = AlphaAnalyticsDataClient.create()) {
 			RunReportRequest request = RunReportRequest.newBuilder()
@@ -53,6 +52,11 @@ public class GoogleAnalyticsApiService {
 	private void update(String pagePath, int hit) {
 		ga4DataDao.deletePagePath(pagePath);
 		ga4DataDao.updatePagePath(pagePath,hit);
+	}
+
+	public void updatePageHits() {
+		updatePageHitsByGa4Api();
+		Container.articleService.updatePageHits();
 	}
 
 }
