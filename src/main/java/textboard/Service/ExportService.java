@@ -291,21 +291,23 @@ public class ExportService {
 				String articleBodyForPrint = article.body;
 				articleBodyForPrint = articleBodyForPrint.replaceAll("script", "<!--REPLACE:script-->");
 				sb.append("<div class=\"con2\">");
-				sb.append("<div class=\"상태\"><h1><i class=\"fas fa-search\"></i>게시물 상세보기</h1></div>");
-				sb.append("<div class=\"게시판\"><h2>게시판: " + board.code + "</h2></div>");
-				sb.append("<div class=\"번호\">게시물 번호: " + article.num + "</div>");
-				sb.append("<div class=\"작성일\">작성일: " + article.regDate + "</div>");
-				sb.append("<div class=\"작성자\">작성자: " + article.extra__writer + "</div>");
-				sb.append("<div class=\"조회수\">조회수: " + article.views + "</div>");
-				sb.append("<div class=\"추천수\">추천수: " + article.likes + "</div>");
-				sb.append("<div class=\"댓글수\">댓글수: " + article.commentsCount + "</div>");
+				sb.append("<div class=\"middle-box\">");
+				sb.append("<div class=\"마진 상태\"><h1><i class=\"fas fa-search\"></i>게시물 상세보기</h1></div>");
+				sb.append("<div class=\"마진 게시판\"><h2>게시판: " + board.code + "</h2></div>");
+				sb.append("<div class=\"마진 번호\">게시물 번호: " + article.num + "</div>");
 
-				sb.append("<script type=\"text/x-template=\"># " + article.title + "</script>");
+				sb.append("<div class=\"마진 작성자\">작성자: " + article.extra__writer + "</div>");
+				sb.append("<div class=\"마진 조회수\">조회수: " + article.views + "</div>");
+				sb.append("<div class=\"마진 추천수\">추천수 <i class=\"fas fa-heart\"></i>: " + article.likes + "</div>");
+				sb.append("<div class=\"마진 댓글수\">댓글수 <i class=\"fas fa-comments\"></i>: " + article.commentsCount
+						+ "</div>");
+				
+				sb.append("<script type=\"text/x-template=\"># " + article.title + "<span class=\"마진 작성일\">작성일: "
+						+ article.regDate + "</span>" + "</script>");
 				sb.append("<div class=\"제목 toast-ui-viewer viewer\"></div>");
-
 				sb.append("<script type=\"text/x-template=\">" + articleBodyForPrint + "</script>");
 				sb.append("<div class=\"내용 content toast-ui-viewer\"></div>");
-
+				sb.append("</div>");
 				String reply = replyTemplate;
 				reply = reply.replace("${site-domain}", "blog.baobab612.com");
 				reply = reply.replace("${file-name}", article.num + ".html");
