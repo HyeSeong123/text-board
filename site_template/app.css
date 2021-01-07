@@ -157,6 +157,11 @@ body {
 	border : 2px solid #afafaf;
 	margin-top : 20px;
 }
+.listbox-cover{
+	margin-top : 50px;
+	border : 2px solid #bfbfbf;
+	padding : 0 20px 20px 20px;
+}
 .마진{
 	margin-top : 10px;
 }
@@ -164,6 +169,34 @@ body {
 	position:absolute;
 	right : 10px;
 	font-size: 15px;
+	font-weight: 700;
+}
+.underTitle{
+	border-bottom : 2px solid #cfcfcf;
+	background-color : #dfdfdf;
+}
+.underTitle > *:not(:first-child){
+	margin-left : 15px;
+}
+.underTitle > .댓글수{
+	margin-right : 10px;
+}
+.underTitle > span{
+	line-height: 44px;
+	vertical-align: middle;
+}
+.제목 {
+	margin-top: 25px;
+	font-size: 30px;
+	border-top : 2px solid #9f9f9f;
+	border-bottom : 2px solid #9f9f9f;
+	position:relative;
+	padding : 10px 0 10px 0;
+}
+.ui__제목{
+	display : inline-block;
+	font-size : 30px;
+	font-weight: bold;
 }
 /* 메인 화면 */
 
@@ -239,14 +272,6 @@ p.typing-txt{
 	align-items: flex-end;
 	margin-top: 100px;
 	margin-bottom: 100px;
-}
-
-.제목 {
-	margin-top: 25px;
-	font-size: 30px;
-	border-top : 2px solid #9f9f9f;
-	border-bottom : 2px solid #9f9f9f;
-	position:relative;
 }
 
 .내용 {

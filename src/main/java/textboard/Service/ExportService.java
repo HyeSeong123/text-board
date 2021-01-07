@@ -43,10 +43,10 @@ public class ExportService {
 	}
 
 	private void loadDisqusData() {
-		List<Article> articles = Container.articleService.showList();
+		List<Article> articles = articleService.showList();
 
 		for (Article article : articles) {
-			Map<String, Object> disqusArticleData = Container.disqusService.getArticleData(article);
+			Map<String, Object> disqusArticleData = disqusService.getArticleData(article);
 
 			if (disqusArticleData != null) {
 				int likes = (int) disqusArticleData.get("likes");
@@ -129,6 +129,7 @@ public class ExportService {
 
 		String bodyTemplate = exportUtil.getFileContents("site_template/article_list.html");
 		sb.append("<div class=\"cover flex flex-column flex-ai-c\">");
+		sb.append("<div class=\"listbox-cover\">");
 		sb.append("<div class=\"상태\"><h1><i class=\"fas fa-list\"></i> 게시물 리스트</h1></div>");
 		sb.append("<div class=\"게시판\"><h2>게시판: " + board.name + "</h2></div>");
 		sb.append("<div class=\"글쓰기\"><a href=\"#\"> 글쓰기 </a></div>");
@@ -146,7 +147,7 @@ public class ExportService {
 		for (int i = start; i <= end; i++) {
 			Article article = articles.get(i);
 
-			String link = article.num + ".html";
+			String link = "article_detail_"+article.num + ".html";
 
 			mainContent.append("<div class=\"리스트-리스트\">");
 			mainContent.append("<div class=\"리스트 리스트-번호\"><span>" + article.num + "</sapn></div>");
@@ -157,7 +158,7 @@ public class ExportService {
 			mainContent.append("<div class=\"리스트 리스트-조회수\"><span>" + article.views + "</span></div>");
 			mainContent.append("<div class=\"리스트 리스트-추천수\"><span>" + article.likes + "</span></div>");
 			mainContent.append("</div>");
-
+			mainContent.append("</div>");
 		}
 		StringBuilder pageContent = new StringBuilder();
 
@@ -296,21 +297,23 @@ public class ExportService {
 				sb.append("<div class=\"마진 게시판\"><h2>게시판: " + board.code + "</h2></div>");
 				sb.append("<div class=\"마진 번호\">게시물 번호: " + article.num + "</div>");
 
-				sb.append("<div class=\"마진 작성자\">작성자: " + article.extra__writer + "</div>");
-				sb.append("<div class=\"마진 조회수\">조회수: " + article.views + "</div>");
-				sb.append("<div class=\"마진 추천수\">추천수 <i class=\"fas fa-heart\"></i>: " + article.likes + "</div>");
-				sb.append("<div class=\"마진 댓글수\">댓글수 <i class=\"fas fa-comments\"></i>: " + article.commentsCount
-						+ "</div>");
-				
-				sb.append("<script type=\"text/x-template=\"># " + article.title + "<span class=\"마진 작성일\">작성일: "
+				sb.append("<script type=\"text/x-template=\"><div class=\"ui__제목\">" + article.title + "</div><span class=\"마진 작성일\">작성일: "
 						+ article.regDate + "</span>" + "</script>");
 				sb.append("<div class=\"제목 toast-ui-viewer viewer\"></div>");
+				sb.append("<div class=\"underTitle flex\">");
+				sb.append("<span class=\"마진 작성자\">작성자: " + article.extra__writer + "</span>");
+				sb.append("<div class=\"flex-grow-1\"></div>");
+				sb.append("<span class=\"마진 조회수\">조회수: " + article.views + "</span>");
+				sb.append("<span class=\"마진 추천수\">추천수 <i class=\"fas fa-heart\"></i>: " + article.likes + "</span>");
+				sb.append("<span class=\"마진 댓글수\">댓글 <i class=\"fas fa-comments\"></i>: " + article.commentsCount
+						+ "</span>");
+				sb.append("</div>");
 				sb.append("<script type=\"text/x-template=\">" + articleBodyForPrint + "</script>");
 				sb.append("<div class=\"내용 content toast-ui-viewer\"></div>");
 				sb.append("</div>");
 				String reply = replyTemplate;
 				reply = reply.replace("${site-domain}", "blog.baobab612.com");
-				reply = reply.replace("${file-name}", article.num + ".html");
+				reply = reply.replace("${file-name}", "article_detail_" + article.num + ".html");
 
 				sb.append(reply);
 
@@ -332,7 +335,7 @@ public class ExportService {
 				for (int k = 0; k < articles.size(); k++) {
 					Article article1 = articles.get(k);
 					if (article.num != article1.num) {
-						String link = article1.num + ".html";
+						String link = "article_detail_" + article1.num + ".html";
 
 						sb.append("<div class=\"리스트-리스트\">");
 						sb.append("<div class=\"리스트 리스트-번호\"><span>" + article1.num + "</sapn></div>");
@@ -353,7 +356,7 @@ public class ExportService {
 				sb.append("</header>");
 
 				sb.append(foot);
-				String fileName = article.num + ".html";
+				String fileName = "article_detail_" + article.num + ".html";
 				String filePath = "site/" + fileName;
 				exportUtil.writeFileContents(filePath, sb.toString());
 				System.out.println(filePath + " 생성");
@@ -378,7 +381,7 @@ public class ExportService {
 		for (int i = 0; i < 5; i++) {
 			Article article = articles.get(i);
 
-			String link = article.num + ".html";
+			String link = "article_detail_"+article.num + ".html";
 
 			sb.append("<div class=\"인덱스-리스트\">");
 			sb.append("<div class=\"인덱스 인덱스-번호\"><span>" + article.num + "</sapn></div>");
@@ -508,6 +511,6 @@ public class ExportService {
 	}
 
 	public String getArticleFileName(int num) {
-		return num + ".html";
+		return "article_detail_" +num + ".html";
 	}
 }

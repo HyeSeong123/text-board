@@ -359,7 +359,7 @@ public class ArticleDao {
 		
 		sql.append("UPDATE article as AR");
 		sql.append("INNER JOIN (");
-		sql.append("	SELECT CASE(REPLACE(REPLACE(ga4_PP.pagePathWoQueryStr, '/',''),'.html','')AS UNSIGNED) AS articleNum,");
+		sql.append("	SELECT CAST(REPLACE(REPLACE(ga4_PP.pagePathWoQueryStr, '/article_detail_',''),'.html','')AS UNSIGNED) AS articleNum,");
 		sql.append("	hit");
 		sql.append("	FROM(");
 		sql.append("	SELECT");
@@ -370,13 +370,13 @@ public class ArticleDao {
 		sql.append("	) AS pagePathWoQueryStr,");
 		sql.append("	SUM(ga4_PP.hit) AS hit");
 		sql.append("	FROM ga4DataPageHit AS ga4_PP");
-		sql.append("	WHERE ga4_PP.pagePath LIKE '/%.html%'");
+		sql.append("	WHERE ga4_PP.pagePath LIKE '/article_detail_%.html%'");
 		sql.append("	GROUP BY pagePathWoQueryStr");
 		sql.append("	)AS ga4_PP");
 		sql.append("  )AS ga4_PP");
 		sql.append("ON AR.Num = ga4_PP.articleNum");
-		sql.append("SET AR.views = ga4_PP.hit");
+		sql.append("SET AR.views = ga4_PP.hit;");
 		
-
+		MysqlUtil.update(sql);
 	}
 }

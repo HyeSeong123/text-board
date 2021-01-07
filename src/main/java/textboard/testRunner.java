@@ -21,11 +21,7 @@ import textboard.Util.exportUtil;
 public class testRunner {
 
 	public void run() {
-		MysqlUtil.setDBInfo(Container.config.getDbHost(), Container.config.getDbId(), Container.config.getDbPw(), "a1");
-		testGoogleCredentials();
-		textUpdateGoogleAnalyticeApi();
-		testUpdatePageHits();
-		MysqlUtil.closeConnection();
+		testapi();
 	}
 
 	private void testUpdatePageHits() {
@@ -82,7 +78,7 @@ public class testRunner {
 		System.out.println(rs.get("age"));
 	}
 
-	private void textapi() {
+	private void testapi() {
 		String url = "https://disqus.com/api/3.0/forums/listThreads.json";
 		String rs = exportUtil.callApi(url, "api_key=" + Container.config.getDisqusApiKey(), "forum = baobab612",
 				"thread:ident=");
