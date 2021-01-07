@@ -158,8 +158,8 @@ public class ExportService {
 			mainContent.append("<div class=\"리스트 리스트-조회수\"><span>" + article.views + "</span></div>");
 			mainContent.append("<div class=\"리스트 리스트-추천수\"><span>" + article.likes + "</span></div>");
 			mainContent.append("</div>");
-			mainContent.append("</div>");
 		}
+		mainContent.append("</div>");
 		StringBuilder pageContent = new StringBuilder();
 
 		int totalPage = (int) Math.ceil(articleCnt / (double) pageSize);
