@@ -173,6 +173,7 @@ body {
 }
 .underTitle{
 	border-bottom : 2px solid #cfcfcf;
+	padding-bottom : 3px;
 	background-color : #dfdfdf;
 }
 .underTitle > *:not(:first-child){
@@ -197,6 +198,9 @@ body {
 	display : inline-block;
 	font-size : 30px;
 	font-weight: bold;
+}
+.작성자 {
+	margin-left : 10px;
 }
 /* 메인 화면 */
 

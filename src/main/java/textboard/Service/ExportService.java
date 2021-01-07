@@ -295,7 +295,6 @@ public class ExportService {
 				sb.append("<div class=\"middle-box\">");
 				sb.append("<div class=\"마진 상태\"><h1><i class=\"fas fa-search\"></i>게시물 상세보기</h1></div>");
 				sb.append("<div class=\"마진 게시판\"><h2>게시판: " + board.code + "</h2></div>");
-				sb.append("<div class=\"마진 번호\">게시물 번호: " + article.num + "</div>");
 
 				sb.append("<script type=\"text/x-template=\"><div class=\"ui__제목\">" + article.title + "</div><span class=\"마진 작성일\">작성일: "
 						+ article.regDate + "</span>" + "</script>");
