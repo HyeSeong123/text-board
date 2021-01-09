@@ -159,8 +159,8 @@ body {
 }
 .listbox-cover{
 	margin-top : 50px;
-	border : 2px solid #bfbfbf;
 	padding : 0 20px 20px 20px;
+	min-width : 900px;
 }
 .마진{
 	margin-top : 10px;
@@ -186,6 +186,7 @@ body {
 	line-height: 44px;
 	vertical-align: middle;
 }
+
 .제목 {
 	margin-top: 25px;
 	font-size: 30px;
@@ -201,6 +202,58 @@ body {
 }
 .작성자 {
 	margin-left : 10px;
+}
+.balloon{
+  min-height : 50px;
+  width : 350px;
+  padding : 10px 0 5px 0;
+  background-color: grey;
+  position : relative;
+  border-radius : 10px;
+  margin-bottom : 100px;
+  transition : all 0.5s;
+  display:block;
+}
+.balloon__추천 > span{
+	color : red;
+}
+.balloon>div{
+	margin-left : 20px;
+	color :white;
+	transition : all 0.5s;
+	margin-bottom : 10px;
+}
+.balloon:hover{
+	background-color:#FEE500;
+}
+.balloon:hover>div{
+	color : black;
+}
+.balloon-right{
+	left : 525px;
+}
+.balloon:hover:after{
+  border-color: transparent #FEE500;
+}
+.balloon-left:after{
+  content : "";
+  border-width:10px 10px 10px 0;
+  border-color:transparent grey;
+  border-style:solid;
+  position : absolute;
+  left : -10px;
+  top : 50%;
+  transition : all 0.5s;
+}
+.balloon-right:after{
+  content : "";
+  border-width:10px 0 10px 10px;
+  border-color:transparent grey;
+  border-style:solid;
+  position : absolute;
+  right : -10px;
+  top : 50%;
+  transition : all 0.5s;
 }
 /* 메인 화면 */
 
@@ -286,256 +339,30 @@ p.typing-txt{
 	margin-left: 10px;
 }
 /* 리스트 페이지 */
-.분류1 {
-	display: inline-block;
-	padding: 0 10px;
-	border: 1px solid black;
-	border-top: 2px solid black;
-	border-bottom: 2px solid black;
+.table-cover {
+	margin-bottom: 50px;
+	text-align : center;
 }
-
-.분류1 span {
-	display: inline-block;
+table{
+	border-collapse: collapse;
+	width:1200px;
+	display : inline-table;
 }
-
-.분류1:first-child {
-	border-right: 1px solid black;
+table tr{
+	height : 30px;
 }
-
-.분류1:not(:first-child ) {
-	border-right: 1px solid black;
-	border-left: 1px solid black;
+table th{
+  border : 2px solid black;
+  padding : 0 10px;
 }
-
-.분류1:last-child {
-	border-right: 2px solid black;
+table>tbody>tr:hover{
+	transition : all 0.5s;
+	background-color : #afafaf;
 }
-
-.분류1 {
-	height: 25px;
-	line-height: 25px;
-	vertical-align: middle;
-}
-
-.분류-번호 {
-	min-width: 30px;
-	text-align: center;
-	border-left: 2px solid black;
-}
-.분류-작성일 {
-	min-width: 200px;
-	text-align: center;
-}
-.분류-게시판 {
-	min-width: 150px;
-	text-align: center;
-}
-.분류-작성자 {
-	min-width: 100px;
-	text-align: center;
-}
-
-.분류-제목 {
-	min-width: 200px;
-	text-align: center;
-}
-
-.분류-조회수 {
-	min-width: 60px;
-	text-align: center;
-}
-
-.분류-추천수 {
-	min-width: 60px;
-	text-align: center;
-}
-
-.리스트 {
-	display: inline-block;
-	padding: 0 10px;
-	border-right: 1px solid black;
-	border-left: 1px solid black;
-}
-
-.리스트-번호 {
-	min-width: 30px;
-	text-align: center;
-	border-left: 2px solid black;
-}
-
-.리스트-작성일 {
-	min-width: 200px;
-	text-align: center;
-}
-
-.리스트-작성자 {
-	min-width: 100px;
-	text-align: center;
-}
-
-.리스트-제목 {
-	width: 200px;
-	text-align: left;
-}
-
-.리스트-제목 a:first-child {
-	display: inline-block;
-	width: 140px;
-	text-overflow: ellipsis;
-	overflow: hidden;
-	white-space: nowrap;
-}
-
-.리스트-조회수 {
-	min-width: 60px;
-	text-align: center;
-}
-
-.리스트-추천수 {
-	min-width: 60px;
-	text-align: center;
-}
-
-.리스트-댓글수 {
-	min-width: 60px;
-	text-align: center;
-}
-
-.리스트:not(:first-child ) {
-	border-right : 1px solid black;
-	border-left: 1px solid black;
-}
-
-.리스트:last-child {
-	border-right: 2px solid black;
-}
-
-.리스트:first-child {
-	border-right: 1px solid black;
-}
-
-.리스트-리스트>.리스트 {
-	height: 20px;
-	
-}
-.리스트-리스트 > .리스트{
-	transition : background 0.3s;	
-}
-.리스트-리스트:hover > .리스트{
-	background-color : #C0C3CA;
-}
-.리스트-리스트>.리스트>a, .리스트-리스트>.리스트>span {
-	display: inlinc-block;
-	line-height: 20px;
-	vertical-align: middle;
-}
-.리스트-리스트>.리스트>a, .리스트-리스트>.리스트>a {
-	display: inlinc-block;
-	line-height: 20px;
-	vertical-align: middle;
-}
-.리스트 {
-	border-bottom: 2px solid black;
-}
-
-.리스트-제목:hover, .리스트-작성자:hover {
+table>tbody>tr:hover>.table__title>*{
 	text-decoration: underline;
 }
-
-/* 인덱스 최근 리스트 */
-.인덱스 {
-	display: inline-block;
-	padding: 0 10px;
-	border-right: 1px solid black;
-	border-left: 1px solid black;
-	border-bottom: 2px solid black;
-}
-
-.인덱스-번호 {
-	min-width: 30px;
-	text-align: center;
-	border-left: 2px solid black;
-}
-
-.인덱스-작성일 {
-	min-width: 200px;
-	text-align: center;
-}
-
-.인덱스-작성자 {
-	min-width: 100px;
-	text-align: center;
-}
-
-.인덱스-제목 {
-	width: 200px;
-	text-align: left;
-}
-.인덱스-게시판{
-	min-width: 150px;
-	text-align: center;
-}
-.인덱스-제목 a:first-child {
-	display: inline-block;
-	width: 140px;
-	text-overflow: ellipsis;
-	overflow: hidden;
-	white-space: nowrap;
-}
-
-.인덱스-조회수 {
-	min-width: 60px;
-	text-align: center;
-}
-
-.인덱스-추천수 {
-	min-width: 60px;
-	text-align: center;
-}
-
-.인덱스-댓글수 {
-	min-width: 60px;
-	text-align: center;
-}
-
-.인덱스:not(:first-child ) {
-	border-right: 1px solid black;
-	border-left: 1px solid black;
-}
-
-.인덱스:last-child {
-	border-right: 2px solid black;
-}
-
-.인덱스:first-child {
-	border-right: 1px solid black;
-}
-.인덱스-리스트> .인덱스{
-	transition : background 0.3s;	
-}
-.인덱스-리스트:hover > .인덱스{
-	background-color : #C0C3CA;
-}
-.인덱스-리스트>.인덱스 {
-	height: 20px;
-}
-
-.인덱스-리스트>.인덱스>a, .인덱스-리스트>.인덱스>span {
-	display: inlinc-block;
-	line-height: 20px;
-	vertical-align: middle;
-}
-
-.인덱스-리스트>.인덱스>a, .인덱스-리스트>.인덱스>a {
-	display: inlinc-block;
-	line-height: 20px;
-	vertical-align: middle;
-}
-
-.인덱스-제목:hover, .인덱스-작성자:hover {
-	text-decoration: underline;
-}
-/* 인덱스 최근 리스트 */
+/* 리스트 페이지 */
 .article_list__search{
 	margin-top : 50px;
 	margin-bottom : 25px;
@@ -580,9 +407,7 @@ p.typing-txt{
 }
 /* 리스트 페이지 */
 
-.other {
-	margin-bottom: 50px;
-}
+
 
 .page-box {
 	margin-top: 20px;

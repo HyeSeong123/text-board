@@ -27,6 +27,7 @@ public class ExportService {
 		exportUtil.copy("site_template/app1.css", "site/app1.css");
 		exportUtil.copy("site_template/script.js", "site/javascript.js");
 		exportUtil.copy("site_template/top-bar.js", "site/top-bar.js");
+		exportUtil.copy("site_template/list_gsap.js", "site/list_gsap.js");
 		exportUtil.copy("site_template/top-bar.css", "site/top-bar.css");
 		loadDisqusData();
 		loadDataFromGa4Data();
@@ -132,7 +133,6 @@ public class ExportService {
 		sb.append("<div class=\"listbox-cover\">");
 		sb.append("<div class=\"상태\"><h1><i class=\"fas fa-list\"></i> 게시물 리스트</h1></div>");
 		sb.append("<div class=\"게시판\"><h2>게시판: " + board.name + "</h2></div>");
-		sb.append("<div class=\"글쓰기\"><a href=\"#\"> 글쓰기 </a></div>");
 
 		StringBuilder mainContent = new StringBuilder();
 
@@ -147,17 +147,24 @@ public class ExportService {
 		for (int i = start; i <= end; i++) {
 			Article article = articles.get(i);
 
-			String link = "article_detail_"+article.num + ".html";
+			String link = "article_detail_" + article.num + ".html";
 
-			mainContent.append("<div class=\"리스트-리스트\">");
-			mainContent.append("<div class=\"리스트 리스트-번호\"><span>" + article.num + "</sapn></div>");
-			mainContent.append("<div class=\"리스트 리스트-작성일\"><span>" + article.regDate + "</span></div>");
-			mainContent.append("<div class=\"리스트 리스트-작성자\">" + "<a href=\"#\">" + article.extra__writer + "</a></div>");
-			mainContent.append("<div class=\"리스트 리스트-제목\">" + "<a href=\"" + link + "\">" + article.title
-					+ "</a> <a href=\"#\" class=\"comment-count\"> [" + article.commentsCount + "]</a></div>");
-			mainContent.append("<div class=\"리스트 리스트-조회수\"><span>" + article.views + "</span></div>");
-			mainContent.append("<div class=\"리스트 리스트-추천수\"><span>" + article.likes + "</span></div>");
+			mainContent.append("<a href=\"" + link + "\" class=\"" + link + "\">");
+			if (i % 2 == 0) {
+				mainContent.append("<div class=\"balloon-left balloon balloon" + (i + 1) + "\">");
+			} else if (i % 2 != 0) {
+				mainContent.append("<div class=\"balloon-right balloon balloon" + (i + 1) + "\">");
+			}
+			mainContent.append("<div class=\"balloon__작성일\">작성일: " + article.regDate + "</div>");
+			mainContent.append("<div class=\"balloon__작성자\">작성자: " + article.extra__writer + "</div>");
+			mainContent.append("<div class=\"balloon__제목\">제목: " + article.title + "</div>");
+			mainContent.append("<div class=\"balloon__댓글\"><i class=\"fas fa-comments\"></i> 댓글 수: "
+					+ article.commentsCount + "</div>");
+			mainContent.append("<div class=\"balloon__추천\"><i class=\"fas fa-heart\"></i>추천 수: " + "<span>"
+					+ article.likes + "</span></div>");
+			mainContent.append("<div class=\"balloon__조회\">조회수: " + article.views + "</div>");
 			mainContent.append("</div>");
+			mainContent.append("</a>");
 		}
 		mainContent.append("</div>");
 		StringBuilder pageContent = new StringBuilder();
@@ -296,8 +303,8 @@ public class ExportService {
 				sb.append("<div class=\"마진 상태\"><h1><i class=\"fas fa-search\"></i>게시물 상세보기</h1></div>");
 				sb.append("<div class=\"마진 게시판\"><h2>게시판: " + board.code + "</h2></div>");
 
-				sb.append("<script type=\"text/x-template=\"><div class=\"ui__제목\">" + article.title + "</div><span class=\"마진 작성일\">작성일: "
-						+ article.regDate + "</span>" + "</script>");
+				sb.append("<script type=\"text/x-template=\"><div class=\"ui__제목\">" + article.title
+						+ "</div><span class=\"마진 작성일\">작성일: " + article.regDate + "</span>" + "</script>");
 				sb.append("<div class=\"제목 toast-ui-viewer viewer\"></div>");
 				sb.append("<div class=\"underTitle flex\">");
 				sb.append("<span class=\"마진 작성자\">작성자: " + article.extra__writer + "</span>");
@@ -319,40 +326,42 @@ public class ExportService {
 				sb.append("<div class=\"move\">");
 
 				sb.append("</div>");
-				sb.append("<div class=\"other\"><h2>이 게시판의 다른 게시물</h2>");
-				sb.append("<div class=\"con-min-width2\">");
-				sb.append("<header>");
-				sb.append("<div class=\"flex 분류-분류\">");
-				sb.append("<div class=\"분류1 분류-번호\"><span>번호</span></div>");
-				sb.append("<div class=\"분류1 분류-작성일\"><span>작성일</span></div>");
-				sb.append("<div class=\"분류1 분류-작성자\"><span>작성자</span></div>");
-				sb.append("<div class=\"분류1 분류-제목\"><span>제목</span></div>");
-				sb.append("<div class=\"분류1 분류-조회수\"><span>조회수</span></div>");
-				sb.append("<div class=\"분류1 분류-추천수\"><span>추천수</span></div>");
-				sb.append("</div>");
-				sb.append("</header>");
+				sb.append("<div class=\"other table-cover\"><h2>이 게시판의 다른 게시물</h2>");
+				sb.append("<table border=\"2\">");
+				sb.append("<thead>");
+				sb.append("<tr>");
+				sb.append("<th><span>번호</span></th>");
+				sb.append("<th><span>작성일</span></th>");
+				sb.append("<th><span>작성자</span></th>");
+				sb.append("<th><span>제목</span></th>");
+				sb.append("<th><span>조회수</span></th>");
+				sb.append("<th><span>추천수</span></th>");
+				sb.append("</tr>");
+				sb.append("</thead>");
+				sb.append("<tbody>");
+				
 				for (int k = 0; k < articles.size(); k++) {
 					Article article1 = articles.get(k);
 					if (article.num != article1.num) {
 						String link = "article_detail_" + article1.num + ".html";
-
-						sb.append("<div class=\"리스트-리스트\">");
-						sb.append("<div class=\"리스트 리스트-번호\"><span>" + article1.num + "</sapn></div>");
-						sb.append("<div class=\"리스트 리스트-작성일\"><span>" + article1.regDate + "</span></div>");
-						sb.append("<div class=\"리스트 리스트-작성자\">" + "<a href=\"#\">" + article1.extra__writer
-								+ "</a></div>");
-						sb.append("<div class=\"리스트 리스트-제목\">" + "<a href=\"" + link + "\">" + article1.title
+						sb.append("<tr>");
+						sb.append("<th class=\"\"><span>" + article1.num + "</sapn></th>");
+						sb.append("<th class=\"\"><span>" + article1.regDate + "</span></th>");
+						sb.append("<th class=\"\">" + "<a href=\"#\">" + article1.extra__writer
+								+ "</a></th>");
+						sb.append("<th class=\"table__title\">" + "<a href=\"" + link + "\">" + article1.title
 								+ "</a> <a href=\"#\" class=\"comment-count\"> [" + article1.commentsCount
-								+ "]</a></div>");
-						sb.append("<div class=\"리스트 리스트-조회수\"><span>" + article1.views + "</span></div>");
-						sb.append("<div class=\"리스트 리스트-추천수\"><span>" + article1.likes + "</span></div>");
-						sb.append("</div>");
+								+ "]</a></th>");
+						sb.append("<th class=\"\"><span>" + article1.views + "</span></th>");
+						sb.append("<th class=\"\"><span>" + article1.likes + "</span></th>");
+						sb.append("</tr>");
+						
 					}
 				}
+				sb.append("</tbody>");
+				sb.append("</table>");
 				sb.append("</div>");
 				sb.append("</div>");
-				sb.append("</div>");
-				sb.append("</header>");
 
 				sb.append(foot);
 				String fileName = "article_detail_" + article.num + ".html";
@@ -376,27 +385,29 @@ public class ExportService {
 		sb.append(mainHtml);
 
 		List<Article> articles = articleService.showList();
-
+		
+		sb.append("<tbody>");
 		for (int i = 0; i < 5; i++) {
 			Article article = articles.get(i);
 
-			String link = "article_detail_"+article.num + ".html";
-
-			sb.append("<div class=\"인덱스-리스트\">");
-			sb.append("<div class=\"인덱스 인덱스-번호\"><span>" + article.num + "</sapn></div>");
-			sb.append("<div class=\"인덱스 인덱스-작성일\"><span>" + article.regDate + "</span></div>");
-			sb.append("<div class=\"인덱스 인덱스-게시판\"><span>" + article.extra__board + "</span></div>");
-			sb.append("<div class=\"인덱스 인덱스-작성자\">" + "<a href=\"#\">" + article.extra__writer + "</a></div>");
-			sb.append("<div class=\"인덱스 인덱스-제목\">" + "<a href=\"" + link + "\">" + article.title
-					+ "</a> <a href=\"#\" class=\"comment-count\">[" + article.commentsCount + "]</a></div>");
-			sb.append("<div class=\"인덱스 인덱스-조회수\"><span>" + article.views + "</span></div>");
-			sb.append("<div class=\"인덱스 인덱스-추천수\"><span>" + article.likes + "</span></div>");
-			sb.append("</div>");
+			String link = "article_detail_" + article.num + ".html";
+			
+			sb.append("<tr>");
+			sb.append("<th class=\"\"><span>" + article.num + "</sapn></th>");
+			sb.append("<th class=\"\"><span>" + article.regDate + "</sapn></th>");
+			sb.append("<th class=\"\"><span>" + article.extra__board + "</span></th>");
+			sb.append("<th class=\"table__writer\">" + "<a href=\"#\">" + article.extra__writer + "</a></th>");
+			sb.append("<th class=\"table__title\">" + "<a href=\"" + link + "\">" + article.title
+					+ "</a> <a href=\"#\" class=\"comment-count\">[" + article.commentsCount + "]</a></th>");
+			sb.append("<th class=\"인덱스 인덱스-조회수\"><span>" + article.views + "</span></th>");
+			sb.append("<th class=\"인덱스 인덱스-추천수\"><span>" + article.likes + "</span></th>");
+			sb.append("</tr>");
 		}
 
+		sb.append("</table>");
 		sb.append("</div>");
 		sb.append("</div>");
-		sb.append("</header>");
+		
 		sb.append(foot);
 
 		String filePath = "site/index.html";
@@ -510,6 +521,6 @@ public class ExportService {
 	}
 
 	public String getArticleFileName(int num) {
-		return "article_detail_" +num + ".html";
+		return "article_detail_" + num + ".html";
 	}
 }

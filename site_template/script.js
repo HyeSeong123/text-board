@@ -1,6 +1,3 @@
-gsap.registerPlugin(ScrollTrigger);
-
-
 var str = "Baobab Study Blog.";
 var c = 0;
 
@@ -82,4 +79,6 @@ function EditorViewer1__init() {
 		});
 	});
 }
+
+
 EditorViewer1__init();
