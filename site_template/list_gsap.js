@@ -2,6 +2,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 gsap.from('.balloon1', {
   scrollTrigger:{
+  	ease : "power3",
     trigger:".balloon1",
     markers:false,
     start:"top 20%",
@@ -15,6 +16,7 @@ gsap.from('.balloon1', {
 
 gsap.from('.balloon2', {
   scrollTrigger:{
+  	ease : "easyIn",
     trigger:".balloon1",
     markers:false,
     start:"top 20%",
