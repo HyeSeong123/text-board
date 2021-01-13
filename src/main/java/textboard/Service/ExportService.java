@@ -431,7 +431,7 @@ public class ExportService {
 			sb.append("<tr>");
 			sb.append("<th class=\"\"><span>" + article.num + "</sapn></th>");
 			sb.append("<th class=\"\"><span>" + article.regDate + "</sapn></th>");
-			sb.append("<th class=\"\"><span>" + article.extra__board + "</span></th>");
+			sb.append("<th class=\"\"><span>" + article.extra__boardName + "</span></th>");
 			sb.append("<th class=\"table__writer\">" + "<a href=\"#\">" + article.extra__writer + "</a></th>");
 			sb.append("<th class=\"table__title\">" + "<a href=\"" + link + "\">" + article.title
 					+ "</a> <a href=\"#\" class=\"comment-count\">[" + article.commentsCount + "]</a></th>");

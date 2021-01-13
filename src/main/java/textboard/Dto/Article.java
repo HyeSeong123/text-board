@@ -14,8 +14,9 @@ public class Article {
 	public String title;
 	public String body;
 	public String extra__writer;
-	public String extra__board;
-
+	public String extra__boardName;
+	public String extra__boardCode;
+	
 	public Article(Map<String, Object> articleMap) {
 		this.boardNum = (int) articleMap.get("boardNum");
 		this.num = (int) articleMap.get("Num");
@@ -27,8 +28,11 @@ public class Article {
 		if (articleMap.containsKey("extra__writer")) {
 			this.extra__writer = (String) articleMap.get("extra__writer");
 		}
-		if (articleMap.containsKey("extra__board")) {
-			this.extra__board = (String) articleMap.get("extra__board");
+		if (articleMap.containsKey("extra__boardName")) {
+			this.extra__boardName = (String) articleMap.get("extra__boardName");
+		}
+		if (articleMap.containsKey("extra__boardCode")) {
+			this.extra__boardCode = (String) articleMap.get("extra__boardCode");
 		}
 		this.updateDate = (String) articleMap.get("updateDate");
 		this.title = (String) articleMap.get("title");

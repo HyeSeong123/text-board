@@ -53,7 +53,7 @@ public class ArticleController extends Controller {
 			}
 			int k = articleService.addViews(inputedId);
 
-			System.out.printf("== %s ==\n", article.extra__board);
+			System.out.printf("== %s ==\n", article.extra__boardName);
 
 			System.out.println("번호 / 조회수 / 추천수 / 작성자 / 작성일자 / 수정일자 / 제목 / 내용");
 			System.out.printf("%d / %d / %d / %s / %s / %s / %s / %s \n", article.num, k, article.likes,
@@ -124,7 +124,7 @@ public class ArticleController extends Controller {
 
 			System.out.printf("코드 이름: ");
 			String code = sc.nextLine();
-			
+
 			int i = articleService.addBoard(Container.session.loginId, name, code);
 			if (i == -1) {
 				System.out.println("관리자만 게시판을 추가할 수 있습니다.");
