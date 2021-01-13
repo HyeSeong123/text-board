@@ -159,31 +159,44 @@ public class exportUtil {
 		}
 		return content.toString();
 	}
-	public static Map<String, Object> callApiResponseToMap(String urlStr, String...args){
-		
-		String jsonString = callApi(urlStr,args);
-		
+
+	public static Map<String, Object> callApiResponseToMap(String urlStr, String... args) {
+
+		String jsonString = callApi(urlStr, args);
+
 		ObjectMapper mapper = new ObjectMapper();
-		
+
 		try {
 			return (Map<String, Object>) mapper.readValue(jsonString, Map.class);
-		} catch(JsonProcessingException e) {
+		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
-	
-	public static Object callApiResponseTo(Class cls, String urlStr, String... args){
-		 
-		String jsonString = callApi(urlStr,args);
-		
+
+	public static Object callApiResponseTo(Class cls, String urlStr, String... args) {
+
+		String jsonString = callApi(urlStr, args);
+
 		ObjectMapper mapper = new ObjectMapper();
-		
+
 		try {
 			return mapper.readValue(jsonString, cls);
-		} catch(JsonProcessingException e) {
+		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	public static String getJsonText(Object obj) {
+		ObjectMapper mapper = new ObjectMapper();
+		String rs = "";
+		try {
+			rs = mapper.writeValueAsString(obj);
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		}
+
+		return rs;
 	}
 }

@@ -83,8 +83,16 @@
   width: 100%;
   opacity: 0.4;
 }
+.search-icon{
+	font-size : 30px;
+}
 .git-icon{
 	font-size : 30px;
+}
+.snip1341 .search-icon:hover:after{
+	content:"\f002";
+  	font-weight: 900;
+  	font-family: "Font Awesome 5 Free";
 }
 .snip1341 .git-icon:hover:after{
   	content:"\f092";

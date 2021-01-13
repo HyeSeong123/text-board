@@ -223,6 +223,7 @@ body {
   margin-bottom : 100px;
   transition : all 0.5s;
   display:block;
+  opacity : 0;
 }
 .balloon__추천 > span{
 	color : red;
@@ -239,8 +240,11 @@ body {
 .balloon:hover>div{
 	color : black;
 }
+.balloon-left{
+	left : -600px;
+}
 .balloon-right{
-	left : 525px;
+	left : 1100px;
 }
 .balloon:hover:after{
   border-color: transparent #FEE500;
@@ -251,7 +255,7 @@ body {
   border-color:transparent grey;
   border-style:solid;
   position : absolute;
-  left : -10px;
+  left :-10px;
   top : 50%;
   transition : all 0.5s;
 }
@@ -425,9 +429,9 @@ table>tbody>tr:hover>.table__title>*{
 .shooting-cover{
   position: relative;
   width: 100%;
-  min-height : 872px;
+  min-height : 910px;
   overflow: hidden;
-  background:#232526 url('배경이미지.jpg') no-repeat center top;
+  background:#020202 url('배경이미지.jpg') no-repeat center top;
  
 }
 .shooting-stars {

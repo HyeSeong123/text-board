@@ -29,14 +29,39 @@ public class ExportService {
 		exportUtil.copy("site_template/top-bar.js", "site/top-bar.js");
 		exportUtil.copy("site_template/list_gsap.js", "site/list_gsap.js");
 		exportUtil.copy("site_template/top-bar.css", "site/top-bar.css");
+
 		loadDisqusData();
 		loadDataFromGa4Data();
 		buildIndexPage();
 		getArticle();
 		getList();
+		buildArtcileSearchPage();
 		getLoginPage();
 		getJoinPage();
 		getIntroducePage();
+	}
+
+	private void buildArtcileSearchPage() {
+		List<Article> articles = articleService.showList();
+		String jsonText = exportUtil.getJsonText(articles);
+		exportUtil.writeFileContents("site/article_list.json", jsonText);
+		exportUtil.copy("site_template/article_search.js", "site/article_search.js");
+		
+		StringBuilder sb = new StringBuilder();
+		
+		String head = getHeadHtml("article_search");
+		String foot = exportUtil.getFileContents("site_template/foot.html");
+		
+		String html = exportUtil.getFileContents("site_template/article_search.html");
+		
+		sb.append(head);
+		sb.append(html);
+		sb.append(foot);
+		
+		String filePath = "site/article_search.html";
+		exportUtil.writeFileContents(filePath, sb.toString());
+		System.out.println(filePath + "생성");
+		
 	}
 
 	private void loadDataFromGa4Data() {
@@ -144,7 +169,7 @@ public class ExportService {
 		sb.append("<div class=\"listbox-cover flex flex-column flex-ai-c\">");
 		sb.append("<div class=\"상태\"><h1><i class=\"fas fa-list\"></i> 게시물 리스트</h1></div>");
 		sb.append("<div class=\"게시판\"><h2>게시판: " + board.name + "</h2></div>");
-		
+
 		StringBuilder mainContent = new StringBuilder();
 
 		int articleCnt = articles.size();

@@ -13,16 +13,18 @@ import textboard.Util.SecSql;
 public class ArticleDao {
 
 	public List<Article> showList() {
-		List<Article> Lists = new ArrayList<Article>();
-
+		List<Article> Lists = new ArrayList<>();
+		
 		SecSql sql = new SecSql();
 
-		sql.append("SELECT article.*, Member.name AS extra__writer, board.name AS extra__board");
+		sql.append(
+				"SELECT article.*, Member.name AS extra__writer, board.name AS extra__boardName, board.code AS extra__boardCode");
 		sql.append("FROM article");
 		sql.append("INNER JOIN Member");
 		sql.append("ON article.memberNum = Member.memberNum");
 		sql.append("INNER JOIN board");
 		sql.append("ON article.boardNum = board.boardNum");
+		
 		sql.append("ORDER BY article.num DESC");
 
 		List<Map<String, Object>> articleListMap = MysqlUtil.selectRows(sql);
@@ -57,10 +59,15 @@ public class ArticleDao {
 		List<Article> articles = new ArrayList<Article>();
 		SecSql sql = new SecSql();
 
-		sql.append("SELECT article.*, member.name As extra__writer");
+		sql.append("SELECT article.*, member.name As extra__writer,");
+		sql.append("board.name AS extra__boardName,");
+		sql.append("board.code AS extra__boardCode");
 		sql.append("FROM article");
 		sql.append("INNER JOIN member");
 		sql.append("ON article.memberNum = member.memberNum");
+		sql.append("INNER JOIN board");
+		sql.append("ON article.boardNum = board.boardNum");
+
 		if (boardId != 0) {
 			sql.append("WHERE article.boardNum = ?", boardId);
 		}
@@ -135,12 +142,12 @@ public class ArticleDao {
 
 	public int modify(Map<String, Object> args) {
 		SecSql sql = new SecSql();
-		
+
 		int num = (int) args.get("Num");
-		String title = args.get("title") != null ? (String)args.get("title") : null;
-		String body = args.get("body") != null ? (String)args.get("body") : null;
-		int likes = args.get("likes") != null ? (int)args.get("likes") : -1;
-		int commentsCount = args.get("commentsCount") != null ? (int)args.get("commentsCount") : -1;
+		String title = args.get("title") != null ? (String) args.get("title") : null;
+		String body = args.get("body") != null ? (String) args.get("body") : null;
+		int likes = args.get("likes") != null ? (int) args.get("likes") : -1;
+		int commentsCount = args.get("commentsCount") != null ? (int) args.get("commentsCount") : -1;
 
 		sql.append("UPDATE article");
 		sql.append("SET updateDate = NOW(),");
@@ -156,9 +163,9 @@ public class ArticleDao {
 		if (commentsCount != -1) {
 			sql.append("commentsCount = ?", commentsCount);
 		}
-		
+
 		sql.append("WHERE Num = ?", num);
-		
+
 		return MysqlUtil.update(sql);
 	}
 
@@ -356,10 +363,11 @@ public class ArticleDao {
 
 	public void updataPageHits() {
 		SecSql sql = new SecSql();
-		
+
 		sql.append("UPDATE article as AR");
 		sql.append("INNER JOIN (");
-		sql.append("	SELECT CAST(REPLACE(REPLACE(ga4_PP.pagePathWoQueryStr, '/article_detail_',''),'.html','')AS UNSIGNED) AS articleNum,");
+		sql.append(
+				"	SELECT CAST(REPLACE(REPLACE(ga4_PP.pagePathWoQueryStr, '/article_detail_',''),'.html','')AS UNSIGNED) AS articleNum,");
 		sql.append("	hit");
 		sql.append("	FROM(");
 		sql.append("	SELECT");
@@ -376,7 +384,7 @@ public class ArticleDao {
 		sql.append("  )AS ga4_PP");
 		sql.append("ON AR.Num = ga4_PP.articleNum");
 		sql.append("SET AR.views = ga4_PP.hit;");
-		
+
 		MysqlUtil.update(sql);
 	}
 }

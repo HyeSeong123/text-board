@@ -68,7 +68,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" "content="width-device-width" , initial-scale-1>
 
-<title>바오밥 블로그 | HOME</title>
+<title>바오밥 블로그 |article_search</title>
 
 <link rel="stylesheet" href="app.css" />
 <link rel="stylesheet" href="top-bar.css" />
@@ -174,44 +174,55 @@
 
 		<header class="middle flex-grow-1">
 			<div class="con-min-width height-100p">
-				<div class="con height-100p"><div class="index-sentence height-100p flex-grow-1">
-	<div class="jb-box">
-		<video muted autoplay loop>
-			<source src="video.mp4" type="video/mp4">
-			<strong>Your browser does not support the video tag.</strong>
-		</video>
-		<div class="jb-text">
-			<p id="txt" class="typing-txt"></p>
+				<div class="con height-100p"><!-- lodash 불러오기 -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
+
+<!-- vue 불러오기 -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<section id="article-list-wrap" class="">
+	<div class="flex flex-column flex-ai-c">
+		<div class="shooting-cover">
+		<div class="shooting-stars">
+		<div class="shooting-star"></div>
+		<div class="shooting-star shooting-star--mid"></div>
+		<div class="shooting-star shooting-star--mid1"></div>
+		<div class="shooting-star shooting-star--mid2"></div>
+		<div class="shooting-star shooting-star--mid3"></div>
+		<div class="shooting-star shooting-star--mid4"></div>
+		<div class="shooting-star shooting-star--fast"></div>
+		<div class="shooting-star shooting-star--fast2"></div>
+		<div class="shooting-star shooting-star--fast2"></div>
 		</div>
+			<div class="article-search">
+				<form class="block">
+					<input @input="searchKeywordInputed" type="text" placeholder="검색어"
+						:value="searchKeyword">
+				</form>
+			</div>
+			<div class="article-list">
+				<div class="main balloon-box flex flex-column">
+					<div v-for="article in filtered">
+						<a class="balloon__a" :href="'article_detail_' + article.num + '.html'">
+							<div class="balloon balloon-left balloon1">
+								<div class="balloon__작성일">작성일 : {{article.regDate}}</div>
+								<div class="balloon__작성자">작성자 : {{article.writer}}</div>
+								<div class="balloon__제목">제목 : {{article.title}}</div>
+								<div class="balloon__댓글">댓글 수 : {{article.commentsCount}}</div>
+								<div class="balloon__추천">추천 수 : {{article.likes}}</div>
+								<div class="balloon__조회">조회 수 : {{article.views}}</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
 	</div>
-	<div class="table-cover">
-		<h1>최근 게시물</h1>
-	<table border="2">
-		<thead>
-			<tr>
-				<th>
-					<span>번호</span>
-				</th>
-				<th>
-					<span>작성일</span>
-				</th>
-				<th>
-					<span>게시판</span>
-				</th>
-				<th>
-					<span>작성자</span>
-				</th>
-				<th>
-					<span>제목</span>
-				</th>
-				<th>
-					<span>조회수</span>
-				</th>
-				<th>
-					<span>추천수</span>
-				</th>
-			</tr>
-		</thead><tbody><tr><th class=""><span>12</sapn></th><th class=""><span>2021-01-07 23:01:52</sapn></th><th class=""><span>null</span></th><th class="table__writer"><a href="#">방혜성</a></th><th class="table__title"><a href="article_detail_12.html">웹 display 요소</a> <a href="#" class="comment-count">[0]</a></th><th class="인덱스 인덱스-조회수"><span>0</span></th><th class="인덱스 인덱스-추천수"><span>0</span></th></tr><tr><th class=""><span>11</sapn></th><th class=""><span>2021-01-06 22:16:52</sapn></th><th class=""><span>null</span></th><th class="table__writer"><a href="#">방혜성</a></th><th class="table__title"><a href="article_detail_11.html">웹 한 글자씩 나오는 효과</a> <a href="#" class="comment-count">[0]</a></th><th class="인덱스 인덱스-조회수"><span>0</span></th><th class="인덱스 인덱스-추천수"><span>0</span></th></tr><tr><th class=""><span>10</sapn></th><th class=""><span>2020-12-29 22:39:10</sapn></th><th class=""><span>null</span></th><th class="table__writer"><a href="#">방혜성</a></th><th class="table__title"><a href="article_detail_10.html">게시물3</a> <a href="#" class="comment-count">[0]</a></th><th class="인덱스 인덱스-조회수"><span>0</span></th><th class="인덱스 인덱스-추천수"><span>0</span></th></tr><tr><th class=""><span>9</sapn></th><th class=""><span>2020-12-29 22:38:49</sapn></th><th class=""><span>null</span></th><th class="table__writer"><a href="#">방혜성</a></th><th class="table__title"><a href="article_detail_9.html">테스트 게시물2</a> <a href="#" class="comment-count">[1]</a></th><th class="인덱스 인덱스-조회수"><span>0</span></th><th class="인덱스 인덱스-추천수"><span>1</span></th></tr><tr><th class=""><span>8</sapn></th><th class=""><span>2020-12-29 08:50:53</sapn></th><th class=""><span>null</span></th><th class="table__writer"><a href="#">방혜성</a></th><th class="table__title"><a href="article_detail_8.html">JSP 서블릿</a> <a href="#" class="comment-count">[0]</a></th><th class="인덱스 인덱스-조회수"><span>2</span></th><th class="인덱스 인덱스-추천수"><span>0</span></th></tr></table></div></div><header class="bottom">
+</section>
+
+<script src="article_search.js"></script><header class="bottom">
 		<div class="con-min-width height-100p">
 			<div class="con height-100p">
 				<section class="section flex flex-ai-c flex-jc-ar height-100p">

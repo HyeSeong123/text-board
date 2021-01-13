@@ -186,6 +186,37 @@ $('ul').find('.word3 > .a__12').mouseenter(function(){
     $('.word4').children('.a__5').addClass('black');
     $('.word4').children('.a__3').addClass('black');
   });
+  /* 4번째 단어*/
+  
+  /* 5번째 단어*/
+  $('ul').find('.word5 > .a__1').mouseenter(function(){
+    $('.word5').children('.a__1').addClass('black'),
+    $('.word5').children('.a__2').addClass('black');
+    $('.word5').children('.a__3').addClass('black');
+  });
+
+  $('ul').find('.word5 > .a__2').mouseenter(function(){
+    $('.word5').children('.a__2').addClass('black');
+    $('.word5').children('.a__1').addClass('black');
+    $('.word5').children('.a__3').addClass('black');
+  });
+
+  $('ul').find('.word5 > .a__3').mouseenter(function(){
+    $('.word5').children('.a__3').addClass('black');
+    $('.word5').children('.a__2').addClass('black');
+    $('.word5').children('.a__4').addClass('black');
+  });
+
+  $('ul').find('.word5 > .a__4').mouseenter(function(){
+    $('.word5').children('.a__4').addClass('black');
+    $('.word5').children('.a__5').addClass('black');
+    $('.word5').children('.a__3').addClass('black');
+  });
+  $('ul').find('.word5 > .a__5').mouseenter(function(){
+    $('.word5').children('.a__5').addClass('black');
+    $('.word5').children('.a__6').addClass('black');
+    $('.word5').children('.a__4').addClass('black');
+  });
   /* 5번째 단어*/
   
 };
@@ -361,6 +392,38 @@ $('ul').find('.word3 > .a__12').mouseleave(function(){
   });
 
   /* 4번째 단어*/
+  
+  /* 5번째 단어*/
+  $('ul').find('.word5 > .a__1').mouseleave(function(){
+    $('.word5').children('.a__1').removeClass('black'),
+    $('.word5').children('.a__2').removeClass('black');
+    $('.word5').children('.a__3').removeClass('black');
+  });
+
+  $('ul').find('.word5 > .a__2').mouseleave(function(){
+    $('.word5').children('.a__2').removeClass('black');
+    $('.word5').children('.a__1').removeClass('black');
+    $('.word5').children('.a__3').removeClass('black');
+  });
+
+  $('ul').find('.word5 > .a__3').mouseleave(function(){
+    $('.word5').children('.a__3').removeClass('black');
+    $('.word5').children('.a__2').removeClass('black');
+    $('.word5').children('.a__4').removeClass('black');
+  });
+
+  $('ul').find('.word5 > .a__4').mouseleave(function(){
+    $('.word5').children('.a__4').removeClass('black');
+    $('.word5').children('.a__5').removeClass('black');
+    $('.word5').children('.a__3').removeClass('black');
+  });
+  $('ul').find('.word5 > .a__5').mouseleave(function(){
+    $('.word5').children('.a__5').removeClass('black');
+    $('.word5').children('.a__6').removeClass('black');
+    $('.word5').children('.a__4').removeClass('black');
+  });
+  /* 5번째 단어*/
+  
 }
 /* 마우스 오프 */
 mouseOn();
