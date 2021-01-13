@@ -43,8 +43,8 @@
 <meta name="subject" content="오밥이의 공부 블로그">
 <meta name="description" content="바오밥의 공부 사이트 입니다.">
 <meta name="keywords" content="{site-keword}">
-<meta name="pubdate" content="T2T0T2T1T-T0T1T-T-T1T4T T0T0T:T1T6T:T5T2T">
-<meta name="lastmon" content="T2T0T2T1T-T0T1T-T-T1T4T T0T0T:T1T6T:T5T2T">
+<meta name="pubdate" content="T2T0T2T1T-T0T1T-T-T1T4T T0T0T:T4T5T:T4T1T">
+<meta name="lastmon" content="T2T0T2T1T-T0T1T-T-T1T4T T0T0T:T4T5T:T4T1T">
 
 <meta property="og:type" content="website" />
 <meta property="og:title" content="오밥이의 공부 블로그" />
@@ -201,11 +201,11 @@
 						:value="searchKeyword">
 				</form>
 			</div>
-			<div class="article-list">
+			<div class="article-list listbox-cover flex flex-column flex-ai-c">
 				<div class="main balloon-box flex flex-column">
 					<div v-for="article in filtered">
 						<a class="balloon__a" :href="'article_detail_' + article.num + '.html'">
-							<div class="balloon balloon-left balloon1">
+							<div class="balloon search__balloon-left balloon1">
 								<div class="balloon__작성일">작성일 : {{article.regDate}}</div>
 								<div class="balloon__작성자">작성자 : {{article.writer}}</div>
 								<div class="balloon__제목">제목 : {{article.title}}</div>

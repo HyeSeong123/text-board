@@ -25,11 +25,11 @@
 						:value="searchKeyword">
 				</form>
 			</div>
-			<div class="article-list">
+			<div class="article-list listbox-cover flex flex-column flex-ai-c">
 				<div class="main balloon-box flex flex-column">
 					<div v-for="article in filtered">
 						<a class="balloon__a" :href="'article_detail_' + article.num + '.html'">
-							<div class="balloon balloon-left balloon1">
+							<div class="balloon search__balloon-left balloon1">
 								<div class="balloon__작성일">작성일 : {{article.regDate}}</div>
 								<div class="balloon__작성자">작성자 : {{article.writer}}</div>
 								<div class="balloon__제목">제목 : {{article.title}}</div>
