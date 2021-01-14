@@ -242,6 +242,7 @@ body {
 }
 .search__balloon-left{
 	left : -200px;
+	opacity : 1;
 }
 .balloon-left{
 	left : -600px;
@@ -261,7 +262,6 @@ body {
   position : absolute;
   left :-10px;
   top : 50%;
-  opacity : 1;
   transition : all 0.5s;
 }
 .balloon-left:after{
