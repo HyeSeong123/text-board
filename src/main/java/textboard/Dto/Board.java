@@ -2,12 +2,15 @@ package textboard.Dto;
 
 import java.util.Map;
 
+import lombok.Data;
+
+@Data
 public class Board {
-	public int boardNum;
-	public String name;
-	public String regDate;
-	public String uddateDate;
-	public String code;
+	private int boardNum;
+	private String name;
+	private String regDate;
+	private String uddateDate;
+	private String code;
 	
 	public Board(int boardNum, String name) {
 		this.boardNum = boardNum;

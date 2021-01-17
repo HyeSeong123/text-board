@@ -2,20 +2,23 @@ package textboard.Dto;
 
 import java.util.Map;
 
+import lombok.Data;
+
+@Data
 public class Article {
-	public int num;
-	public int memberNum;
-	public int views;
-	public int boardNum;
-	public int commentsCount;
-	public int likes;
-	public String regDate;
-	public String updateDate;
-	public String title;
-	public String body;
-	public String extra__writer;
-	public String extra__boardName;
-	public String extra__boardCode;
+	private int num;
+	private int memberNum;
+	private int views;
+	private int boardNum;
+	private int commentsCount;
+	private int likes;
+	private String regDate;
+	private String updateDate;
+	private String title;
+	private String body;
+	private String extra__writer;
+	private String extra__boardName;
+	private String extra__boardCode;
 	
 	public Article(Map<String, Object> articleMap) {
 		this.boardNum = (int) articleMap.get("boardNum");

@@ -91,17 +91,17 @@ public class MemberController extends Controller {
 				}
 				System.out.printf("로그인 패스워드: ");
 				String password = sc.nextLine().trim();
-				if (member.password.equals(password) == false) {
+				if (member.getPassword().equals(password) == false) {
 					System.out.println("패스워드가 일치하지 않습니다.");
 					count++;
 					continue;
 				}
-				if (member.name.equals("방혜성") == false || member.id.equals("baobab612") == false) {
-					System.out.println("로그인이 완료되었습니다. 회원번호 : " + member.memberNum);
-				} else if (member.name.equals("방혜성") && member.id.equals("baobab612")) {
+				if (member.getName().equals("방혜성") == false || member.getId().equals("baobab612") == false) {
+					System.out.println("로그인이 완료되었습니다. 회원번호 : " + member.getMemberNum());
+				} else if (member.getName().equals("방혜성") && member.getId().equals("baobab612")) {
 					System.out.println("관리자 모드로 접속 됐습니다.");
 				}
-				Container.session.loginId = member.memberNum;
+				Container.session.loginId = member.getMemberNum();
 				break;
 			}
 		} else if (cmd.equals("member logout")) {
@@ -117,13 +117,13 @@ public class MemberController extends Controller {
 			}
 			Member member = memberService.getMember(Container.session.loginId);
 			System.out.println("== 회원 정보 ==");
-			if (member.name.equals("방혜성") && member.id.equals("baobab612")) {
+			if (member.getName().equals("방혜성") && member.getId().equals("baobab612")) {
 				System.out.println("관리자 모드에서는 실행하지 않는 명령입니다.");
 				return;
 			}
-			System.out.println("회원 번호: " + member.memberNum);
-			System.out.println("이름: " + member.name);
-			System.out.println("아이디: " + member.id);
+			System.out.println("회원 번호: " + member.getMemberNum());
+			System.out.println("이름: " + member.getName());
+			System.out.println("아이디: " + member.getId());
 		}
 	}
 }

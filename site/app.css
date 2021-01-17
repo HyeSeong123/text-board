@@ -241,7 +241,7 @@ body {
 	color : black;
 }
 .search__balloon-left{
-	left : -200px;
+	left : 200px;
 	opacity : 1;
 }
 .balloon-left{
@@ -294,7 +294,7 @@ body {
 }
 .jb-box {
   width: 100%;
-  min-height: 95vh;
+  height: 100%;
   overflow: hidden;
   margin: 0px auto;
   position: relative;

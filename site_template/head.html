@@ -73,6 +73,7 @@
 <link rel="stylesheet" href="app.css" />
 <link rel="stylesheet" href="top-bar.css" />
 <link rel="stylesheet" href="app1.css" />
+<link rel="stylesheet" href="sidebar.css" />
 <meta name="google-site-verification"
 	content="MHKr97RTxH6cxAMH8F-Fk-EVXAgiCCcyN8ATu5lN8Hk" />
 </head>
@@ -130,7 +131,8 @@
 								</a>
 							</div>
 							<div class="git flex flex-ai-c">
-								<a href="https://github.com/HyeSeong123/text-board"	data-hover="" class="git-icon">
+								<a href="https://github.com/HyeSeong123/text-board"
+									data-hover="" class="git-icon">
 									<i class="fab fa-github-square"></i>
 								</a>
 							</div>
@@ -147,6 +149,7 @@
 								</a>
 							</div>
 						</div>
+
 						<div class="x flex flex-ai-c">
 							<div class="x-icon x-icon1 "></div>
 							<div class="x-icon x-icon2"></div>
@@ -166,10 +169,35 @@
 							${board_menu}
 						</ul>
 					</div>
+
+					<div class="top-side-bar" style="z-index: 2">
+						<div class="top-sidebar-logo flex flex-ai-c">
+							<a href="index.html" class="neon-cover">
+								<section class="side-neon">
+									<div class="neon">Baobab</div>
+									<div class="flux">
+										<ion-icon name="planet-outline"></ion-icon>
+										612
+									</div>
+								</section>
+							</a>
+							<section class="side-menu-openbar">
+								<div class="x-icon x-icon1"></div>
+								<div class="x-icon x-icon2"></div>
+							</section>
+						</div>
+						<ul class="sidebar__ul">
+							<li class="sidebar__li">
+								<a href="introducePage/introducePage.html" class="">
+										About
+								</a>
+							</li>
+							${side-board_menu}
+						</ul>
+					</div>
+
+
 				</div>
-
-
-			</div>
 		</header>
 
 		<header class="middle flex-grow-1">

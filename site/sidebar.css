@@ -1,0 +1,148 @@
+.top-side-bar{
+  background-color : black;
+  position : fixed;
+  width : 200px;
+  height : 100%;
+  top : 0;
+  left : -180px;
+  transition : all 0.5s;
+  display : none;
+}
+.top-side-bar.active{
+	display : block;
+}
+.top-sidebar-logo{
+  height : 58px;
+}
+.top-sidebar-logo> *{
+  width :100px;
+}
+/* 메뉴 오픈 바*/
+.side-menu-openbar{
+  position : relative;
+  height : 100%;
+  margin-left : 70px;
+  margin-bottom : 30px;
+  margin-top : 20px;
+  width : 65px;
+}
+.side-menu-openbar > .x-icon{
+  background-color : white;
+  position : absolute;
+  top : 19.5px;
+  left : -2px;
+  width :40px;
+  height : 5px;
+  transition : all 0.5s;
+}
+.x-icon2{
+  margin-top : 20px;
+}
+.top-side-bar.leftIsZero{
+  left : 0;
+}
+.top-side-bar:hover>.top-sidebar-logo>.side-menu-openbar>.x-icon1{
+  transform : rotate(45deg);
+}
+.top-side-bar:hover>.top-sidebar-logo>.side-menu-openbar>.x-icon2{
+  transform : rotate(-45deg);
+  top: 0;
+}
+/* 메뉴 오픈 바*/
+
+/* 사이드바 로고 */
+.side-neon{
+  margin-left : 20px;
+}
+.neon {
+  font-family: neon;
+  color: #FB4264;
+  font-size: 20px;
+  line-height: 20px;
+  text-shadow: 0 0 3.3px #F40A35;
+}
+
+.flux {
+  font-family: neon;
+  color: #426DFB;
+  font-size: 20px;
+  line-height: 20px;
+  text-shadow: 0 0 3.3px #2356FF;
+}
+
+.neon {
+  animation: neon 1s ease infinite;
+  -moz-animation: neon 1s ease infinite;
+  -webkit-animation: neon 1s ease infinite;
+}
+
+@keyframes neon {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
+    color: #FED128;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
+    color: #806914;
+  }
+}
+
+.flux {
+  animation: flux 2s linear infinite;
+  -moz-animation: flux 2s linear infinite;
+  -webkit-animation: flux 2s linear infinite;
+  -o-animation: flux 2s linear infinite;
+}
+
+@keyframes flux {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
+    color: #28D7FE;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
+    color: #146C80;
+  }
+}
+/* 사이드바 로고 */
+
+/* 사이드바 메뉴목록 */
+.top-side-bar > .sidebar__ul{
+  color: white;
+  margin-top : 20px;
+}
+.sidebar__li{
+  text-align : center;
+  font-size : 20px;
+  position : relative;
+}
+.sidebar__li>a{
+  display:block;
+  padding: 15px 0;
+  transition : all 0.5s;
+}
+ul li>a:hover{
+  background-color: white;
+  color: black;
+}
+ul ul {
+  background-color : black;
+  position : absolute;
+  left : 100%;
+  top : 0;
+  width : 100%;
+  visibility : hidden;
+  opacity : 0;
+  transition : all 0.5s;
+}
+ul > li > ul > li {
+  color : white;
+}
+ul > li:hover > ul{
+  display : block;
+  visibility : visible;
+  opacity : 1;
+}
+/* 사이드바 메뉴목록 */

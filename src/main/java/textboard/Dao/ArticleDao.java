@@ -317,7 +317,7 @@ public class ArticleDao {
 		List<Article> articles = getArticles();
 
 		for (int i = 0; i < articles.size(); i++) {
-			if (articles.get(i).num == num) {
+			if (articles.get(i).getNum() == num) {
 				return 1;
 			}
 		}

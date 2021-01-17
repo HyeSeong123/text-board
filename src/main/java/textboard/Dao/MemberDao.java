@@ -59,7 +59,7 @@ public class MemberDao {
 
 		List<Member> members = getMembers();
 		for (int i = 0; i < members.size(); i++) {
-			if (members.get(i).id.equals(id)) {
+			if (members.get(i).getId().equals(id)) {
 				return -1;
 			}
 		}
@@ -81,7 +81,7 @@ public class MemberDao {
 	public Member getMemberId(String id) {
 		List<Member> members = getMembers();
 		for (int i = 0; i < members.size(); i++) {
-			if (members.get(i).id.equals(id)) {
+			if (members.get(i).getId().equals(id)) {
 				return members.get(i);
 			}
 		}

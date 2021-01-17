@@ -11,7 +11,7 @@ import textboard.Util.exportUtil;
 public class DisqusService {
 
 	public Map<String, Object> getArticleData(Article article) {
-		String fileName = Container.exportService.getArticleFileName(article.num);
+		String fileName = Container.exportService.getArticleFileName(article.getNum());
 		String url = "https://disqus.com/api/3.0/forums/listThreads.json";
 
 		DisqusApiDataListThread disqusApiDataListThread = (DisqusApiDataListThread) exportUtil.callApiResponseTo(
@@ -23,8 +23,8 @@ public class DisqusService {
 		}
 		
 		Map<String, Object> rs = new HashMap<>();
-		rs.put("likes", disqusApiDataListThread.response.get(0).likes);
-		rs.put("commentsCount", disqusApiDataListThread.response.get(0).posts);
+		rs.put("likes", disqusApiDataListThread.getResponse().get(0).getLikes());
+		rs.put("commentsCount", disqusApiDataListThread.getResponse().get(0).getPosts());
 		return rs;
 
 	}

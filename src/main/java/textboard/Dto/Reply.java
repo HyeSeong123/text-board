@@ -2,13 +2,16 @@ package textboard.Dto;
 
 import java.util.Map;
 
+import lombok.Data;
+
+@Data
 public class Reply {
-	public int replyNum;
-	public int articleNum;
-	public String name;
-	public String regDate;
-	public String updateDate;
-	public String body;
+	private int replyNum;
+	private int articleNum;
+	private String name;
+	private String regDate;
+	private String updateDate;
+	private String body;
 
 	public Reply(Map<String, Object> replyMap) {
 		this.replyNum = (int) replyMap.get("replyNum");

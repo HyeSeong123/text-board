@@ -2,12 +2,15 @@ package textboard.Dto;
 
 import java.util.Map;
 
+import lombok.Data;
+
+@Data
 public class Member {
-	public int memberNum;
-	public String regDate;
-	public String name;
-	public String id;
-	public String password;
+	private int memberNum;
+	private String regDate;
+	private String name;
+	private String id;
+	private String password;
 
 	public Member(int memberNum, String regDate, String name, String id, String password) {
 		this.memberNum = memberNum;

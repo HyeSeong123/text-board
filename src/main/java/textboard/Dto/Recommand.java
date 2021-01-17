@@ -2,13 +2,16 @@ package textboard.Dto;
 
 import java.util.Map;
 
+import lombok.Data;
+
+@Data
 public class Recommand {
 
-	public int id;
-	public String regDate;
-	public String updateDate;
-	public int memberId;
-	public int articleId;
+	private int id;
+	private String regDate;
+	private String updateDate;
+	private int memberId;
+	private int articleId;
 
 	public Recommand(Map<String, Object> recommand) {
 		this.id = (int) recommand.get("id");
