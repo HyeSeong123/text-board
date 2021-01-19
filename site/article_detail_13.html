@@ -68,7 +68,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" "content="width-device-width" , initial-scale-1>
 
-<title>웹 한 글자씩 나오는 효과 | 바오밥 블로그 | List</title>
+<title>자바 문자열 비교 함수 | 바오밥 블로그 | List</title>
 
 <link rel="stylesheet" href="app.css" />
 <link rel="stylesheet" href="top-bar.css" />
@@ -204,17 +204,66 @@
 
 		<header class="middle flex-grow-1">
 			<div class="con-min-width height-100p">
-				<div class="con height-100p"><div class="con2"><div class="middle-box"><div class="마진 상태"><h1><i class="fas fa-search"></i>게시물 상세보기</h1></div><div class="마진 게시판"><h2>게시판: 공부게시판 - 웹</h2></div><script type="text/x-template="><div class="ui__제목">웹 한 글자씩 나오는 효과</div><span class="마진 작성일">작성일: 2021-01-06 22:16:52</span></script><div class="제목 toast-ui-viewer viewer"></div><div class="underTitle flex"><span class="마진 작성자">작성자: 방혜성</span><div class="flex-grow-1"></div><span class="마진 조회수">조회수: 0</span><span class="마진 추천수">추천수 <i class="fas fa-heart"></i>: 0</span><span class="마진 댓글수">댓글 <i class="fas fa-comments"></i>: 0</span></div><script type="text/x-template=">코드입니다.
-```codepen
-https://codepen.io/hyeseong123/embed/OJRZrzm?height=265&theme-id=light&default-tab=js,result&editable
-```
+				<div class="con height-100p"><div class="con2"><div class="middle-box"><div class="마진 상태"><h1><i class="fas fa-search"></i>게시물 상세보기</h1></div><div class="마진 게시판"><h2>게시판: 공부게시판 - 자바</h2></div><script type="text/x-template="><div class="ui__제목">자바 문자열 비교 함수</div><span class="마진 작성일">작성일: 2021-01-18 23:17:34</span></script><div class="제목 toast-ui-viewer viewer"></div><div class="underTitle flex"><span class="마진 작성자">작성자: 방혜성</span><div class="flex-grow-1"></div><span class="마진 조회수">조회수: 0</span><span class="마진 추천수">추천수 <i class="fas fa-heart"></i>: 0</span><span class="마진 댓글수">댓글 <i class="fas fa-comments"></i>: 0</span></div><script type="text/x-template=">int 같은 정수형 변수들을 비교할 때는 조건문에 == 을 사용하여 비교합니다.
+그러나 String의 변수를 비교할 때는 변수.equal을 사용합니다.
 
-word 함수에서 str의 글자수 연산을 해줍니다.</script><div class="내용 content toast-ui-viewer"></div></div><div class="article_reply-box">
+```java
+package pra;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+
+		String a = "aa";
+		String b = new String("aa");
+		
+		if(a == b) {
+			System.out.println("맞음");
+		} else if(a!=b) {
+			System.out.println("틀림");
+		}
+	}
+}
+```
+위의 실행 결과는 틀림입니다. 자세한 이론은 모르지만 ==은 변수 속의 값을 비교하는게 아닌
+변수의 주소값을 비교한다고 합니다.
+
+```
+package pra;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+
+		String a = "aa";
+		String b = new String("aa");
+		
+		if(a.equals(b)) {
+			System.out.println("맞음");
+		} else if(a.equals(b) == false) {
+			System.out.println("틀림");
+		}
+	}
+}
+```
+위 식의 결과는 맞음 입니다.
+equal은 변수의 값 자체를 비교합니다.
+맞는지 다른지를 알고 싶다면 == false 를 뒤에 붙이면 됩니다.</script><div class="내용 content toast-ui-viewer"></div></div><div class="article_reply-box">
 	<div id="disqus_thread"></div>
 <script>
 	var disqus_config = function() {
-		this.page.url = 'https://blog.baobab612.com/article_detail_11.html';
-		this.page.identifier = 'article_detail_11.html';
+		this.page.url = 'https://blog.baobab612.com/article_detail_13.html';
+		this.page.identifier = 'article_detail_13.html';
 	};
     (function() { // DON'T EDIT BELOW THIS LINE
     var d = document, s = d.createElement('script');
@@ -226,7 +275,7 @@ word 함수에서 str의 글자수 연산을 해줍니다.</script><div class="�
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
 
-<div class="move"></div><div class="other table-cover"><h2>이 게시판의 다른 게시물</h2><table border="2"><thead><tr><th><span>번호</span></th><th><span>작성일</span></th><th><span>작성자</span></th><th><span>제목</span></th><th><span>조회수</span></th><th><span>추천수</span></th></tr></thead><tbody><tr><th class=""><span>12</sapn></th><th class=""><span>2021-01-07 23:01:52</span></th><th class=""><a href="#">방혜성</a></th><th class="table__title"><a href="article_detail_12.html">웹 display 요소</a> <a href="#" class="comment-count"> [0]</a></th><th class=""><span>3</span></th><th class=""><span>0</span></th></tr><tr><th class=""><span>7</sapn></th><th class=""><span>2020-12-23 12:37:46</span></th><th class=""><a href="#">방혜성</a></th><th class="table__title"><a href="article_detail_7.html">웹 자주 사용하는 태그</a> <a href="#" class="comment-count"> [0]</a></th><th class=""><span>1</span></th><th class=""><span>0</span></th></tr><tr><th class=""><span>6</sapn></th><th class=""><span>2020-12-22 09:25:10</span></th><th class=""><a href="#">방혜성</a></th><th class="table__title"><a href="article_detail_6.html">웹 audio 태그</a> <a href="#" class="comment-count"> [0]</a></th><th class=""><span>0</span></th><th class=""><span>0</span></th></tr></tbody></table></div></div><header class="bottom">
+<div class="move"></div><div class="other table-cover"><h2>이 게시판의 다른 게시물</h2><table border="2"><thead><tr><th><span>번호</span></th><th><span>작성일</span></th><th><span>작성자</span></th><th><span>제목</span></th><th><span>조회수</span></th><th><span>추천수</span></th></tr></thead><tbody><tr><th class=""><span>5</sapn></th><th class=""><span>2020-12-22 09:24:21</span></th><th class=""><a href="#">방혜성</a></th><th class="table__title"><a href="article_detail_5.html">JAVA FOR문</a> <a href="#" class="comment-count"> [1]</a></th><th class=""><span>2</span></th><th class=""><span>1</span></th></tr><tr><th class=""><span>3</sapn></th><th class=""><span>2020-12-21 09:03:49</span></th><th class=""><a href="#">방혜성</a></th><th class="table__title"><a href="article_detail_3.html">JAVA IF문</a> <a href="#" class="comment-count"> [0]</a></th><th class=""><span>0</span></th><th class=""><span>0</span></th></tr></tbody></table></div></div><header class="bottom">
 		<div class="con-min-width height-100p">
 			<div class="con height-100p">
 				<section class="section flex flex-ai-c flex-jc-ar height-100p">

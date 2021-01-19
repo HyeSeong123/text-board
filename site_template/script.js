@@ -93,10 +93,13 @@ function TopBar__init() {
 	$(window).off("wheel", function(event) {
 		$('.top-side-bar').removeClass('active');
 	});
-	$('.x-icon').mouseenter(function() {
+	$('.x-icon-cover').mouseenter(function() {
 		$('.top-side-bar').addClass('leftIsZero');
 	});
 	$('.top-side-bar').mouseleave(function() {
+		$('.top-side-bar').removeClass('leftIsZero');
+	});
+	$('.x-icon-cover').click(function() {
 		$('.top-side-bar').removeClass('leftIsZero');
 	});
 }

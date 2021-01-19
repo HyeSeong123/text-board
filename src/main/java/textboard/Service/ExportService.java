@@ -24,7 +24,6 @@ public class ExportService {
 		exportUtil.mkdirs("site");
 
 		exportUtil.copy("site_template/app.css", "site/app.css");
-		exportUtil.copy("site_template/app1.css", "site/app1.css");
 		exportUtil.copy("site_template/script.js", "site/javascript.js");
 		exportUtil.copy("site_template/top-bar.js", "site/top-bar.js");
 		exportUtil.copy("site_template/list_gsap.js", "site/list_gsap.js");
@@ -443,7 +442,7 @@ public class ExportService {
 		sb.append("</table>");
 		sb.append("</div>");
 		sb.append("</div>");
-
+		sb.append("</header>");
 		sb.append(foot);
 
 		String filePath = "site/index.html";

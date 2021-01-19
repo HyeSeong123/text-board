@@ -1,3 +1,4 @@
+/*
 @media screen and (max-width: 1150px) {
 	.top-menu {
 		visibility : hidden;
@@ -43,7 +44,7 @@
 		width: 200px;
 		top:100%;
 		right : -180px;
-		background: #44A08D; /* fallback for old browsers */
+		background: #44A08D; /* fallback for old browsers 
 		background: -webkit-linear-gradient(to right, #093637, #44A08D);
 		background: linear-gradient(to right, #093637, #44A08D);
 		transition : right 0.5s ease;
@@ -87,8 +88,8 @@
 	}
 	.top-menu-1.active ul>li:hover>ul>li {
 		width : 140px;
-		background: #44A08D; /* fallback for old browsers */
+		background: #44A08D; /* fallback for old browsers 
 		background: -webkit-linear-gradient(to right, #093637, #44A08D);
 		background: linear-gradient(to right, #093637, #44A08D);
 	}
-}
+}*/
