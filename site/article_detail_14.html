@@ -68,7 +68,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" "content="width-device-width" , initial-scale-1>
 
-<title>바오밥 블로그 | 로그인 페이지</title>
+<title>자바 List | 바오밥 블로그 | List</title>
 
 <link rel="stylesheet" href="app.css" />
 <link rel="stylesheet" href="top-bar.css" />
@@ -204,44 +204,174 @@
 
 		<header class="middle flex-grow-1">
 			<div class="con-min-width height-100p">
-				<div class="con height-100p"><div class="loginpage">
-  <section class="loginpage__top-logo">
-    <span>MEMBERS LOGIN</span>
-    <span class="login-icon icon">
-      <img src="https://www.flaticon.com/svg/static/icons/svg/1828/1828499.svg" alt="">
-    </span>
-  </section>
+				<div class="con height-100p"><div class="con2"><div class="middle-box"><div class="마진 상태"><h1><i class="fas fa-search"></i>게시물 상세보기</h1></div><div class="마진 게시판"><h2>게시판: 공부게시판 - 자바</h2></div><script type="text/x-template="><div class="ui__제목">자바 List</div><span class="마진 작성일">작성일: 2021-01-20 00:30:35</span></script><div class="제목 toast-ui-viewer viewer"></div><div class="underTitle flex"><span class="마진 작성자">작성자: 방혜성</span><div class="flex-grow-1"></div><span class="마진 조회수">조회수: 0</span><span class="마진 추천수">추천수 <i class="fas fa-heart"></i>: 0</span><span class="마진 댓글수">댓글 <i class="fas fa-comments"></i>: 0</span></div><script type="text/x-template=">코딩을 하면서 객체를 배열에 담아 사용하는것은 많이 번거롭습니다.
 
-  <section class="id loginpage__textbox">
-    <span>아이디</span>
-    <form action="" onsubmit="return false;">
-      <input type="text" name="message" placeholder="아이디를 입력해주세요.">
-    </form> 
-  </section>
+```java
+package pra;
 
-  <section class="password loginpage__textbox">
-    <span>비밀번호</span>
-    <form action="" onsubmit="return false;">
-      <input type="text" name="message" placeholder="비밀번호를 입력해주세요.">
-    </form> 
-  </section>
+import java.util.ArrayList;
+import java.util.List;
 
-  <nav class="login-button">
-    <button>로그인</button>
-  </nav>
+public class App {
+	Article article;
+	List<Article> articles;
 
-  <div class = "checkbox">
-    <span class="id-save">아이디 저장</span>
-    <input type="checkbox">
-    <span class="login-hold">로그인 상태 유지</span>
-    <input type="checkbox">
-  </div>
-  
-  <nav class="id_password">
-    <button class="loginpage__id">회원가입</button>
-    <button class="password">아이디/비밀번호 찾기</button>
-  </nav>
-</div></header></div><header class="bottom">
+	public void App() {
+		article = new Article();
+		articles = new ArrayList<>();
+	}
+
+	public void run() {
+		Article[] article1 = new Article[5];
+
+		for (int i = 0; i < article1.length; i++) {
+			article1[i] = new Article();
+		}
+		article1[0].number = 1;
+		article1[0].title = "가나다라";
+
+		System.out.printf("번호 : %d, 이름 : %s\n", article1[0].number, article1[0].title);
+	}
+
+	public class Article {
+		private int number = 0;
+		private String title = "";
+	}
+}
+                                ---- 출력 결과 ----
+번호 : 1, 이름 : 가나다라
+```
+배열로 객체를 사용하려면 배열의 길이 지정뿐만 아니라
+배열의 중간을 삭제하게 된다면
+어느 부분이 비어있는지 연산한 뒤, 한 칸 씩 바꿔가며 삭제되어 비어진 부분을 넘겨야하고 또, 
+```java
+for (int i = 0; i < article1.length; i++) {
+	article1[i] = new Article();
+}
+```
+위 코드와 같이 선언 해준 뒤 사용한다고 다시 지정을 해야해서 코드가 길어지고 헷갈려집니다.
+
+그래서 List를 사용하는데 위를 List로 바꾸게 된다면
+
+```java
+package pra;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class App {
+	Article article;
+	List<Article> articles;
+
+	public void App() {
+		article = new Article();
+		articles = new ArrayList<>();
+	}
+
+	public void run() {
+		listAdd(1, "홍길동");
+
+	}
+
+	private void listAdd(int number, String title) {
+		article = new Article();
+		articles = new ArrayList<>();
+
+		article.number = 1;
+		article.title = "홍길동";
+
+		articles.add(article);
+
+		System.out.printf("번호 : %d, 이름 : %s\n", articles.get(0).number, articles.get(0).title);
+	}
+
+	public class Article {
+		private int number = 0;
+		private String title = "";
+	}
+}
+                                ---- 출력 결과 ----
+번호 : 1, 이름 : 홍길동
+```
+위와 같습니다. List는 값이 들어오면 순차적으로 쌓아주며 중간이 삭제된다고 해도
+정리를 해줍니다.
+
+값을 수정하고 싶다면
+
+```java
+package pra;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class App {
+	Article article;
+	List<Article> articles;
+
+	public void App() {
+		article = new Article();
+		articles = new ArrayList<>();
+	}
+
+	public void run() {
+		listAdd(1, "홍길동");
+		listModify(2, "임꺽정");
+		System.out.printf("리스트 갯수 = %d", articles.size());
+	}
+
+	private void listAdd(int number, String title) {
+		article = new Article();
+		articles = new ArrayList<>();
+
+		article.number = 1;
+		article.title = "홍길동";
+
+		articles.add(article);
+
+		System.out.printf("번호 : %d, 이름 : %s\n", articles.get(0).number, articles.get(0).title);
+	}
+
+	private void listModify(int number, String title) {
+
+		article.number = number;
+		article.title = title;
+
+		articles.set(0, article);
+
+		System.out.printf("번호 : %d, 이름 : %s\n", articles.get(0).number, articles.get(0).title);
+	}
+
+	public class Article {
+		private int number = 0;
+		private String title = "";
+	}
+}
+                                ---- 출력 결과 ----
+번호 : 1, 이름 : 홍길동
+번호 : 2, 이름 : 임꺽정
+리스트 갯수 = 1
+```
+set을 사용하여 변경할 수 있습니다.
+
+삭제는 .remove(리스트번호)로 삭제할 수 있고
+값을 가져오는것은 get(리스트번호)로 값을 가져올 수 있습니다.</script><div class="내용 content toast-ui-viewer"></div></div><div class="article_reply-box">
+	<div id="disqus_thread"></div>
+<script>
+	var disqus_config = function() {
+		this.page.url = 'https://blog.baobab612.com/article_detail_14.html';
+		this.page.identifier = 'article_detail_14.html';
+	};
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://baobab612.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+<div class="move"></div><div class="other table-cover"><h2>이 게시판의 다른 게시물</h2><table border="2"><thead><tr><th><span>번호</span></th><th><span>작성일</span></th><th><span>작성자</span></th><th><span>제목</span></th><th><span>조회수</span></th><th><span>추천수</span></th></tr></thead><tbody><tr><th class=""><span>13</sapn></th><th class=""><span>2021-01-18 23:17:34</span></th><th class=""><a href="#">방혜성</a></th><th class="table__title"><a href="article_detail_13.html">자바 문자열 비교 함수</a> <a href="#" class="comment-count"> [0]</a></th><th class=""><span>0</span></th><th class=""><span>0</span></th></tr><tr><th class=""><span>5</sapn></th><th class=""><span>2020-12-22 09:24:21</span></th><th class=""><a href="#">방혜성</a></th><th class="table__title"><a href="article_detail_5.html">JAVA FOR문</a> <a href="#" class="comment-count"> [1]</a></th><th class=""><span>2</span></th><th class=""><span>1</span></th></tr><tr><th class=""><span>3</sapn></th><th class=""><span>2020-12-21 09:03:49</span></th><th class=""><a href="#">방혜성</a></th><th class="table__title"><a href="article_detail_3.html">JAVA IF문</a> <a href="#" class="comment-count"> [0]</a></th><th class=""><span>0</span></th><th class=""><span>0</span></th></tr></tbody></table></div></div><header class="bottom">
 		<div class="con-min-width height-100p">
 			<div class="con height-100p">
 				<section class="section flex flex-ai-c flex-jc-ar height-100p">

@@ -99,6 +99,9 @@ function TopBar__init() {
 	$('.top-side-bar').mouseleave(function() {
 		$('.top-side-bar').removeClass('leftIsZero');
 	});
+	$('.x-icon-cover').click(function() {
+		$('.top-side-bar').removeClass('leftIsZero');
+	});
 }
 TopBar__init();
 EditorViewer1__init();
