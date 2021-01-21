@@ -43,8 +43,8 @@
 <meta name="subject" content="오밥이의 공부 블로그">
 <meta name="description" content="바오밥의 공부 사이트 입니다.">
 <meta name="keywords" content="{site-keword}">
-<meta name="pubdate" content="T2T0T2T1T-T0T1T-T-T2T0T T0T0T:T5T8T:T3T5T">
-<meta name="lastmon" content="T2T0T2T1T-T0T1T-T-T2T0T T0T0T:T5T8T:T3T5T">
+<meta name="pubdate" content="T2T0T2T1T-T0T1T-T-T2T1T T2T2T:T4T0T:T4T6T">
+<meta name="lastmon" content="T2T0T2T1T-T0T1T-T-T2T1T T2T2T:T4T0T:T4T6T">
 
 <meta property="og:type" content="website" />
 <meta property="og:title" content="오밥이의 공부 블로그" />
@@ -65,6 +65,12 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
 <script data-ad-client="ca-pub-6509950454554885" async
 	src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- lodash 불러오기 -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
+
+<!-- vue 불러오기 -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <meta charset="UTF-8" />
 <meta name="viewport" "content="width-device-width" , initial-scale-1>
 
@@ -204,38 +210,33 @@
 
 		<header class="middle flex-grow-1">
 			<div class="con-min-width height-100p">
-				<div class="con height-100p"><!-- lodash 불러오기 -->
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
-
-<!-- vue 불러오기 -->
-<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-
-<section id="article-list-wrap" class="">
-	<div class="flex flex-column flex-ai-c">
-		<div class="shooting-cover">
+				<div class="con height-100p"><section id="article-list-wrap" class="flex flex-column flex-ai-c">
+	<div class="shooting-cover">
 		<div class="shooting-stars">
-		<div class="shooting-star"></div>
-		<div class="shooting-star shooting-star--mid"></div>
-		<div class="shooting-star shooting-star--mid1"></div>
-		<div class="shooting-star shooting-star--mid2"></div>
-		<div class="shooting-star shooting-star--mid3"></div>
-		<div class="shooting-star shooting-star--mid4"></div>
-		<div class="shooting-star shooting-star--fast"></div>
-		<div class="shooting-star shooting-star--fast2"></div>
-		<div class="shooting-star shooting-star--fast2"></div>
+			<div class="shooting-star"></div>
+			<div class="shooting-star shooting-star--mid"></div>
+			<div class="shooting-star shooting-star--mid1"></div>
+			<div class="shooting-star shooting-star--mid2"></div>
+			<div class="shooting-star shooting-star--mid3"></div>
+			<div class="shooting-star shooting-star--mid4"></div>
+			<div class="shooting-star shooting-star--fast"></div>
+			<div class="shooting-star shooting-star--fast2"></div>
+			<div class="shooting-star shooting-star--fast2"></div>
 		</div>
-			<div class="article-search">
-				<form class="block">
-					<input @input="searchKeywordInputed" type="text" placeholder="검색어"
-						:value="searchKeyword">
-				</form>
-			</div>
-			<div class="article-list listbox-cover flex flex-column flex-ai-c">
-				<div class="main balloon-box flex flex-column">
-					<div v-for="article in filtered">
-						<a class="balloon__a" :href="'article_detail_' + article.num + '.html'">
-							<div class="balloon search__balloon-left balloon1">
+		<div class="article-search">
+			<form class="block">
+				<input @input="searchKeywordInputed" type="text"
+					placeholder="검색어" :value="searchKeyword">
+			</form>
+		</div>
+		<div class="article-list listbox-cover flex flex-column flex-ai-c">
+			<div>
+				<main>
+					<div class="main balloon-box flex flex-column">
+						<a v-for="article in filtered"
+							:href="'article_detail_' + article.num + '.html'"
+							class="balloon__a search__balloon1" style="opacity:1">
+							<div class="search__balloon-left balloon">
 								<div class="balloon__작성일">작성일 : {{article.regDate}}</div>
 								<div class="balloon__작성자">작성자 : {{article.writer}}</div>
 								<div class="balloon__제목">제목 : {{article.title}}</div>
@@ -245,14 +246,15 @@
 							</div>
 						</a>
 					</div>
-				</div>
+				</main>
 			</div>
 		</div>
+	</div>
 
 	</div>
 </section>
 
-<script src="article_search.js"></script><header class="bottom">
+<header class="bottom">
 		<div class="con-min-width height-100p">
 			<div class="con height-100p">
 				<section class="section flex flex-ai-c flex-jc-ar height-100p">
@@ -279,6 +281,7 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NTVXBHG"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+<script src="article_search.js"></script>
 <script src="javascript.js"></script>
 <script src="top-bar.js"></script>
 <script src="list_gsap.js"></script>

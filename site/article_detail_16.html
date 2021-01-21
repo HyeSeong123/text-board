@@ -43,8 +43,8 @@
 <meta name="subject" content="오밥이의 공부 블로그">
 <meta name="description" content="바오밥의 공부 사이트 입니다.">
 <meta name="keywords" content="{site-keword}">
-<meta name="pubdate" content="T2T0T2T1T-T0T1T-T-T2T1T T2T2T:T4T0T:T4T6T">
-<meta name="lastmon" content="T2T0T2T1T-T0T1T-T-T2T1T T2T2T:T4T0T:T4T6T">
+<meta name="pubdate" content="T2T0T2T1T-T0T1T-T-T2T1T T2T2T:T4T0T:T4T5T">
+<meta name="lastmon" content="T2T0T2T1T-T0T1T-T-T2T1T T2T2T:T4T0T:T4T5T">
 
 <meta property="og:type" content="website" />
 <meta property="og:title" content="오밥이의 공부 블로그" />
@@ -74,7 +74,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" "content="width-device-width" , initial-scale-1>
 
-<title>JSP 서블릿 | 바오밥 블로그 | List</title>
+<title>[자바 스크립트]현재 클릭된 요소 말고 다른부분이 클릭되면 remove 하기 | 바오밥 블로그 | List</title>
 
 <link rel="stylesheet" href="app.css" />
 <link rel="stylesheet" href="top-bar.css" />
@@ -210,14 +210,33 @@
 
 		<header class="middle flex-grow-1">
 			<div class="con-min-width height-100p">
-				<div class="con height-100p"><div class="con2"><div class="middle-box"><div class="마진 상태"><h1><i class="fas fa-search"></i>게시물 상세보기</h1></div><div class="마진 게시판"><h2>게시판: 공부게시판 - JSP</h2></div><script type="text/x-template="><div class="ui__제목">JSP 서블릿</div><span class="마진 작성일">작성일: 2020-12-29 08:50:53</span></script><div class="제목 toast-ui-viewer viewer"></div><div class="underTitle flex"><span class="마진 작성자">작성자: 방혜성</span><div class="flex-grow-1"></div><span class="마진 조회수">조회수: 2</span><span class="마진 추천수">추천수 <i class="fas fa-heart"></i>: 0</span><span class="마진 댓글수">댓글 <i class="fas fa-comments"></i>: 0</span></div><script type="text/x-template=">```codepen
-https://codepen.io/hyeseong123/embed/GRjyyew?height=465&theme-id=light&default-tab=result
-```</script><div class="내용 content toast-ui-viewer"></div></div><div class="article_reply-box">
+				<div class="con height-100p"><div class="con2"><div class="middle-box"><div class="마진 상태"><h1><i class="fas fa-search"></i>게시물 상세보기</h1></div><div class="마진 게시판"><h2>게시판: 공부게시판 - 웹</h2></div><script type="text/x-template="><div class="ui__제목">[자바 스크립트]현재 클릭된 요소 말고 다른부분이 클릭되면 remove 하기</div><span class="마진 작성일">작성일: 2021-01-21 22:25:34</span></script><div class="제목 toast-ui-viewer viewer"></div><div class="underTitle flex"><span class="마진 작성자">작성자: 방혜성</span><div class="flex-grow-1"></div><span class="마진 조회수">조회수: 0</span><span class="마진 추천수">추천수 <i class="fas fa-heart"></i>: 0</span><span class="마진 댓글수">댓글 <i class="fas fa-comments"></i>: 0</span></div><script type="text/x-template=">자바 스크립트에서 특정 태그가 클릭 되면 addClass를 사용하여 이벤트를 걸어주는 경우가 많습니다.
+근데 onClick 은 있지만 offClick은 없습니다.
+이번에는 비슷하게 사용하는 코드를 가져왔습니다.
+
+```codepen
+https://codepen.io/hyeseong123/embed/gOwyXyP?height=655&theme-id=light&default-tab=css,result&editable=true
+```
+여기서 사용된 자바 스크립트는
+mouseenter : 마우스 진입 시에 이벤트가 발동됩니다.
+mouseleave: 마우스가 나갔을 때 이벤트가 발동됩니다.
+```js
+$('html').click(function(e){
+  if(!$(e.target).hasClass('active')){
+  $('.top-bar__form > input').removeClass('active-hold');
+   }
+});
+```
+html 전체에서 현재 클릭된 곳의 클래스를 검사하여 특정 클래스를 가지고 있지 않으면
+제거 합니다.
+인풋 박스를 클릭 했을 때 active-hold란 클래스가 추가되는데,
+만약 이 때 다른 곳을 클릭하면 active-hold 클래스가 없기 때문에 removeClass 시켜줍니다.
+</script><div class="내용 content toast-ui-viewer"></div></div><div class="article_reply-box">
 	<div id="disqus_thread"></div>
 <script>
 	var disqus_config = function() {
-		this.page.url = 'https://blog.baobab612.com/article_detail_8.html';
-		this.page.identifier = 'article_detail_8.html';
+		this.page.url = 'https://blog.baobab612.com/article_detail_16.html';
+		this.page.identifier = 'article_detail_16.html';
 	};
     (function() { // DON'T EDIT BELOW THIS LINE
     var d = document, s = d.createElement('script');
@@ -229,7 +248,7 @@ https://codepen.io/hyeseong123/embed/GRjyyew?height=465&theme-id=light&default-t
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
 
-<div class="move"></div><div class="other table-cover"><h2>이 게시판의 다른 게시물</h2><table border="2"><thead><tr><th><span>번호</span></th><th><span>작성일</span></th><th><span>작성자</span></th><th><span>제목</span></th><th><span>조회수</span></th><th><span>추천수</span></th></tr></thead><tbody><tr><th class=""><span>15</sapn></th><th class=""><span>2021-01-21 00:05:28</span></th><th class=""><a href="#">방혜성</a></th><th class="table__title"><a href="article_detail_15.html">JSP 커뮤니티 개발일지</a> <a href="#" class="comment-count"> [0]</a></th><th class=""><span>0</span></th><th class=""><span>0</span></th></tr></tbody></table></div></div><header class="bottom">
+<div class="move"></div><div class="other table-cover"><h2>이 게시판의 다른 게시물</h2><table border="2"><thead><tr><th><span>번호</span></th><th><span>작성일</span></th><th><span>작성자</span></th><th><span>제목</span></th><th><span>조회수</span></th><th><span>추천수</span></th></tr></thead><tbody><tr><th class=""><span>12</sapn></th><th class=""><span>2021-01-07 23:01:52</span></th><th class=""><a href="#">방혜성</a></th><th class="table__title"><a href="article_detail_12.html">display 요소</a> <a href="#" class="comment-count"> [0]</a></th><th class=""><span>3</span></th><th class=""><span>0</span></th></tr><tr><th class=""><span>11</sapn></th><th class=""><span>2021-01-06 22:16:52</span></th><th class=""><a href="#">방혜성</a></th><th class="table__title"><a href="article_detail_11.html">[자바스크립트]한 글자씩 나오는 효과</a> <a href="#" class="comment-count"> [0]</a></th><th class=""><span>0</span></th><th class=""><span>0</span></th></tr><tr><th class=""><span>7</sapn></th><th class=""><span>2020-12-23 12:37:46</span></th><th class=""><a href="#">방혜성</a></th><th class="table__title"><a href="article_detail_7.html">자주 사용하는 태그</a> <a href="#" class="comment-count"> [0]</a></th><th class=""><span>1</span></th><th class=""><span>0</span></th></tr><tr><th class=""><span>6</sapn></th><th class=""><span>2020-12-22 09:25:10</span></th><th class=""><a href="#">방혜성</a></th><th class="table__title"><a href="article_detail_6.html">audio 태그</a> <a href="#" class="comment-count"> [0]</a></th><th class=""><span>0</span></th><th class=""><span>0</span></th></tr></tbody></table></div></div><header class="bottom">
 		<div class="con-min-width height-100p">
 			<div class="con height-100p">
 				<section class="section flex flex-ai-c flex-jc-ar height-100p">

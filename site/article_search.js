@@ -1,3 +1,4 @@
+gsap.registerPlugin(ScrollTrigger);
 const articleList = [];
 
 $.get(
@@ -55,4 +56,20 @@ const articleListBoxVue = new Vue({
 			});
 		}
 	}
+});
+
+var tl1 = gsap.timeline();
+
+tl1.to('.search__balloon1', {
+	x: 600,
+	opacity: 1,
+	duration: 1,
+	ease : "none"
+},"+=0.2");
+
+tl1.to('.search__balloon2', {
+	x: -600,
+	opacity: 1,
+	duration: 1,
+	ease : "none"
 });

@@ -182,13 +182,13 @@ public class ExportService {
 		for (int i = start; i <= end; i++) {
 			Article article = articles.get(i);
 
-			String link = "article_detail_" + article.getNum() + ".html";
+			String link = " article_detail_" + article.getNum() + ".html";
 
-			mainContent.append("<a href=\"" + link + "\" class=\"balloon__a " + link + "\">");
+			mainContent.append("<a href=\"" + link + "\" class=\"balloon__a balloon" + (i + 1) + link + "\">");
 			if (i % 2 == 0) {
-				mainContent.append("<div class=\"balloon-left balloon balloon" + (i + 1) + "\">");
+				mainContent.append("<div class=\"balloon-left balloon" + "\">");
 			} else if (i % 2 != 0) {
-				mainContent.append("<div class=\"balloon-right balloon balloon" + (i + 1) + "\">");
+				mainContent.append("<div class=\"balloon-right balloon" + "\">");
 			}
 			mainContent.append("<div class=\"balloon__작성일\">작성일: " + article.getRegDate() + "</div>");
 			mainContent.append("<div class=\"balloon__작성자\">작성자: " + article.getExtra__writer() + "</div>");
