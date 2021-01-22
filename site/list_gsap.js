@@ -8,10 +8,9 @@ function applyGsapToSearchResult() {
 			gsap.to(node, {
 				scrollTrigger: {
 					trigger: node,
-					markers: true,
-					start: "-150px 25%",
-					end: "-100px 5%",
-					scrub: true
+					markers: false,
+					start: "-370px 25%",
+					end: "-170px 20%",
 				},
 				x: 750,
 				opacity: 1,
