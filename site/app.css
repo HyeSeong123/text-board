@@ -225,6 +225,7 @@ body {
 }
 .balloon-box{
 	margin-right : 600px;
+	margin-top : 350px;
 }
 .balloon-box>a{
 	width: 250px;
@@ -236,7 +237,7 @@ body {
 .balloon{
   min-height : 50px;
   width : 350px;
-  padding : 10px 0 5px 0;
+  padding : 10px 10px 5px 0;
   background-color: grey;
   position : relative;
   border-radius : 10px;

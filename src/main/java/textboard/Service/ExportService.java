@@ -184,12 +184,20 @@ public class ExportService {
 
 			String link = " article_detail_" + article.getNum() + ".html";
 
-			mainContent.append("<a href=\"" + link + "\" class=\"balloon__a balloon" + (i + 1) + link + "\">");
+			/*
 			if (i % 2 == 0) {
-				mainContent.append("<div class=\"balloon-left balloon" + "\">");
+			mainContent.append("<a href=\"" + link + "\" class=\"balloon__a balloon-left balloon" + (i + 1) + link + "\">");
+			
 			} else if (i % 2 != 0) {
-				mainContent.append("<div class=\"balloon-right balloon" + "\">");
+				mainContent.append("<a href=\"" + link + "\" class=\"balloon__a balloon-right balloon" + (i + 1) + link + "\">");
 			}
+			
+			mainContent.append("<div class=\"balloon" + "\">");*/
+			
+			mainContent.append("<a href=\"" + link + "\" class=\"balloon__a balloon" + (i + 1) + link + "\">");
+			mainContent.append("<div class=\"balloon-left balloon" + "\">");
+
+			
 			mainContent.append("<div class=\"balloon__작성일\">작성일: " + article.getRegDate() + "</div>");
 			mainContent.append("<div class=\"balloon__작성자\">작성자: " + article.getExtra__writer() + "</div>");
 			mainContent.append("<div class=\"balloon__제목\">제목: " + article.getTitle() + "</div>");
