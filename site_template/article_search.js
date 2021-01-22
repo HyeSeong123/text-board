@@ -1,4 +1,3 @@
-gsap.registerPlugin(ScrollTrigger);
 const articleList = [];
 
 $.get(
@@ -34,6 +33,20 @@ const articleListBoxVue = new Vue({
 			this.searchKeyword = e.target.value;
 		}, 500)
 	},
+	watch: {
+		filtered: function (newFiltered, oldFiltered) {
+			if ( window.applyGsapToSearchResult ) {
+				window.applyGsapToSearchResult();
+			}
+		}
+	},
+	mounted: function() {
+		if ( window.applyGsapToSearchResult ) {
+			setTimeout(function() {
+				window.applyGsapToSearchResult();
+			}, 100);
+		}
+	},
 	computed: {
 		filterKey: function() {
 			return this.searchKeyword.toLowerCase();
@@ -44,9 +57,10 @@ const articleListBoxVue = new Vue({
 			}
 
 			return this.articleList.filter((row) => {
-				const keys = ['title', 'writer', 'regDate', 'commentsCount', 'views', 'likes', 'num'];
+				const keys = ['title', 'writer', 'regDate'];
 
 				const match = keys.some((key) => {
+					
 					if (row[key].toLowerCase().indexOf(this.filterKey) > -1) {
 						return true;
 					}
@@ -56,20 +70,4 @@ const articleListBoxVue = new Vue({
 			});
 		}
 	}
-});
-
-var tl1 = gsap.timeline();
-
-tl1.to('.search__balloon1', {
-	x: 600,
-	opacity: 1,
-	duration: 1,
-	ease : "none"
-},"+=0.2");
-
-tl1.to('.search__balloon2', {
-	x: -600,
-	opacity: 1,
-	duration: 1,
-	ease : "none"
 });

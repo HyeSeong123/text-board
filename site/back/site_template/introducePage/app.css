@@ -1,0 +1,128 @@
+@font-face {
+	font-family: 'LotteMartDream';
+	font-style: normal;
+	font-weight: 400;
+	src:
+		url('https://cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff2')
+		format('woff2'),
+		url('https://cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff')
+		format('woff');
+}
+
+@font-face {
+	font-family: 'LotteMartDream';
+	font-style: normal;
+	font-weight: 700;
+	src:
+		url('https://cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamBold.woff2')
+		format('woff2'),
+		url('https://cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamBold.woff')
+		format('woff');
+}
+
+@font-face {
+	font-family: 'LotteMartDream';
+	font-style: normal;
+	font-weight: 300;
+	src:
+		url('https://cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamLight.woff2')
+		format('woff2'),
+		url('https://cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamLight.woff')
+		format('woff');
+}
+a{
+  color : inherit;
+  text-decoration : none;
+}
+.flex{
+  display : flex;
+}
+.flex-jc-c{
+  justify-content : center;
+}
+.flex-ai-c{
+  align-items : center;
+}
+.bd-red{
+  border : 2px solid red;
+}
+.height-100p{
+  height : 100%;
+}
+html, body {
+  height: 100%;
+  font-family: 'LotteMartDream';
+}
+/* 색 조정 */
+.color1{
+  background: #FF5F6D;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #FFC371, #FF5F6D);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #FFC371, #FF5F6D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.color2{
+  background: #ff4b1f;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #2196f3, #ff4b1f);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #2196f3, #ff4b1f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.color3{
+  background: #16BFFD;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #1d4350, #16BFFD);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #1d4350, #16BFFD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.color4{
+  background: #4B79A1;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #283E51, #4B79A1);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #283E51, #4B79A1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.color5{
+  background: #000000;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #000000 , #434343);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #000000 , #434343); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+/* 색 조정 */
+.panel {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+section:not(.first) {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.8);
+}
+
+span>img{
+	display : inline-block;
+	width : 100px;
+}
+.panel>.img-box{
+  display : flex;
+  justify-content : center;
+  align-items : center;
+  height : 100%;
+  flex-direction : column;
+}
+.panel>.img-box>span{
+	font-size : 25px;
+	height : 50px;
+}
+.index{
+	position : fixed;
+	top : 10;
+	left : 10;
+}
+.study{
+	height:200px;
+	line-height: 200px;
+	margin-bottom : 150px;
+}
+.index>a{
+	font-size : 20px;
+}
+.introduce__icon{
+	margin-bottom : 85px;
+}
