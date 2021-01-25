@@ -45,22 +45,22 @@ public class ExportService {
 		String jsonText = exportUtil.getJsonText(articles);
 		exportUtil.writeFileContents("site/article_list.json", jsonText);
 		exportUtil.copy("site_template/article_search.js", "site/article_search.js");
-		
+
 		StringBuilder sb = new StringBuilder();
-		
+
 		String head = getHeadHtml("article_search");
 		String foot = exportUtil.getFileContents("site_template/foot.html");
-		
+
 		String html = exportUtil.getFileContents("site_template/article_search.html");
-		
+
 		sb.append(head);
 		sb.append(html);
 		sb.append(foot);
-		
+
 		String filePath = "site/article_search.html";
 		exportUtil.writeFileContents(filePath, sb.toString());
 		System.out.println(filePath + "생성");
-		
+
 	}
 
 	private void loadDataFromGa4Data() {
@@ -185,19 +185,18 @@ public class ExportService {
 			String link = " article_detail_" + article.getNum() + ".html";
 
 			/*
-			if (i % 2 == 0) {
-			mainContent.append("<a href=\"" + link + "\" class=\"balloon__a balloon-left balloon" + (i + 1) + link + "\">");
-			
-			} else if (i % 2 != 0) {
-				mainContent.append("<a href=\"" + link + "\" class=\"balloon__a balloon-right balloon" + (i + 1) + link + "\">");
-			}
-			
-			mainContent.append("<div class=\"balloon" + "\">");*/
-			
+			 * if (i % 2 == 0) { mainContent.append("<a href=\"" + link +
+			 * "\" class=\"balloon__a balloon-left balloon" + (i + 1) + link + "\">");
+			 * 
+			 * } else if (i % 2 != 0) { mainContent.append("<a href=\"" + link +
+			 * "\" class=\"balloon__a balloon-right balloon" + (i + 1) + link + "\">"); }
+			 * 
+			 * mainContent.append("<div class=\"balloon" + "\">");
+			 */
+
 			mainContent.append("<a href=\"" + link + "\" class=\"balloon__a balloon" + (i + 1) + link + "\">");
 			mainContent.append("<div class=\"balloon-left balloon" + "\">");
 
-			
 			mainContent.append("<div class=\"balloon__작성일\">작성일: " + article.getRegDate() + "</div>");
 			mainContent.append("<div class=\"balloon__작성자\">작성자: " + article.getExtra__writer() + "</div>");
 			mainContent.append("<div class=\"balloon__제목\">제목: " + article.getTitle() + "</div>");
@@ -337,11 +336,22 @@ public class ExportService {
 				String head = getHeadHtml("article_detail", article);
 
 				StringBuilder sb = new StringBuilder();
-
+						
 				sb.append(head);
 
 				String articleBodyForPrint = article.getBody();
 				articleBodyForPrint = articleBodyForPrint.replaceAll("script", "<!--REPLACE:script-->");
+				
+				sb.append("<div class=\"ad_margin\"></div>");
+				sb.append(
+						"<script async src=\"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js\"></script> ");
+				sb.append(
+						"<ins class=\"adsbygoogle\" style=\"display:block; text-align:center;\" data-ad-layout=\"in-article\" data-ad-format=\"fluid\" data-ad-client=\"ca-pub-6509950454554885\" data-ad-slot=\"5923605860\">");
+				sb.append("</ins>");
+				sb.append("<script>");
+				sb.append("(adsbygoogle = window.adsbygoogle || []).push({});");
+				sb.append("</script>");
+				
 				sb.append("<div class=\"con2\">");
 				sb.append("<div class=\"middle-box\">");
 				sb.append("<div class=\"마진 상태\"><h1><i class=\"fas fa-search\"></i>게시물 상세보기</h1></div>");
@@ -354,7 +364,8 @@ public class ExportService {
 				sb.append("<span class=\"마진 작성자\">작성자: " + article.getExtra__writer() + "</span>");
 				sb.append("<div class=\"flex-grow-1\"></div>");
 				sb.append("<span class=\"마진 조회수\">조회수: " + article.getViews() + "</span>");
-				sb.append("<span class=\"마진 추천수\">추천수 <i class=\"fas fa-heart\"></i>: " + article.getLikes() + "</span>");
+				sb.append(
+						"<span class=\"마진 추천수\">추천수 <i class=\"fas fa-heart\"></i>: " + article.getLikes() + "</span>");
 				sb.append("<span class=\"마진 댓글수\">댓글 <i class=\"fas fa-comments\"></i>: " + article.getCommentsCount()
 						+ "</span>");
 				sb.append("</div>");
@@ -405,7 +416,16 @@ public class ExportService {
 				sb.append("</table>");
 				sb.append("</div>");
 				sb.append("</div>");
-
+				
+				sb.append(
+						"<script async src=\"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js\"></script> ");
+				sb.append(
+						"<ins class=\"adsbygoogle\" style=\"display:block; text-align:center;\" data-ad-layout=\"in-article\" data-ad-format=\"fluid\" data-ad-client=\"ca-pub-6509950454554885\" data-ad-slot=\"7705275603\">");
+				sb.append("</ins>");
+				sb.append("<script>");
+				sb.append("(adsbygoogle = window.adsbygoogle || []).push({});");
+				sb.append("</script>");
+				
 				sb.append(foot);
 				String fileName = "article_detail_" + article.getNum() + ".html";
 				String filePath = "site/" + fileName;
@@ -495,7 +515,7 @@ public class ExportService {
 			boardMenuContentHtml.append("</li>");
 		}
 		head = head.replace("${board_menu}", boardMenuContentHtml.toString());
-		
+
 		StringBuilder boardMenuContentHtml1 = new StringBuilder();
 		for (int k = 3; k < boards.size(); k++) {
 			Board board = boards.get(k);
@@ -507,7 +527,7 @@ public class ExportService {
 
 		}
 		head = head.replace("${board_menu2}", boardMenuContentHtml1.toString());
-		
+
 		int side_turn = 2;
 		StringBuilder sideMenuContentHtml = new StringBuilder();
 		for (Board board : boards) {
@@ -537,9 +557,9 @@ public class ExportService {
 			}
 			boardMenuContentHtml.append("</li>");
 		}
-		
+
 		head = head.replace("${side-board_menu}", sideMenuContentHtml.toString());
-		
+
 		StringBuilder sideMenuContentHtml2 = new StringBuilder();
 		for (int k = 3; k < boards.size(); k++) {
 			Board board = boards.get(k);
@@ -551,7 +571,7 @@ public class ExportService {
 
 		}
 		head = head.replace("${side-board_menu2}", sideMenuContentHtml2.toString());
-		
+
 		String titleBarContentHtml = getTitleBarContentByFileName(pageName);
 
 		head = head.replace("${title-bar}", titleBarContentHtml);

@@ -348,6 +348,7 @@ p.typing-txt{
 	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	color: white;
 	height: 100px;
+	margin-top : 30px;
 }
 
 .section {
@@ -435,11 +436,13 @@ table>tbody>tr:hover>.table__title>*{
 }
 .article_list__textBox>form>.search-icon{
 	position : absolute;
-	top:60%;
-	transform: translateY(-50%);
+	top:30%;
+	transform: translateY(-30%);
 	right:5px;
-	height : 25px;
+	height : 15px;
+	font-size: 15px;
 	cursor : pointer;
+	color : black;
 }
 .article_list__textBox select{
 	margin-left : 40px;
@@ -971,3 +974,6 @@ select>option{
   width:100%;
 }
 /*리스트 게시물 토스트 ui 적용 */
+.ad_margin{
+	margin-bottom:30px;
+}
