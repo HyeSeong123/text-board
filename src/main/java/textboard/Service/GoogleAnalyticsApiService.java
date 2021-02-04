@@ -29,7 +29,7 @@ public class GoogleAnalyticsApiService {
 					.setEntity(Entity.newBuilder().setPropertyId(ga4PropertyId))
 					.addDimensions(Dimension.newBuilder().setName("pagePath"))
 					.addMetrics(Metric.newBuilder().setName("activeUsers"))
-					.addDateRanges(DateRange.newBuilder().setStartDate("2020-01-04").setEndDate("today")).build();
+					.addDateRanges(DateRange.newBuilder().setStartDate("2020-01-04").setEndDate("today")).setLimit(-1).build();
 
 			// Make the request
 			RunReportResponse response = analyticsData.runReport(request);
